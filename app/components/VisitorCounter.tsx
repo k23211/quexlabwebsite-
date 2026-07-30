@@ -3,10 +3,6 @@
 import { useEffect, useState } from "react";
 import { INK, PAPER } from "../theme";
 
-// Free, no-signup counting API — each unique namespace/name pair gets its own counter.
-const COUNTER_URL =
-  "https://api.counterapi.dev/v1/quexlab-technologies/site-visits/up";
-
 export default function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
 
@@ -17,29 +13,24 @@ export default function VisitorCounter() {
     if (cached) setCount(Number(cached));
 
     const applyCount = (data: any) => {
-      const next = data?.data?.up_count ?? data?.count ?? null;
+      const next = data?.count ?? null;
       if (next !== null) {
         setCount(next);
         localStorage.setItem("quexlab-last-count", String(next));
       }
-      // On failure/parsing miss, do nothing — keep whatever count
-      // (cached or previous) is already showing instead of blanking it out.
+      // On failure, keep whatever count is already showing instead of
+      // blanking it out.
     };
 
-    // Avoid double-counting the same visitor if they navigate around during one browser session.
-    if (sessionStorage.getItem("quexlab-counted")) {
-      fetch(COUNTER_URL.replace("/up", ""))
-        .then((res) => res.json())
-        .then(applyCount)
-        .catch(() => {});
-      return;
-    }
+    // Avoid double-counting the same visitor if they navigate around
+    // during one browser session.
+    const alreadyCounted = sessionStorage.getItem("quexlab-counted");
 
-    fetch(COUNTER_URL)
+    fetch("/api/visits", { method: alreadyCounted ? "GET" : "POST" })
       .then((res) => res.json())
       .then((data) => {
         applyCount(data);
-        sessionStorage.setItem("quexlab-counted", "1");
+        if (!alreadyCounted) sessionStorage.setItem("quexlab-counted", "1");
       })
       .catch(() => {});
   }, []);
