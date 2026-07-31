@@ -36,7 +36,7 @@ export default function Home() {
           className="text-xs font-medium uppercase tracking-[0.3em]"
           style={{ color: LEAF }}
         >
-          Accra, Ghana
+          kumasi, Ghana
         </p>
 
         <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
