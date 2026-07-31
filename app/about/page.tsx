@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: "About | Quexlab Technologies",
   description:
     "Quexlab Technologies is a small software studio building mobile apps and digital services rooted in Ghanaian life and culture.",
+  alternates: {
+    canonical: "https://quexlabwebsite.vercel.app/about",
+  },
+  openGraph: {
+    title: "About | Quexlab Technologies",
+    description:
+      "Quexlab Technologies is a small software studio building mobile apps and digital services rooted in Ghanaian life and culture.",
+    url: "https://quexlabwebsite.vercel.app/about",
+    siteName: "Quexlab Technologies",
+    locale: "en_GH",
+    type: "website",
+  },
 };
 
 export default function About() {

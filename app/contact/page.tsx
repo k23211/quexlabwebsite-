@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import Nav from "../components/Nav";
+import EmailLink from "../components/EmailLink";
 import { INK, INK_SOFT, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "Contact | Quexlab Technologies",
   description: "Get in touch with Quexlab Technologies in Accra, Ghana.",
+  alternates: {
+    canonical: "https://quexlabwebsite.vercel.app/contact",
+  },
+  openGraph: {
+    title: "Contact | Quexlab Technologies",
+    description: "Get in touch with Quexlab Technologies in Accra, Ghana.",
+    url: "https://quexlabwebsite.vercel.app/contact",
+    siteName: "Quexlab Technologies",
+    locale: "en_GH",
+    type: "website",
+  },
 };
 
 export default function Contact() {
@@ -19,13 +31,10 @@ export default function Contact() {
         <p className="mt-3 max-w-sm text-sm sm:text-lg" style={{ color: INK_SOFT }}>
           Have a project in mind, or want to know more about what we do?
         </p>
-        <a
-          href="mailto:agyapongalbert01@gmail.com"
+        <EmailLink
           className="mt-6 inline-block rounded-full px-6 py-2.5 text-sm sm:px-8 sm:py-3"
           style={{ border: `1.5px solid ${INK}`, color: INK }}
-        >
-          agyapongalbert01@gmail.com
-        </a>
+        />
         <p className="mt-10 text-xs" style={{ color: "#A3ABB5" }}>
           © {new Date().getFullYear()} Quexlab Technologies. Accra, Ghana.
         </p>
