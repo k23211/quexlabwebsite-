@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CirclePlay, Globe2, MessagesSquare } from "lucide-react";
 import Nav from "../components/Nav";
 import EmailLink from "../components/EmailLink";
 import { INK, INK_SOFT, PAPER, LogoMark } from "../theme";
@@ -18,6 +19,24 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+const SOCIALS = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1LSCMvVYz3/",
+    Icon: Globe2,
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@quexlabtechnologies?si=H_036ByQJ_pc-WJt",
+    Icon: CirclePlay,
+  },
+  {
+    label: "Twitter",
+    href: "https://x.com/kofiagya20000",
+    Icon: MessagesSquare,
+  },
+];
 
 export default function Contact() {
   return (
@@ -48,7 +67,24 @@ export default function Contact() {
           className="mt-6 inline-block rounded-full px-6 py-2.5 text-sm transition-transform duration-150 hover:scale-[1.03] hover:opacity-80 sm:px-8 sm:py-3"
           style={{ border: `1.5px solid ${INK}`, color: INK }}
         />
-        <p className="mt-10 text-xs" style={{ color: "#A3ABB5" }}>
+
+        <div className="mt-6 flex items-center gap-4">
+          {SOCIALS.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="rounded-full p-2 transition-transform duration-150 hover:scale-110 hover:opacity-70"
+              style={{ border: `1px solid ${INK}33` }}
+            >
+              <Icon size={18} color={INK} />
+            </a>
+          ))}
+        </div>
+
+        <p className="mt-8 text-xs" style={{ color: "#A3ABB5" }}>
           © {new Date().getFullYear()} Quexlab Technologies. Accra, Ghana.
         </p>
       </div>
