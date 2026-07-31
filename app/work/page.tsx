@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Work | Quexlab Technologies",
     description:
-      "AdinkraMatch3 and Agriquex Hub — mobile products built by Quexlab Technologies.",
+      "AdinkraMatch and Agriquex Hub — mobile products built by Quexlab Technologies.",
     url: "https://quexlabwebsite.vercel.app/work",
     siteName: "Quexlab Technologies",
     locale: "en_GH",
