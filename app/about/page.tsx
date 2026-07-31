@@ -95,10 +95,11 @@ export default function About() {
                 className="mt-3 text-sm leading-relaxed sm:text-base"
                 style={{ color: "#B7C0CC" }}
               >
-                A graduate of Agribusiness with Entrepreneurship and Finance
-                from KNUST, Albert taught himself software development and
-                now builds mobile apps and websites that carry Ghanaian
-                culture and real-world problem-solving into every product.
+                Albert holds a degree in Agribusiness with Entrepreneurship
+                and Finance from Kumasi Technical University. He founded
+                Quexlab Technologies to build mobile applications and
+                websites that combine Ghanaian cultural identity with
+                practical, real-world solutions.
               </p>
             </div>
           </div>
