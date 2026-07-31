@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "../components/Nav";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
 
@@ -23,19 +24,19 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div
-      className="relative flex h-[100dvh] w-screen flex-col overflow-hidden"
+      className="relative flex min-h-[100dvh] w-screen flex-col"
       style={{ background: PAPER, color: INK }}
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 opacity-[0.04] sm:-right-16 sm:-top-16"
+        className="pointer-events-none fixed -right-24 -top-24 opacity-[0.04] sm:-right-16 sm:-top-16"
       >
         <LogoMark size={420} />
       </div>
 
       <Nav />
 
-      <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-6 sm:px-10">
+      <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
         <div className="max-w-xl">
           <p
             className="text-xs font-medium uppercase tracking-[0.3em]"
@@ -62,6 +63,45 @@ export default function About() {
           >
             Nkyinkyim — versatility, adaptability
           </p>
+
+          {/* Founder section */}
+          <div
+            className="mt-10 flex flex-col items-center gap-4 rounded-2xl p-6 text-center sm:mt-14 sm:flex-row sm:gap-6 sm:p-8 sm:text-left"
+            style={{ background: INK, border: `1px solid ${LEAF}33` }}
+          >
+            <div
+              className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
+              style={{ border: `2px solid ${LEAF}` }}
+            >
+              <Image
+                src="/founder.jpg"
+                alt="Albert Agyapong, Founder of Quexlab Technologies"
+                fill
+                sizes="128px"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white sm:text-xl">
+                Albert Agyapong
+              </h3>
+              <p
+                className="mt-1 text-xs font-medium uppercase tracking-[0.2em]"
+                style={{ color: LEAF }}
+              >
+                Founder
+              </p>
+              <p
+                className="mt-3 text-sm leading-relaxed sm:text-base"
+                style={{ color: "#B7C0CC" }}
+              >
+                A graduate of Agribusiness with Entrepreneurship and Finance
+                from KNUST, Albert taught himself software development and
+                now builds mobile apps and websites that carry Ghanaian
+                culture and real-world problem-solving into every product.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
