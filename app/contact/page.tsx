@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CirclePlay, Globe2, MessagesSquare } from "lucide-react";
 import Nav from "../components/Nav";
 import EmailLink from "../components/EmailLink";
-import { INK, INK_SOFT, PAPER, LogoMark } from "../theme";
+import { INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
 
 export const metadata: Metadata = {
   title: "Contact | Quexlab Technologies",
@@ -25,16 +25,22 @@ const SOCIALS = [
     label: "Facebook",
     href: "https://www.facebook.com/share/1LSCMvVYz3/",
     Icon: Globe2,
+    color: "#1877F2",
+    bg: "#1877F21F",
   },
   {
     label: "YouTube",
     href: "https://youtube.com/@quexlabtechnologies?si=H_036ByQJ_pc-WJt",
     Icon: CirclePlay,
+    color: "#FF0000",
+    bg: "#FF00001F",
   },
   {
     label: "Twitter",
     href: "https://x.com/kofiagya20000",
     Icon: MessagesSquare,
+    color: INK,
+    bg: `${INK}14`,
   },
 ];
 
@@ -63,23 +69,26 @@ export default function Contact() {
         >
           Have a project in mind, or want to know more about what we do?
         </p>
-        <EmailLink
-          className="mt-6 inline-block rounded-full px-6 py-2.5 text-sm transition-transform duration-150 hover:scale-[1.03] hover:opacity-80 sm:px-8 sm:py-3"
-          style={{ border: `1.5px solid ${INK}`, color: INK }}
-        />
 
-        <div className="mt-6 flex items-center gap-4">
-          {SOCIALS.map(({ label, href, Icon }) => (
+        <div className="mt-8 flex items-center gap-4">
+          <EmailLink
+            iconOnly
+            iconColor={LEAF}
+            iconBg={`${LEAF}1F`}
+            className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-150 hover:scale-110"
+          />
+          {SOCIALS.map(({ label, href, Icon, color, bg }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="rounded-full p-2 transition-transform duration-150 hover:scale-110 hover:opacity-70"
-              style={{ border: `1px solid ${INK}33` }}
+              title={label}
+              className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-150 hover:scale-110"
+              style={{ background: bg }}
             >
-              <Icon size={18} color={INK} />
+              <Icon size={18} color={color} />
             </a>
           ))}
         </div>
