@@ -6,13 +6,13 @@ import { INK, INK_SOFT, PAPER, LogoMark } from "../theme";
 
 export const metadata: Metadata = {
   title: "Contact | Quexlab Technologies",
-  description: "Get in touch with Quexlab Technologies in Accra, Ghana.",
+  description: "Get in touch with Quexlab Technologies in Kumasi, Ghana.",
   alternates: {
     canonical: "https://quexlabwebsite.vercel.app/contact",
   },
   openGraph: {
     title: "Contact | Quexlab Technologies",
-    description: "Get in touch with Quexlab Technologies in Accra, Ghana.",
+    description: "Get in touch with Quexlab Technologies in Kumasi, Ghana.",
     url: "https://quexlabwebsite.vercel.app/contact",
     siteName: "Quexlab Technologies",
     locale: "en_GH",
@@ -85,7 +85,7 @@ export default function Contact() {
         </div>
 
         <p className="mt-8 text-xs" style={{ color: "#A3ABB5" }}>
-          © {new Date().getFullYear()} Quexlab Technologies. Accra, Ghana.
+          © {new Date().getFullYear()} Quexlab Technologies. Kumasi, Ghana.
         </p>
       </div>
     </div>

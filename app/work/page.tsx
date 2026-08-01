@@ -6,14 +6,14 @@ import { INK, LEAF, PAPER, LogoMark } from "../theme";
 export const metadata: Metadata = {
   title: "Work | Quexlab Technologies",
   description:
-    "AdinkraMatch3 and Agriquex Hub — mobile products built by Quexlab Technologies.",
+    "Adinkra Match and Agriquex Hub — mobile products built by Quexlab Technologies.",
   alternates: {
     canonical: "https://quexlabwebsite.vercel.app/work",
   },
   openGraph: {
     title: "Work | Quexlab Technologies",
     description:
-      "AdinkraMatch and Agriquex Hub — mobile products built by Quexlab Technologies.",
+      "Adinkra Match and Agriquex Hub — mobile products built by Quexlab Technologies.",
     url: "https://quexlabwebsite.vercel.app/work",
     siteName: "Quexlab Technologies",
     locale: "en_GH",
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
 };
 
 const ADINKRA_SCREENSHOTS = [
-  { src: "/adinkramatch-screenshots/adinkra-01-battle.jpg", alt: "AdinkraMatch Ananse's Challenge battle mode" },
-  { src: "/adinkramatch-screenshots/adinkra-02-playmenu.jpg", alt: "AdinkraMatch game modes menu" },
-  { src: "/adinkramatch-screenshots/adinkra-03-maze.jpg", alt: "AdinkraMatch maze quest gameplay" },
-  { src: "/adinkramatch-screenshots/adinkra-04-flipmatch.jpg", alt: "AdinkraMatch flip and match card game" },
-  { src: "/adinkramatch-screenshots/adinkra-05-cards.jpg", alt: "AdinkraMatch card collection levels" },
-  { src: "/adinkramatch-screenshots/adinkra-06-ranks.jpg", alt: "AdinkraMatch hall of champions leaderboard" },
+  { src: "/adinkramatch-screenshots/adinkra-01-battle.jpg", alt: "Adinkra Match Ananse's Challenge battle mode" },
+  { src: "/adinkramatch-screenshots/adinkra-02-playmenu.jpg", alt: "Adinkra Match game modes menu" },
+  { src: "/adinkramatch-screenshots/adinkra-03-maze.jpg", alt: "Adinkra Match maze quest gameplay" },
+  { src: "/adinkramatch-screenshots/adinkra-04-flipmatch.jpg", alt: "Adinkra Match flip and match card game" },
+  { src: "/adinkramatch-screenshots/adinkra-05-cards.jpg", alt: "Adinkra Match card collection levels" },
+  { src: "/adinkramatch-screenshots/adinkra-06-ranks.jpg", alt: "Adinkra Match hall of champions leaderboard" },
 ];
 
 const AGRIQUEX_SCREENSHOTS = [
@@ -69,7 +69,7 @@ export default function Work() {
               className="group block"
             >
               <h3 className="text-lg font-semibold text-white sm:text-xl">
-                AdinkraMatch3
+                Adinkra Match
               </h3>
               <p
                 className="mt-2 text-xs leading-relaxed sm:text-sm"

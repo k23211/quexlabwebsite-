@@ -15,14 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quexlab Technologies | Software Studio in Accra, Ghana",
+  title: "Quexlab Technologies | Software Studio in Kumasi, Ghana",
   description:
-    "Quexlab Technologies is a software studio in Accra, Ghana, building mobile apps and digital products rooted in Ghanaian life and culture — from agricultural data platforms to games inspired by Adinkra symbolism.",
+    "Quexlab Technologies is a software studio in Kumasi, Ghana, building mobile apps and digital products rooted in Ghanaian life and culture — from agricultural data platforms to games inspired by Adinkra symbolism.",
   keywords: [
     "Quexlab",
     "Quexlab Technologies",
     "software studio Ghana",
-    "Accra software company",
+    "Kumasi software company",
     "mobile app development Ghana",
     "Adinkra",
   ],
