@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   },
 };
 
+const ADINKRA_SCREENSHOTS = [
+  { src: "/adinkramatch-screenshots/adinkra-01-battle.jpg", alt: "AdinkraMatch Ananse's Challenge battle mode" },
+  { src: "/adinkramatch-screenshots/adinkra-02-playmenu.jpg", alt: "AdinkraMatch game modes menu" },
+  { src: "/adinkramatch-screenshots/adinkra-03-maze.jpg", alt: "AdinkraMatch maze quest gameplay" },
+  { src: "/adinkramatch-screenshots/adinkra-04-flipmatch.jpg", alt: "AdinkraMatch flip and match card game" },
+  { src: "/adinkramatch-screenshots/adinkra-05-cards.jpg", alt: "AdinkraMatch card collection levels" },
+  { src: "/adinkramatch-screenshots/adinkra-06-ranks.jpg", alt: "AdinkraMatch hall of champions leaderboard" },
+];
+
 const AGRIQUEX_SCREENSHOTS = [
   { src: "/agriquex-screenshots/agriquex-01-market.png", alt: "Agriquex Hub marketplace screen" },
   { src: "/agriquex-screenshots/agriquex-03-dashboard.png", alt: "Agriquex Hub dashboard overview" },
@@ -49,30 +58,56 @@ export default function Work() {
 
       <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
         <div className="w-full max-w-3xl space-y-6">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.adinkramatchgh.game"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block rounded-2xl p-5 transition-all duration-150 hover:-translate-y-1 hover:shadow-lg sm:p-7"
+          <div
+            className="rounded-2xl p-5 transition-all duration-150 sm:p-7"
             style={{ background: INK, border: `1px solid ${LEAF}33` }}
           >
-            <h3 className="text-lg font-semibold text-white sm:text-xl">
-              AdinkraMatch3
-            </h3>
-            <p
-              className="mt-2 text-xs leading-relaxed sm:text-sm"
-              style={{ color: "#B7C0CC" }}
+            <a
+              href="https://play.google.com/store/apps/details?id=com.adinkramatchgh.game"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
             >
-              A match-3 puzzle game built around Adinkra symbols and kente
-              patterns — a playful way to explore Akan visual culture.
-            </p>
-            <span
-              className="mt-3 block text-xs font-medium"
-              style={{ color: LEAF }}
+              <h3 className="text-lg font-semibold text-white sm:text-xl">
+                AdinkraMatch3
+              </h3>
+              <p
+                className="mt-2 text-xs leading-relaxed sm:text-sm"
+                style={{ color: "#B7C0CC" }}
+              >
+                A match-3 puzzle game built around Adinkra symbols and kente
+                patterns — a playful way to explore Akan visual culture.
+              </p>
+              <span
+                className="mt-3 block text-xs font-medium"
+                style={{ color: LEAF }}
+              >
+                Mobile game · Play Store →
+              </span>
+            </a>
+
+            {/* Screenshot gallery — scrolls horizontally, swipeable on mobile */}
+            <div
+              className="mt-5 flex gap-3 overflow-x-auto pb-2"
+              style={{ scrollSnapType: "x mandatory" }}
             >
-              Mobile game · Play Store →
-            </span>
-          </a>
+              {ADINKRA_SCREENSHOTS.map((shot) => (
+                <div
+                  key={shot.src}
+                  className="relative h-56 w-32 flex-shrink-0 overflow-hidden rounded-xl sm:h-72 sm:w-40"
+                  style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}33` }}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(max-width: 640px) 128px, 160px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
           <div
             className="rounded-2xl p-5 transition-all duration-150 sm:p-7"
