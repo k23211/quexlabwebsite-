@@ -68,7 +68,7 @@ export default function About() {
           <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 sm:grid-cols-2">
             {/* Founder */}
             <div
-              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)]"
+              className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6"
               style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
             >
               {/* faint corner wash so the card reads as considered, not stark white */}
@@ -79,29 +79,29 @@ export default function About() {
               />
 
               <div
-                className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
+                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full sm:h-28 sm:w-28"
                 style={{ border: `2px solid ${LEAF}` }}
               >
                 <Image
                   src="/founder.jpg"
                   alt="Albert Agyapong, Founder of Quexlab Technologies"
                   fill
-                  sizes="128px"
+                  sizes="112px"
                   className="object-cover"
                 />
               </div>
-              <div className="relative">
-                <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
+              <div className="relative min-w-0 flex-1">
+                <h3 className="text-base font-semibold sm:text-xl" style={{ color: INK }}>
                   Albert Agyapong
                 </h3>
                 <span
-                  className="mt-1.5 inline-block whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  className="mt-1.5 inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.15em] sm:px-3 sm:text-[11px] sm:tracking-[0.2em]"
                   style={{ color: FOREST, background: `${LEAF}17` }}
                 >
                   Founder
                 </span>
                 <p
-                  className="mt-3 text-sm leading-relaxed"
+                  className="mt-3 text-xs leading-relaxed sm:text-sm"
                   style={{ color: INK_SOFT }}
                 >
                   Building mobile apps and websites rooted in Ghanaian
@@ -139,7 +139,7 @@ export default function About() {
 
             {/* Head of Operations & Farmer Support */}
             <div
-              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)]"
+              className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6"
               style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
             >
               <div
@@ -149,29 +149,29 @@ export default function About() {
               />
 
               <div
-                className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
+                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full sm:h-28 sm:w-28"
                 style={{ border: `2px solid ${LEAF}` }}
               >
                 <Image
                   src="/kenechi.jpg"
                   alt="Umezinwa Kenechi, Head of Operations and Farmer Support at Quexlab Technologies"
                   fill
-                  sizes="128px"
+                  sizes="112px"
                   className="object-cover"
                 />
               </div>
-              <div className="relative">
-                <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
+              <div className="relative min-w-0 flex-1">
+                <h3 className="text-base font-semibold sm:text-xl" style={{ color: INK }}>
                   Umezinwa Kenechi
                 </h3>
                 <span
-                  className="mt-1.5 inline-block whitespace-nowrap rounded-full px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.08em] sm:text-[11px] sm:tracking-[0.12em]"
+                  className="mt-1.5 inline-block rounded-full px-2.5 py-1 text-[8px] font-semibold uppercase leading-tight tracking-[0.04em] sm:whitespace-nowrap sm:px-3 sm:text-[11px] sm:tracking-[0.12em]"
                   style={{ color: FOREST, background: `${LEAF}17` }}
                 >
                   Head of Operations &amp; Farmer Support
                 </span>
                 <p
-                  className="mt-3 text-sm leading-relaxed"
+                  className="mt-3 text-xs leading-relaxed sm:text-sm"
                   style={{ color: INK_SOFT }}
                 >
                   Leading operations and farmer support, blending animal
