@@ -64,56 +64,150 @@ export default function About() {
             Versatile by design, adaptable by nature
           </p>
 
-          {/* Founder section */}
-          <div
-            className="relative mt-10 flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:mt-14 sm:flex-row sm:gap-8 sm:p-9 sm:text-left"
-            style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
-          >
-            {/* faint corner wash so the card reads as considered, not stark white */}
+          {/* Team section */}
+          <div className="mt-10 space-y-6 sm:mt-14">
+            {/* Founder */}
             <div
-              aria-hidden
-              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
-              style={{ background: `${LEAF}0f` }}
-            />
-
-            <div
-              className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
-              style={{ border: `2px solid ${LEAF}` }}
+              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:flex-row sm:gap-8 sm:p-9 sm:text-left"
+              style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
             >
-              <Image
-                src="/founder.jpg"
-                alt="Albert Agyapong, Founder of Quexlab Technologies"
-                fill
-                sizes="128px"
-                className="object-cover"
+              {/* faint corner wash so the card reads as considered, not stark white */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+                style={{ background: `${LEAF}0f` }}
               />
+
+              <div
+                className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
+                style={{ border: `2px solid ${LEAF}` }}
+              >
+                <Image
+                  src="/founder.jpg"
+                  alt="Albert Agyapong, Founder of Quexlab Technologies"
+                  fill
+                  sizes="128px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative">
+                <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
+                  Albert Agyapong
+                </h3>
+                <span
+                  className="mt-1.5 inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: FOREST, background: `${LEAF}17` }}
+                >
+                  Founder
+                </span>
+                <p
+                  className="mt-3 text-sm leading-relaxed"
+                  style={{ color: INK_SOFT }}
+                >
+                  Building mobile apps and websites rooted in Ghanaian
+                  culture.
+                </p>
+                <details className="mt-2 group">
+                  <summary
+                    className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-semibold [&::-webkit-details-marker]:hidden marker:content-none"
+                    style={{ color: FOREST }}
+                  >
+                    Read full bio
+                    <span className="transition-transform duration-200 group-open:rotate-180">
+                      ▾
+                    </span>
+                  </summary>
+                  <p
+                    className="mt-3 text-sm italic leading-relaxed sm:text-base sm:leading-8"
+                    style={{ color: INK_SOFT }}
+                  >
+                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                      &ldquo;
+                    </span>
+                    Albert holds a degree in Agribusiness with
+                    Entrepreneurship and Finance from Kumasi Technical
+                    University. He founded Quexlab Technologies to build
+                    mobile applications and websites that combine Ghanaian
+                    cultural identity with practical, real-world solutions.
+                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                      &rdquo;
+                    </span>
+                  </p>
+                </details>
+              </div>
             </div>
-            <div className="relative">
-              <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
-                Albert Agyapong
-              </h3>
-              <span
-                className="mt-1.5 inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
-                style={{ color: FOREST, background: `${LEAF}17` }}
+
+            {/* Head of Operations & Farmer Support */}
+            <div
+              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:flex-row sm:gap-8 sm:p-9 sm:text-left"
+              style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+                style={{ background: `${LEAF}0f` }}
+              />
+
+              <div
+                className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
+                style={{ border: `2px solid ${LEAF}` }}
               >
-                Founder
-              </span>
-              <p
-                className="mt-4 text-sm italic leading-relaxed sm:text-base sm:leading-8"
-                style={{ color: INK_SOFT }}
-              >
-                <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                  &ldquo;
+                <Image
+                  src="/kenechi.jpg"
+                  alt="Umezinwa Kenechi, Head of Operations and Farmer Support at Quexlab Technologies"
+                  fill
+                  sizes="128px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative">
+                <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
+                  Umezinwa Kenechi
+                </h3>
+                <span
+                  className="mt-1.5 inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: FOREST, background: `${LEAF}17` }}
+                >
+                  Head of Operations &amp; Farmer Support
                 </span>
-                Albert holds a degree in Agribusiness with Entrepreneurship
-                and Finance from Kumasi Technical University. He founded
-                Quexlab Technologies to build mobile applications and
-                websites that combine Ghanaian cultural identity with
-                practical, real-world solutions.
-                <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                  &rdquo;
-                </span>
-              </p>
+                <p
+                  className="mt-3 text-sm leading-relaxed"
+                  style={{ color: INK_SOFT }}
+                >
+                  Leading operations and farmer support, blending animal
+                  science with hands-on ops expertise.
+                </p>
+                <details className="mt-2 group">
+                  <summary
+                    className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-semibold [&::-webkit-details-marker]:hidden marker:content-none"
+                    style={{ color: FOREST }}
+                  >
+                    Read full bio
+                    <span className="transition-transform duration-200 group-open:rotate-180">
+                      ▾
+                    </span>
+                  </summary>
+                  <p
+                    className="mt-3 text-sm italic leading-relaxed sm:text-base sm:leading-8"
+                    style={{ color: INK_SOFT }}
+                  >
+                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                      &ldquo;
+                    </span>
+                    Kenechi holds a BSc in Animal Science from the
+                    University of Nigeria, Nsukka, and an MSc in Animal
+                    Function and Nutrition from Hokkaido University, Japan.
+                    She leads operations and farmer support at Quexlab
+                    Technologies, keeping our tools, communication, and
+                    workflows running smoothly — pairing a scientific
+                    grounding in animal nutrition with hands-on operational
+                    expertise across the team.
+                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                      &rdquo;
+                    </span>
+                  </p>
+                </details>
+              </div>
             </div>
           </div>
         </div>
