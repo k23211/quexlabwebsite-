@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Globe2, Smartphone, Sparkles } from "lucide-react";
+import { Globe2, MapPin, Smartphone, Sparkles } from "lucide-react";
 import Nav from "./components/Nav";
-import { INK, INK_SOFT, LEAF, PAPER, LogoMark } from "./theme";
+import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "./theme";
 
 export const metadata: Metadata = {
-  title: "Quexlab Technologies | Software Studio in Kumasi, Ghana",
+  title: "Quexlab Technologies | Software Studio Based in Kumasi, Ghana",
   description:
-    "We build mobile apps and websites — culture-inspired games, and practical tools for everyday problems in Ghana.",
+    "We build mobile apps, culture-inspired games, and practical software that solve real problems for real people — starting in Ghana, built to go further.",
 };
 
 const FEATURES = [
@@ -21,7 +21,7 @@ const FEATURES = [
   },
   {
     Icon: Globe2,
-    label: "Built in Kumasi, for Ghana",
+    label: "Impact beyond one place",
   },
 ];
 
@@ -31,6 +31,16 @@ export default function Home() {
       className="relative flex h-[100dvh] w-screen flex-col overflow-hidden"
       style={{ background: PAPER, color: INK }}
     >
+      {/* Ambient depth — a soft forest/leaf glow so the page reads as
+          considered lighting rather than a flat swatch of paper. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(60% 50% at 50% 38%, ${LEAF}14 0%, ${FOREST}0a 45%, transparent 75%)`,
+        }}
+      />
+
       {/* subtle background marks — echo the logo, sit behind everything */}
       <div
         aria-hidden
@@ -70,16 +80,19 @@ export default function Home() {
           className="flex flex-col items-center"
           style={{ animation: "fade-rise 0.7s ease-out both" }}
         >
-          <p
-            className="text-xs font-medium uppercase tracking-[0.3em]"
-            style={{ color: LEAF }}
-          >
-            Kumasi, Ghana
-          </p>
+          <div className="flex items-center gap-1.5">
+            <MapPin size={12} style={{ color: LEAF }} strokeWidth={2.5} />
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.3em]"
+              style={{ color: LEAF }}
+            >
+              Kumasi, Ghana
+            </p>
+          </div>
           <span
             aria-hidden
-            className="mt-2 block h-px w-10"
-            style={{ background: `${LEAF}66` }}
+            className="mt-2.5 block h-[3px] w-12 rounded-full"
+            style={{ background: `linear-gradient(90deg, ${LEAF}, ${LEAF}00)` }}
           />
 
           <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
@@ -92,8 +105,9 @@ export default function Home() {
             className="mt-4 max-w-sm text-sm leading-relaxed sm:mt-6 sm:max-w-md sm:text-lg"
             style={{ color: INK_SOFT }}
           >
-            We build mobile apps and websites — culture-inspired games, and
-            practical tools for everyday problems in Ghana.
+            We build mobile apps, culture-inspired games, and practical
+            software that solve real problems for real people — starting in
+            Ghana, built to go further.
           </p>
         </div>
 
@@ -103,15 +117,15 @@ export default function Home() {
         >
           <Link
             href="/work"
-            className="rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-transform duration-150 hover:scale-[1.03] hover:opacity-90 sm:px-7 sm:py-3"
-            style={{ background: INK }}
+            className="rounded-full px-6 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-6px_rgba(15,61,46,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-6px_rgba(15,61,46,0.55)] sm:px-7 sm:py-3"
+            style={{ background: `linear-gradient(135deg, ${INK}, ${FOREST})` }}
           >
             See our work
           </Link>
           <Link
             href="/contact"
-            className="rounded-full px-6 py-2.5 text-sm font-semibold transition-colors duration-150 hover:opacity-70 sm:px-7 sm:py-3"
-            style={{ color: INK, border: `1px solid ${INK}` }}
+            className="rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 sm:px-7 sm:py-3"
+            style={{ color: INK, border: `1.5px solid ${INK}1f`, background: `${LEAF}0a` }}
           >
             Get in touch
           </Link>
@@ -120,16 +134,20 @@ export default function Home() {
         {/* Feature strip — fills the lower half with real substance rather
             than empty space, without turning into a stats-block cliché. */}
         <div
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:mt-14"
+          className="mt-10 flex flex-wrap items-center justify-center gap-2.5 sm:mt-14 sm:gap-3"
           style={{ animation: "fade-rise 0.7s ease-out 0.3s both" }}
         >
           {FEATURES.map(({ Icon, label }) => (
             <div
               key={label}
-              className="flex items-center gap-2 text-xs sm:text-sm"
-              style={{ color: INK_SOFT }}
+              className="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium sm:text-sm"
+              style={{
+                color: INK_SOFT,
+                background: `${LEAF}0d`,
+                border: `1px solid ${LEAF}26`,
+              }}
             >
-              <Icon size={16} color={LEAF} />
+              <Icon size={15} color={LEAF} />
               <span>{label}</span>
             </div>
           ))}
