@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "../components/Nav";
-import { INK, LEAF, PAPER, LogoMark } from "../theme";
+import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
 
 export const metadata: Metadata = {
   title: "Work | Quexlab Technologies",
@@ -59,28 +59,33 @@ export default function Work() {
       <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
         <div className="w-full max-w-3xl space-y-6">
           <div
-            className="rounded-2xl p-5 transition-all duration-150 sm:p-7"
-            style={{ background: INK, border: `1px solid ${LEAF}33` }}
+            className="relative overflow-hidden rounded-2xl p-5 shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] transition-all duration-150 sm:p-7"
+            style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
           >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+              style={{ background: `${LEAF}0f` }}
+            />
             <a
               href="https://play.google.com/store/apps/details?id=com.adinkramatchgh.game"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className="group relative block"
             >
-              <h3 className="text-lg font-semibold text-white sm:text-xl">
+              <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
                 Adinkra Match
               </h3>
               <p
                 className="mt-2 text-xs leading-relaxed sm:text-sm"
-                style={{ color: "#B7C0CC" }}
+                style={{ color: INK_SOFT }}
               >
                 A match-3 puzzle game built around Adinkra symbols and kente
                 patterns — a playful way to explore Akan visual culture.
               </p>
               <span
-                className="mt-3 block text-xs font-medium"
-                style={{ color: LEAF }}
+                className="mt-3 block text-xs font-semibold"
+                style={{ color: FOREST }}
               >
                 Mobile game · Play Store →
               </span>
@@ -88,14 +93,14 @@ export default function Work() {
 
             {/* Screenshot gallery — scrolls horizontally, swipeable on mobile */}
             <div
-              className="mt-5 flex gap-3 overflow-x-auto pb-2"
+              className="relative mt-5 flex gap-3 overflow-x-auto pb-2"
               style={{ scrollSnapType: "x mandatory" }}
             >
               {ADINKRA_SCREENSHOTS.map((shot) => (
                 <div
                   key={shot.src}
                   className="relative h-56 w-32 flex-shrink-0 overflow-hidden rounded-xl sm:h-72 sm:w-40"
-                  style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}33` }}
+                  style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}26` }}
                 >
                   <Image
                     src={shot.src}
@@ -110,28 +115,33 @@ export default function Work() {
           </div>
 
           <div
-            className="rounded-2xl p-5 transition-all duration-150 sm:p-7"
-            style={{ background: INK, border: `1px solid ${LEAF}33` }}
+            className="relative overflow-hidden rounded-2xl p-5 shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] transition-all duration-150 sm:p-7"
+            style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
           >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+              style={{ background: `${LEAF}0f` }}
+            />
             <a
               href="https://play.google.com/store/apps/details?id=com.agriquexdata.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className="group relative block"
             >
-              <h3 className="text-lg font-semibold text-white sm:text-xl">
+              <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
                 Agriquex Hub
               </h3>
               <p
                 className="mt-2 text-xs leading-relaxed sm:text-sm"
-                style={{ color: "#B7C0CC" }}
+                style={{ color: INK_SOFT }}
               >
                 A platform helping Ghanaian farmers track and manage
                 agricultural data, built for real conditions on the ground.
               </p>
               <span
-                className="mt-3 block text-xs font-medium"
-                style={{ color: "#9CC5A1" }}
+                className="mt-3 block text-xs font-semibold"
+                style={{ color: FOREST }}
               >
                 Mobile app · Play Store →
               </span>
@@ -139,14 +149,14 @@ export default function Work() {
 
             {/* Screenshot gallery — scrolls horizontally, swipeable on mobile */}
             <div
-              className="mt-5 flex gap-3 overflow-x-auto pb-2"
+              className="relative mt-5 flex gap-3 overflow-x-auto pb-2"
               style={{ scrollSnapType: "x mandatory" }}
             >
               {AGRIQUEX_SCREENSHOTS.map((shot) => (
                 <div
                   key={shot.src}
                   className="relative h-56 w-32 flex-shrink-0 overflow-hidden rounded-xl sm:h-72 sm:w-40"
-                  style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}33` }}
+                  style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}26` }}
                 >
                   <Image
                     src={shot.src}
