@@ -42,7 +42,7 @@ export default function About() {
             className="text-xs font-medium uppercase tracking-[0.3em]"
             style={{ color: LEAF }}
           >
-            Sankofa — go back and fetch it
+            Learning from the past, building what&apos;s next
           </p>
           <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
             About the studio
@@ -61,14 +61,21 @@ export default function About() {
             className="mt-6 text-xs font-medium uppercase tracking-[0.3em]"
             style={{ color: FOREST }}
           >
-            Nkyinkyim — versatility, adaptability
+            Versatile by design, adaptable by nature
           </p>
 
           {/* Founder section */}
           <div
-            className="mt-10 flex flex-col items-center gap-4 rounded-2xl p-6 text-center sm:mt-14 sm:flex-row sm:gap-6 sm:p-8 sm:text-left"
-            style={{ background: INK, border: `1px solid ${LEAF}33` }}
+            className="relative mt-10 flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:mt-14 sm:flex-row sm:gap-8 sm:p-9 sm:text-left"
+            style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
           >
+            {/* faint corner wash so the card reads as considered, not stark white */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+              style={{ background: `${LEAF}0f` }}
+            />
+
             <div
               className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32"
               style={{ border: `2px solid ${LEAF}` }}
@@ -81,25 +88,31 @@ export default function About() {
                 className="object-cover"
               />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white sm:text-xl">
+            <div className="relative">
+              <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
                 Albert Agyapong
               </h3>
-              <p
-                className="mt-1 text-xs font-medium uppercase tracking-[0.2em]"
-                style={{ color: LEAF }}
+              <span
+                className="mt-1.5 inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                style={{ color: FOREST, background: `${LEAF}17` }}
               >
                 Founder
-              </p>
+              </span>
               <p
-                className="mt-3 text-sm leading-relaxed sm:text-base"
-                style={{ color: "#B7C0CC" }}
+                className="mt-4 text-sm italic leading-relaxed sm:text-base sm:leading-8"
+                style={{ color: INK_SOFT }}
               >
+                <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                  &ldquo;
+                </span>
                 Albert holds a degree in Agribusiness with Entrepreneurship
                 and Finance from Kumasi Technical University. He founded
                 Quexlab Technologies to build mobile applications and
                 websites that combine Ghanaian cultural identity with
                 practical, real-world solutions.
+                <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                  &rdquo;
+                </span>
               </p>
             </div>
           </div>
