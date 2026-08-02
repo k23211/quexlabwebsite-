@@ -37,7 +37,7 @@ export default function About() {
       <Nav />
 
       <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
-        <div className="max-w-xl">
+        <div className="max-w-xl sm:max-w-2xl">
           <p
             className="text-xs font-medium uppercase tracking-[0.3em]"
             style={{ color: LEAF }}
@@ -65,10 +65,10 @@ export default function About() {
           </p>
 
           {/* Team section */}
-          <div className="mt-10 space-y-6 sm:mt-14">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 sm:grid-cols-2">
             {/* Founder */}
             <div
-              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:flex-row sm:gap-8 sm:p-9 sm:text-left"
+              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)]"
               style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
             >
               {/* faint corner wash so the card reads as considered, not stark white */}
@@ -95,7 +95,7 @@ export default function About() {
                   Albert Agyapong
                 </h3>
                 <span
-                  className="mt-1.5 inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  className="mt-1.5 inline-block whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
                   style={{ color: FOREST, background: `${LEAF}17` }}
                 >
                   Founder
@@ -139,7 +139,7 @@ export default function About() {
 
             {/* Head of Operations & Farmer Support */}
             <div
-              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:flex-row sm:gap-8 sm:p-9 sm:text-left"
+              className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl p-6 text-center shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)]"
               style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
             >
               <div
@@ -165,7 +165,7 @@ export default function About() {
                   Umezinwa Kenechi
                 </h3>
                 <span
-                  className="mt-1.5 inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  className="mt-1.5 inline-block whitespace-nowrap rounded-full px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.08em] sm:text-[11px] sm:tracking-[0.12em]"
                   style={{ color: FOREST, background: `${LEAF}17` }}
                 >
                   Head of Operations &amp; Farmer Support
