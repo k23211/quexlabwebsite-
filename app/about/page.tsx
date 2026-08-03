@@ -98,14 +98,13 @@ export default function About() {
                   className="mt-1.5 inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.15em] sm:px-3 sm:text-[11px] sm:tracking-[0.2em]"
                   style={{ color: FOREST, background: `${LEAF}17` }}
                 >
-                  Founder
+                  Founder &amp; Owner
                 </span>
                 <p
                   className="mt-3 text-xs leading-relaxed sm:text-sm"
                   style={{ color: INK_SOFT }}
                 >
-                  Building mobile apps and websites rooted in Ghanaian
-                  culture.
+                  Leading the vision and direction of Quexlab Technologies.
                 </p>
                 <details className="mt-2 group">
                   <summary
@@ -202,6 +201,75 @@ export default function About() {
                     workflows running smoothly — pairing a scientific
                     grounding in animal nutrition with hands-on operational
                     expertise across the team.
+                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                      &rdquo;
+                    </span>
+                  </p>
+                </details>
+              </div>
+            </div>
+
+            {/* Co-Founder */}
+            <div
+              className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6"
+              style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+                style={{ background: `${LEAF}0f` }}
+              />
+
+              <div
+                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full sm:h-28 sm:w-28"
+                style={{ border: `2px solid ${LEAF}` }}
+              >
+                <Image
+                  src="/richard.jpg"
+                  alt="Richard Lontah, Co-Founder of Quexlab Technologies"
+                  fill
+                  sizes="112px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative min-w-0 flex-1">
+                <h3 className="text-base font-semibold sm:text-xl" style={{ color: INK }}>
+                  Richard Lontah
+                </h3>
+                <span
+                  className="mt-1.5 inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.15em] sm:px-3 sm:text-[11px] sm:tracking-[0.2em]"
+                  style={{ color: FOREST, background: `${LEAF}17` }}
+                >
+                  Co-Founder
+                </span>
+                <p
+                  className="mt-3 text-xs leading-relaxed sm:text-sm"
+                  style={{ color: INK_SOFT }}
+                >
+                  Bringing strong leadership and management to the team.
+                </p>
+                <details className="mt-2 group">
+                  <summary
+                    className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-semibold [&::-webkit-details-marker]:hidden marker:content-none"
+                    style={{ color: FOREST }}
+                  >
+                    Read full bio
+                    <span className="transition-transform duration-200 group-open:rotate-180">
+                      ▾
+                    </span>
+                  </summary>
+                  <p
+                    className="mt-3 text-sm italic leading-relaxed sm:text-base sm:leading-8"
+                    style={{ color: INK_SOFT }}
+                  >
+                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
+                      &ldquo;
+                    </span>
+                    Richard studied alongside Albert and co-founded Quexlab
+                    Technologies with him. He brings strong leadership and
+                    management experience to the team, helping guide the
+                    studio&apos;s direction and keeping day-to-day operations
+                    running smoothly.
                     <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
                       &rdquo;
                     </span>
