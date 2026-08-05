@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
-import { AtSign, CirclePlay, ThumbsUp } from "lucide-react";
+import { AtSign, CirclePlay, MessageCircle, ThumbsUp } from "lucide-react";
 import Nav from "../components/Nav";
 import EmailLink from "../components/EmailLink";
 import { INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
 
 export const metadata: Metadata = {
   title: "Contact | Quexlab Technologies",
-  description: "Get in touch with Quexlab Technologies in Kumasi, Ghana.",
+  description: "Get in touch with Quexlab Technologies, based in Ghana.",
   alternates: {
     canonical: "https://quexlabwebsite.vercel.app/contact",
   },
   openGraph: {
     title: "Contact | Quexlab Technologies",
-    description: "Get in touch with Quexlab Technologies in Kumasi, Ghana.",
+    description: "Get in touch with Quexlab Technologies, based in Ghana.",
     url: "https://quexlabwebsite.vercel.app/contact",
     siteName: "Quexlab Technologies",
     locale: "en_GH",
     type: "website",
   },
 };
+
+const WHATSAPP_NUMBERS = [
+  { display: "+233 55 473 7934", href: "https://wa.me/233554737934" },
+  { display: "+233 55 868 5411", href: "https://wa.me/233558685411" },
+];
 
 const SOCIALS = [
   {
@@ -52,6 +57,13 @@ export default function Contact() {
     >
       <div
         aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(55% 45% at 50% 40%, ${LEAF}12 0%, transparent 70%)`,
+        }}
+      />
+      <div
+        aria-hidden
         className="pointer-events-none absolute -right-24 -top-24 opacity-[0.04] sm:-right-16 sm:-top-16"
       >
         <LogoMark size={420} />
@@ -60,32 +72,43 @@ export default function Contact() {
       <Nav />
 
       <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-6 text-center sm:px-10">
-        <p
-          className="text-xs font-semibold uppercase tracking-[0.3em]"
-          style={{ color: LEAF }}
-        >
-          Say hello
-        </p>
-        <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-          Let&apos;s work together
-        </h2>
-        <p
-          className="mt-3 max-w-sm text-sm leading-relaxed sm:text-lg"
-          style={{ color: INK_SOFT }}
-        >
-          Have a project in mind, or want to know more about what we do?
-        </p>
+        <div style={{ animation: "fade-rise 0.6s ease-out both" }}>
+          <p
+            className="text-xs font-semibold uppercase tracking-[0.3em]"
+            style={{ color: LEAF }}
+          >
+            Say hello
+          </p>
+          <span
+            aria-hidden
+            className="mx-auto mt-2.5 block h-[3px] w-12 rounded-full"
+            style={{ background: `linear-gradient(90deg, ${LEAF}, ${LEAF}00)` }}
+          />
+          <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+            Let&apos;s work together
+          </h2>
+          <p
+            className="mt-3 max-w-sm text-sm leading-relaxed sm:text-lg"
+            style={{ color: INK_SOFT }}
+          >
+            Have a project in mind, or want to know more about what we do?
+          </p>
+        </div>
 
         <div
-          className="relative mt-8 overflow-hidden rounded-2xl px-7 py-6 shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:px-10"
-          style={{ background: "#FFFFFF", border: `1px solid ${LEAF}26` }}
+          className="relative mt-8 overflow-hidden rounded-2xl px-7 py-6 shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] transition-all duration-200 hover:shadow-[0_26px_55px_-20px_rgba(11,18,32,0.22)] sm:px-10"
+          style={{
+            background: "#FFFFFF",
+            border: `1px solid ${LEAF}26`,
+            animation: "fade-rise 0.6s ease-out 0.15s both",
+          }}
         >
           <div
             aria-hidden
             className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full"
             style={{ background: `${LEAF}0f` }}
           />
-          <div className="relative flex items-start gap-5 sm:gap-7">
+          <div className="relative flex flex-wrap items-start justify-center gap-5 sm:gap-7">
             <div className="flex flex-col items-center gap-2">
               <EmailLink
                 iconOnly
@@ -97,6 +120,7 @@ export default function Contact() {
                 Email
               </span>
             </div>
+
             {SOCIALS.map(({ label, href, Icon, color, bg }) => (
               <a
                 key={label}
@@ -119,12 +143,59 @@ export default function Contact() {
               </a>
             ))}
           </div>
+
+          {/* WhatsApp — icon-only tap targets, same treatment as the row
+              above, no raw digits ever shown */}
+          <div
+            className="relative mt-6 border-t pt-5"
+            style={{ borderColor: `${LEAF}1f` }}
+          >
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: INK_SOFT }}>
+              WhatsApp us
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7">
+              {WHATSAPP_NUMBERS.map((num, i) => (
+                <a
+                  key={num.href}
+                  href={num.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`WhatsApp line ${i + 1}`}
+                  title="WhatsApp"
+                  className="flex flex-col items-center gap-2"
+                >
+                  <span
+                    className="flex h-12 w-12 items-center justify-center rounded-full transition-all duration-200 hover:-translate-y-0.5"
+                    style={{ background: "#25D3661F", boxShadow: "0 8px 18px -8px #25D36655" }}
+                  >
+                    <MessageCircle size={18} color="#25D366" />
+                  </span>
+                  <span className="text-[11px] font-medium" style={{ color: INK_SOFT }}>
+                    Line {i + 1}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <p className="mt-8 text-xs" style={{ color: "#A3ABB5" }}>
-          © {new Date().getFullYear()} Quexlab Technologies. Kumasi, Ghana.
+        <p
+          className="mt-8 text-xs"
+          style={{ color: "#A3ABB5", animation: "fade-rise 0.6s ease-out 0.3s both" }}
+        >
+          © {new Date().getFullYear()} Quexlab Technologies. Ghana.
         </p>
       </div>
+
+      <style>{`
+        @keyframes fade-rise {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; }
+        }
+      `}</style>
     </div>
   );
 }
