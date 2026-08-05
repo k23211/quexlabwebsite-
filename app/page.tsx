@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Globe2, MapPin, Smartphone, Sparkles } from "lucide-react";
+import { Globe2, MapPin, Smartphone, Sparkles, Sprout } from "lucide-react";
 import Nav from "./components/Nav";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "./theme";
 
 export const metadata: Metadata = {
-  title: "Quexlab Technologies | Software Studio Based in Kumasi, Ghana",
+  title: "Quexlab Technologies | Apps, Web & Farming Innovation",
   description:
-    "We build mobile apps, culture-inspired games, and practical software that solve real problems for real people — starting in Ghana, built to go further.",
+    "Quexlab Technologies builds mobile apps, websites, and culture-inspired games — and engages in farming as well. Practical tools and real work for real people, wherever they are.",
 };
 
 const FEATURES = [
@@ -17,11 +17,15 @@ const FEATURES = [
   },
   {
     Icon: Smartphone,
-    label: "Real-world mobile tools",
+    label: "Apps & websites",
+  },
+  {
+    Icon: Sprout,
+    label: "Engaged in farming",
   },
   {
     Icon: Globe2,
-    label: "Impact beyond one place",
+    label: "Built for everyone",
   },
 ];
 
@@ -86,7 +90,7 @@ export default function Home() {
               className="text-xs font-semibold uppercase tracking-[0.3em]"
               style={{ color: LEAF }}
             >
-              Kumasi, Ghana
+              Ghana
             </p>
           </div>
           <span
@@ -105,9 +109,9 @@ export default function Home() {
             className="mt-4 max-w-sm text-sm leading-relaxed sm:mt-6 sm:max-w-md sm:text-lg"
             style={{ color: INK_SOFT }}
           >
-            We build mobile apps, culture-inspired games, and practical
-            software that solve real problems for real people — starting in
-            Ghana, built to go further.
+            We build mobile apps, websites, and culture inspired games and
+            we engage in farming as well. Practical tools and real work that
+            solve problems for real people, wherever they are.
           </p>
         </div>
 
