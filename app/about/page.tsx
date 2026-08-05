@@ -116,33 +116,6 @@ export default function About() {
                 >
                   Leading the vision and direction of Quexlab Technologies.
                 </p>
-                <details className="mt-2 group">
-                  <summary
-                    className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-semibold [&::-webkit-details-marker]:hidden marker:content-none"
-                    style={{ color: FOREST }}
-                  >
-                    Read full bio
-                    <span className="transition-transform duration-200 group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
-                  <p
-                    className="mt-3 text-sm italic leading-relaxed sm:text-base sm:leading-8"
-                    style={{ color: INK_SOFT }}
-                  >
-                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                      &ldquo;
-                    </span>
-                    Albert holds a degree in Agribusiness with
-                    Entrepreneurship and Finance from Kumasi Technical
-                    University. He founded Quexlab Technologies to build
-                    mobile applications and websites that combine Ghanaian
-                    cultural identity with practical, real-world solutions.
-                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                      &rdquo;
-                    </span>
-                  </p>
-                </details>
               </div>
             </div>
 
@@ -194,33 +167,6 @@ export default function About() {
                 >
                   Bringing strong leadership and management to the team.
                 </p>
-                <details className="mt-2 group">
-                  <summary
-                    className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-semibold [&::-webkit-details-marker]:hidden marker:content-none"
-                    style={{ color: FOREST }}
-                  >
-                    Read full bio
-                    <span className="transition-transform duration-200 group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
-                  <p
-                    className="mt-3 text-sm italic leading-relaxed sm:text-base sm:leading-8"
-                    style={{ color: INK_SOFT }}
-                  >
-                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                      &ldquo;
-                    </span>
-                    Richard studied alongside Albert and co-founded Quexlab
-                    Technologies with him. He brings strong leadership and
-                    management experience to the team, helping guide the
-                    studio&apos;s direction and keeping day-to-day operations
-                    running smoothly.
-                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                      &rdquo;
-                    </span>
-                  </p>
-                </details>
               </div>
             </div>
 
@@ -273,36 +219,6 @@ export default function About() {
                   Leading operations and farmer support, blending animal
                   science with hands-on ops expertise.
                 </p>
-                <details className="mt-2 group">
-                  <summary
-                    className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-semibold [&::-webkit-details-marker]:hidden marker:content-none"
-                    style={{ color: FOREST }}
-                  >
-                    Read full bio
-                    <span className="transition-transform duration-200 group-open:rotate-180">
-                      ▾
-                    </span>
-                  </summary>
-                  <p
-                    className="mt-3 text-sm italic leading-relaxed sm:text-base sm:leading-8"
-                    style={{ color: INK_SOFT }}
-                  >
-                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                      &ldquo;
-                    </span>
-                    Kenechi holds a BSc in Animal Science from the
-                    University of Nigeria, Nsukka, and an MSc in Animal
-                    Function and Nutrition from Hokkaido University, Japan.
-                    She leads operations and farmer support at Quexlab
-                    Technologies, keeping our tools, communication, and
-                    workflows running smoothly — pairing a scientific
-                    grounding in animal nutrition with hands-on operational
-                    expertise across the team.
-                    <span aria-hidden style={{ color: LEAF, opacity: 0.5 }}>
-                      &rdquo;
-                    </span>
-                  </p>
-                </details>
               </div>
             </div>
           </div>
