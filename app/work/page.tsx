@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "Adinkra Match and Agriquex Hub — mobile products built by Quexlab Technologies.",
     url: "https://quexlabwebsite.vercel.app/work",
     siteName: "Quexlab Technologies",
-    locale: "en_GH",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -68,7 +68,7 @@ const PROJECTS: WorkItem[] = [
     badge: "Mobile app",
     BadgeIcon: Smartphone,
     description:
-      "A platform helping Ghanaian farmers track and manage agricultural data, built for real conditions on the ground.",
+      "A platform helping farmers track and manage agricultural data, built for real conditions on the ground.",
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
     screenshots: AGRIQUEX_SCREENSHOTS,

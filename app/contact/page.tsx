@@ -6,16 +6,16 @@ import { INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
 
 export const metadata: Metadata = {
   title: "Contact | Quexlab Technologies",
-  description: "Get in touch with Quexlab Technologies, based in Ghana.",
+  description: "Get in touch with Quexlab Technologies.",
   alternates: {
     canonical: "https://quexlabwebsite.vercel.app/contact",
   },
   openGraph: {
     title: "Contact | Quexlab Technologies",
-    description: "Get in touch with Quexlab Technologies, based in Ghana.",
+    description: "Get in touch with Quexlab Technologies.",
     url: "https://quexlabwebsite.vercel.app/contact",
     siteName: "Quexlab Technologies",
-    locale: "en_GH",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -183,7 +183,7 @@ export default function Contact() {
           className="mt-8 text-xs"
           style={{ color: "#A3ABB5", animation: "fade-rise 0.6s ease-out 0.3s both" }}
         >
-          © {new Date().getFullYear()} Quexlab Technologies. Ghana.
+          © {new Date().getFullYear()} Quexlab Technologies.
         </p>
       </div>
 

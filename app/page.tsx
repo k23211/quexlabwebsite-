@@ -90,7 +90,7 @@ export default function Home() {
               className="text-xs font-semibold uppercase tracking-[0.3em]"
               style={{ color: LEAF }}
             >
-              Ghana
+              Worldwide
             </p>
           </div>
           <span

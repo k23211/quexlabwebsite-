@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "Quexlab Technologies is a team providing digital solutions to people everywhere.",
     url: "https://quexlabwebsite.vercel.app/about",
     siteName: "Quexlab Technologies",
-    locale: "en_GH",
+    locale: "en_US",
     type: "website",
   },
 };
