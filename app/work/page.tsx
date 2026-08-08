@@ -54,6 +54,16 @@ type WorkItem = {
 
 const PROJECTS: WorkItem[] = [
   {
+    title: "Agriquex Hub",
+    badge: "Mobile app",
+    BadgeIcon: Smartphone,
+    description:
+      "Buy and sell farm produce, manage your farm's tasks and livestock, and connect with a community of sellers — all from one app built for real conditions on the ground.",
+    ctaLabel: "Get it on Play Store",
+    href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
+    screenshots: AGRIQUEX_SCREENSHOTS,
+  },
+  {
     title: "Adinkra Match",
     badge: "Mobile game",
     BadgeIcon: Gamepad2,
@@ -62,16 +72,6 @@ const PROJECTS: WorkItem[] = [
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.adinkramatchgh.game",
     screenshots: ADINKRA_SCREENSHOTS,
-  },
-  {
-    title: "Agriquex Hub",
-    badge: "Mobile app",
-    BadgeIcon: Smartphone,
-    description:
-      "A platform helping farmers track and manage agricultural data, built for real conditions on the ground.",
-    ctaLabel: "Get it on Play Store",
-    href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
-    screenshots: AGRIQUEX_SCREENSHOTS,
   },
 ];
 
