@@ -5,9 +5,9 @@ import Nav from "./components/Nav";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "./theme";
 
 export const metadata: Metadata = {
-  title: "Quexlab Technologies | Apps, Web & Farming Innovation",
+  title: "Quexlab Technologies | Agriquex Hub, Apps & Farming Innovation",
   description:
-    "Quexlab Technologies builds mobile apps, websites, and culture-inspired games — and engages in farming as well. Practical tools and real work for real people, wherever they are.",
+    "Quexlab Technologies builds Agriquex Hub — a marketplace, community, and AI-powered farm tools app open to everyone — plus websites and culture-inspired games. Practical tools for real people, wherever they are.",
 };
 
 const FEATURES = [
@@ -30,7 +30,33 @@ const FEATURES = [
 ];
 
 export default function Home() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Agriquex Hub",
+    operatingSystem: "ANDROID",
+    applicationCategory: "BusinessApplication",
+    description:
+      "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI — built for agriculture, open to everyone.",
+    url: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    author: {
+      "@type": "Organization",
+      name: "Quexlab Technologies",
+      url: "https://quexlabwebsite.vercel.app/",
+    },
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+      />
     <div
       className="relative flex h-[100dvh] w-screen flex-col overflow-hidden"
       style={{ background: PAPER, color: INK }}
@@ -182,5 +208,6 @@ export default function Home() {
         }
       `}</style>
     </div>
+    </>
   );
 }

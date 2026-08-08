@@ -58,7 +58,7 @@ const PROJECTS: WorkItem[] = [
     badge: "Mobile app",
     BadgeIcon: Smartphone,
     description:
-      "Buy and sell farm produce, manage your farm's tasks and livestock, and connect with a community of sellers — all from one app built for real conditions on the ground.",
+      "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI — built for agriculture, open to everyone.",
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
     screenshots: AGRIQUEX_SCREENSHOTS,
