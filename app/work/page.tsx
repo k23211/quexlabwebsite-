@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, Gamepad2, Smartphone } from "lucide-react";
+import { Gamepad2, Smartphone } from "lucide-react";
 import Nav from "../components/Nav";
+import CTAButton from "../CTAButton";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ type WorkItem = {
   description: string;
   ctaLabel: string;
   href: string;
+  trackConversion?: boolean;
   screenshots: { src: string; alt: string }[];
 };
 
@@ -61,6 +63,7 @@ const PROJECTS: WorkItem[] = [
       "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI — built for agriculture, open to everyone.",
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
+    trackConversion: true,
     screenshots: AGRIQUEX_SCREENSHOTS,
   },
   {
@@ -167,24 +170,11 @@ export default function Work() {
               </p>
 
               {/* CTA — a real button, not a text link, so it reads as tappable */}
-              <a
+              <CTAButton
                 href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/cta relative mt-4 inline-flex items-center gap-1.5 overflow-hidden rounded-full py-2.5 pl-4 pr-3.5 text-xs font-semibold text-white shadow-[0_10px_22px_-8px_rgba(15,61,46,0.55)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_-8px_rgba(15,61,46,0.65)] sm:text-sm"
-                style={{ background: `linear-gradient(135deg, ${LEAF}, ${FOREST})` }}
-              >
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 top-0 h-1/2 opacity-25"
-                  style={{ background: "linear-gradient(180deg, #ffffff, transparent)" }}
-                />
-                <span className="relative">{project.ctaLabel}</span>
-                <ArrowUpRight
-                  size={14}
-                  className="relative transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
-                />
-              </a>
+                label={project.ctaLabel}
+                trackConversion={project.trackConversion}
+              />
 
               {/* Screenshot gallery — scrolls horizontally, fades at the edge
                   as a quiet hint that there's more to swipe through */}

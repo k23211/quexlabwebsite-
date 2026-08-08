@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Globe2, MapPin, Smartphone, Sparkles, Sprout } from "lucide-react";
 import Nav from "./components/Nav";
+import DownloadButton from "./DownloadButton";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "./theme";
 
 export const metadata: Metadata = {
@@ -145,16 +146,7 @@ export default function Home() {
           className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:gap-4"
           style={{ animation: "fade-rise 0.7s ease-out 0.15s both" }}
         >
-          <a
-            href="https://play.google.com/store/apps/details?id=com.agriquexdata.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-full px-6 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-6px_rgba(15,61,46,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-6px_rgba(15,61,46,0.55)] sm:px-7 sm:py-3"
-            style={{ background: `linear-gradient(135deg, ${LEAF}, ${FOREST})` }}
-          >
-            <Smartphone size={15} />
-            Get Agriquex Hub
-          </a>
+          <DownloadButton />
           <Link
             href="/work"
             className="rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 sm:px-7 sm:py-3"
