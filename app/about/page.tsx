@@ -55,7 +55,10 @@ export default function About() {
             Quexlab Technologies is a team providing digital solutions to
             people everywhere. We build tools people actually use, from
             agricultural data platforms to culturally-inspired games
-            designed to be fresh and playable.
+            designed to be fresh and playable. One of those tools is{" "}
+            <strong style={{ color: INK }}>Agriquex Hub</strong>, our
+            agricultural data platform built to support farmers with the
+            operations and resources they need to thrive.
           </p>
           <p
             className="mt-6 text-xs font-medium uppercase tracking-[0.3em]"
@@ -64,8 +67,20 @@ export default function About() {
             Versatile by design, adaptable by nature
           </p>
 
-          {/* Team section */}
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 sm:grid-cols-2">
+          {/* Founders */}
+          <h3
+            className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] sm:mt-14"
+            style={{ color: INK }}
+          >
+            The Founders
+          </h3>
+          <p
+            className="mt-2 text-xs leading-relaxed sm:text-sm"
+            style={{ color: INK_SOFT }}
+          >
+            Building and steering Quexlab Technologies as a whole.
+          </p>
+          <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {/* Founder */}
             <div
               className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 pl-6 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6 sm:pl-7"
@@ -169,7 +184,23 @@ export default function About() {
                 </p>
               </div>
             </div>
+          </div>
 
+          {/* Agriquex Hub */}
+          <h3
+            className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] sm:mt-14"
+            style={{ color: INK }}
+          >
+            Agriquex Hub
+          </h3>
+          <p
+            className="mt-2 text-xs leading-relaxed sm:text-sm"
+            style={{ color: INK_SOFT }}
+          >
+            A Quexlab Technologies product. The team here focuses on
+            supporting farmers directly.
+          </p>
+          <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {/* Head of Operations & Farmer Support */}
             <div
               className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 pl-6 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6 sm:pl-7"
@@ -195,7 +226,7 @@ export default function About() {
               >
                 <Image
                   src="/kenechi.jpg"
-                  alt="Umezinwa Kenechi, Head of Operations and Farmer Support at Quexlab Technologies"
+                  alt="Umezinwa Kenechi, Head of Operations and Farmer Support at Agriquex Hub"
                   fill
                   sizes="112px"
                   className="object-cover"
