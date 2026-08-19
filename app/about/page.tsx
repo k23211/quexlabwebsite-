@@ -69,7 +69,7 @@ export default function About() {
 
           {/* Founders */}
           <h3
-            className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] sm:mt-14"
+            className="mt-12 text-sm font-semibold uppercase tracking-[0.2em] sm:mt-16"
             style={{ color: INK }}
           >
             The Founders
@@ -80,53 +80,50 @@ export default function About() {
           >
             Building and steering Quexlab Technologies as a whole.
           </p>
-          <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
+
+          <div
+            className="mt-8"
+            style={{ borderTop: `1px solid ${LEAF}26` }}
+          >
             {/* Founder */}
             <div
-              className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 pl-6 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6 sm:pl-7"
-              style={{
-                background: `linear-gradient(160deg, #FFFFFF 0%, ${LEAF}08 100%)`,
-                border: `1px solid ${LEAF}26`,
-              }}
+              className="flex flex-col items-center gap-5 py-8 text-center sm:flex-row sm:items-center sm:gap-7 sm:text-left"
+              style={{ borderBottom: `1px solid ${LEAF}26` }}
             >
-              {/* left accent bar — gives the card an edge instead of a flat box */}
               <span
                 aria-hidden
-                className="absolute left-0 top-0 h-full w-1.5"
-                style={{ background: `linear-gradient(180deg, ${LEAF}, ${FOREST})` }}
-              />
-              {/* faint corner wash so the card reads as considered, not stark white */}
+                className="hidden text-4xl font-bold tabular-nums sm:block"
+                style={{ color: `${LEAF}33` }}
+              >
+                01
+              </span>
               <div
-                aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
-                style={{ background: `${LEAF}0f` }}
-              />
-
-              <div
-                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full shadow-[0_6px_14px_-4px_rgba(47,168,79,0.45)] sm:h-28 sm:w-28"
-                style={{ border: `2.5px solid ${LEAF}` }}
+                className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-full sm:h-24 sm:w-24"
               >
                 <Image
                   src="/founder.jpg"
                   alt="Albert Agyapong, Founder of Quexlab Technologies"
                   fill
-                  sizes="112px"
+                  sizes="96px"
                   className="object-cover"
                 />
               </div>
-              <div className="relative min-w-0 flex-1">
-                <h3 className="text-base font-semibold sm:text-xl" style={{ color: INK }}>
-                  Albert Agyapong
-                </h3>
-                <span
-                  className="mt-1.5 inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.15em] sm:px-3 sm:text-[11px] sm:tracking-[0.2em]"
-                  style={{ color: FOREST, background: `${LEAF}17` }}
+              <div className="flex min-w-0 flex-1 flex-col items-center sm:items-start">
+                <h4
+                  className="text-xl font-bold tracking-tight sm:text-2xl"
+                  style={{ color: INK }}
                 >
-                  <Crown size={11} strokeWidth={2.5} />
+                  Albert Agyapong
+                </h4>
+                <span
+                  className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.15em]"
+                  style={{ color: FOREST }}
+                >
+                  <Crown size={12} strokeWidth={2.5} />
                   Founder &amp; Owner
                 </span>
                 <p
-                  className="mt-3 text-xs leading-relaxed sm:text-sm"
+                  className="mt-2.5 max-w-sm text-xs leading-relaxed sm:text-sm"
                   style={{ color: INK_SOFT }}
                 >
                   Leading the vision and direction of Quexlab Technologies.
@@ -136,48 +133,43 @@ export default function About() {
 
             {/* Co-Founder */}
             <div
-              className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 pl-6 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6 sm:pl-7"
-              style={{
-                background: `linear-gradient(160deg, #FFFFFF 0%, ${LEAF}08 100%)`,
-                border: `1px solid ${LEAF}26`,
-              }}
+              className="flex flex-col items-center gap-5 py-8 text-center sm:flex-row sm:items-center sm:gap-7 sm:text-left"
+              style={{ borderBottom: `1px solid ${LEAF}26` }}
             >
               <span
                 aria-hidden
-                className="absolute left-0 top-0 h-full w-1.5"
-                style={{ background: `linear-gradient(180deg, ${LEAF}, ${FOREST})` }}
-              />
+                className="hidden text-4xl font-bold tabular-nums sm:block"
+                style={{ color: `${LEAF}33` }}
+              >
+                02
+              </span>
               <div
-                aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
-                style={{ background: `${LEAF}0f` }}
-              />
-
-              <div
-                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full shadow-[0_6px_14px_-4px_rgba(47,168,79,0.45)] sm:h-28 sm:w-28"
-                style={{ border: `2.5px solid ${LEAF}` }}
+                className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-full sm:h-24 sm:w-24"
               >
                 <Image
                   src="/richard.jpg"
                   alt="Richard Lontah, Co-Founder of Quexlab Technologies"
                   fill
-                  sizes="112px"
+                  sizes="96px"
                   className="object-cover"
                 />
               </div>
-              <div className="relative min-w-0 flex-1">
-                <h3 className="text-base font-semibold sm:text-xl" style={{ color: INK }}>
-                  Richard Lontah
-                </h3>
-                <span
-                  className="mt-1.5 inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.15em] sm:px-3 sm:text-[11px] sm:tracking-[0.2em]"
-                  style={{ color: FOREST, background: `${LEAF}17` }}
+              <div className="flex min-w-0 flex-1 flex-col items-center sm:items-start">
+                <h4
+                  className="text-xl font-bold tracking-tight sm:text-2xl"
+                  style={{ color: INK }}
                 >
-                  <Users size={11} strokeWidth={2.5} />
+                  Richard Lontah
+                </h4>
+                <span
+                  className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.15em]"
+                  style={{ color: FOREST }}
+                >
+                  <Users size={12} strokeWidth={2.5} />
                   Co-Founder
                 </span>
                 <p
-                  className="mt-3 text-xs leading-relaxed sm:text-sm"
+                  className="mt-2.5 max-w-sm text-xs leading-relaxed sm:text-sm"
                   style={{ color: INK_SOFT }}
                 >
                   Bringing strong leadership and management to the team.
@@ -188,7 +180,7 @@ export default function About() {
 
           {/* Agriquex Hub */}
           <h3
-            className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] sm:mt-14"
+            className="mt-12 text-sm font-semibold uppercase tracking-[0.2em] sm:mt-16"
             style={{ color: INK }}
           >
             Agriquex Hub
@@ -198,31 +190,27 @@ export default function About() {
             style={{ color: INK_SOFT }}
           >
             A Quexlab Technologies product. The team here focuses on
-            supporting farmers directly.
+            supporting and building innovative solutions for Agriquex Hub.
           </p>
-          <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
+
+          <div
+            className="mt-8"
+            style={{ borderTop: `1px solid ${LEAF}26` }}
+          >
             {/* Head of Operations & Farmer Support */}
             <div
-              className="relative flex flex-row items-start gap-4 overflow-hidden rounded-2xl p-5 pl-6 text-left shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] sm:p-6 sm:pl-7"
-              style={{
-                background: `linear-gradient(160deg, #FFFFFF 0%, ${LEAF}08 100%)`,
-                border: `1px solid ${LEAF}26`,
-              }}
+              className="flex flex-col items-center gap-5 py-8 text-center sm:flex-row sm:items-center sm:gap-7 sm:text-left"
+              style={{ borderBottom: `1px solid ${LEAF}26` }}
             >
               <span
                 aria-hidden
-                className="absolute left-0 top-0 h-full w-1.5"
-                style={{ background: `linear-gradient(180deg, ${LEAF}, ${FOREST})` }}
-              />
+                className="hidden text-4xl font-bold tabular-nums sm:block"
+                style={{ color: `${LEAF}33` }}
+              >
+                01
+              </span>
               <div
-                aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
-                style={{ background: `${LEAF}0f` }}
-              />
-
-              <div
-                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full shadow-[0_6px_14px_-4px_rgba(47,168,79,0.45)] sm:h-28 sm:w-28"
-                style={{ border: `2.5px solid ${LEAF}` }}
+                className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-full sm:h-28 sm:w-28"
               >
                 <Image
                   src="/kenechi.jpg"
@@ -232,19 +220,22 @@ export default function About() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative min-w-0 flex-1">
-                <h3 className="text-base font-semibold sm:text-xl" style={{ color: INK }}>
-                  Umezinwa Kenechi
-                </h3>
-                <span
-                  className="mt-1.5 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[8px] font-semibold uppercase leading-tight tracking-[0.04em] sm:whitespace-nowrap sm:px-3 sm:text-[11px] sm:tracking-[0.12em]"
-                  style={{ color: FOREST, background: `${LEAF}17` }}
+              <div className="flex min-w-0 flex-1 flex-col items-center sm:items-start">
+                <h4
+                  className="text-xl font-bold tracking-tight sm:text-2xl"
+                  style={{ color: INK }}
                 >
-                  <HeartHandshake size={11} strokeWidth={2.5} className="flex-shrink-0" />
+                  Umezinwa Kenechi
+                </h4>
+                <span
+                  className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase leading-tight tracking-[0.1em]"
+                  style={{ color: FOREST }}
+                >
+                  <HeartHandshake size={12} strokeWidth={2.5} className="flex-shrink-0" />
                   Head of Operations &amp; Farmer Support
                 </span>
                 <p
-                  className="mt-3 text-xs leading-relaxed sm:text-sm"
+                  className="mt-2.5 max-w-sm text-xs leading-relaxed sm:text-sm"
                   style={{ color: INK_SOFT }}
                 >
                   Leading operations and farmer support, blending animal
