@@ -209,17 +209,6 @@ export default function About() {
               >
                 01
               </span>
-              <div
-                className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-full sm:h-28 sm:w-28"
-              >
-                <Image
-                  src="/kenechi.jpg"
-                  alt="Umezinwa Kenechi, Head of Operations and Farmer Support at Agriquex Hub"
-                  fill
-                  sizes="112px"
-                  className="object-cover"
-                />
-              </div>
               <div className="flex min-w-0 flex-1 flex-col items-center sm:items-start">
                 <h4
                   className="text-xl font-bold tracking-tight sm:text-2xl"
