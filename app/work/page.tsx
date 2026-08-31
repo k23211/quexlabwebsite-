@@ -51,6 +51,8 @@ type WorkItem = {
   ctaLabel: string;
   href: string;
   trackConversion?: boolean;
+  appStoreLabel?: string;
+  appStoreHref?: string;
   screenshots: { src: string; alt: string }[];
 };
 
@@ -64,6 +66,8 @@ const PROJECTS: WorkItem[] = [
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
     trackConversion: true,
+    appStoreLabel: "Download on the App Store",
+    appStoreHref: "https://apps.apple.com/gh/app/agriquex-hub/id6799785601",
     screenshots: AGRIQUEX_SCREENSHOTS,
   },
   {
@@ -124,8 +128,8 @@ export default function Work() {
             className="mt-3 text-sm leading-relaxed sm:text-base"
             style={{ color: INK_SOFT }}
           >
-            Live on the Play Store today — built end to end, from first
-            sketch to something people actually use.
+            Live on the Play Store and App Store today — built end to end,
+            from first sketch to something people actually use.
           </p>
         </div>
 
@@ -169,12 +173,20 @@ export default function Work() {
                 {project.description}
               </p>
 
-              {/* CTA — a real button, not a text link, so it reads as tappable */}
-              <CTAButton
-                href={project.href}
-                label={project.ctaLabel}
-                trackConversion={project.trackConversion}
-              />
+              {/* CTA(s) — real buttons, not text links, so they read as tappable */}
+              <div className="relative flex flex-wrap gap-3">
+                <CTAButton
+                  href={project.href}
+                  label={project.ctaLabel}
+                  trackConversion={project.trackConversion}
+                />
+                {project.appStoreHref && (
+                  <CTAButton
+                    href={project.appStoreHref}
+                    label={project.appStoreLabel ?? "Get it on the App Store"}
+                  />
+                )}
+              </div>
 
               {/* Screenshot gallery — scrolls horizontally, fades at the edge
                   as a quiet hint that there's more to swipe through */}
