@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Gamepad2, Smartphone } from "lucide-react";
 import Nav from "../components/Nav";
 import CTAButton from "../CTAButton";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
+import { INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "Work | Quexlab Technologies",
@@ -88,93 +88,54 @@ export default function Work() {
       className="relative flex min-h-[100dvh] w-screen flex-col overflow-hidden"
       style={{ background: PAPER, color: INK }}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0"
-        style={{
-          background: `radial-gradient(55% 40% at 50% 0%, ${LEAF}12 0%, transparent 70%)`,
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none fixed -right-24 -top-24 opacity-[0.04] sm:-right-16 sm:-top-16"
-      >
-        <LogoMark size={420} />
-      </div>
-
       <Nav />
 
       <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
-        {/* Page header — mirrors the homepage's eyebrow + rule motif */}
-        <div
-          className="mb-10 flex max-w-lg flex-col items-center text-center sm:mb-14"
-          style={{ animation: "fade-rise 0.6s ease-out both" }}
-        >
-          <p
-            className="text-xs font-semibold uppercase tracking-[0.3em]"
-            style={{ color: LEAF }}
-          >
-            Selected Work
-          </p>
-          <span
-            aria-hidden
-            className="mt-2.5 block h-[3px] w-12 rounded-full"
-            style={{ background: `linear-gradient(90deg, ${LEAF}, ${LEAF}00)` }}
-          />
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Products we&apos;ve shipped
+        {/* Page header */}
+        <div className="mb-10 flex max-w-lg flex-col items-center text-center sm:mb-14">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Work
           </h1>
           <p
             className="mt-3 text-sm leading-relaxed sm:text-base"
             style={{ color: INK_SOFT }}
           >
-            Live on the Play Store and App Store today — built end to end,
-            from first sketch to something people actually use.
+            Two products, live on the Play Store and App Store — built end to
+            end, from first sketch to something people actually use.
           </p>
         </div>
 
         <div className="w-full max-w-3xl space-y-6 sm:space-y-8">
-          {PROJECTS.map((project, i) => (
+          {PROJECTS.map((project) => (
             <div
               key={project.title}
-              className="relative overflow-hidden rounded-2xl p-5 shadow-[0_20px_45px_-20px_rgba(11,18,32,0.18)] transition-all duration-200 hover:shadow-[0_26px_55px_-20px_rgba(11,18,32,0.24)] sm:p-7"
+              className="relative overflow-hidden rounded-xl p-5 sm:p-7"
               style={{
                 background: "#FFFFFF",
                 border: `1px solid ${LEAF}26`,
-                animation: `fade-rise 0.6s ease-out ${0.1 + i * 0.1}s both`,
               }}
             >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
-                style={{ background: `${LEAF}0f` }}
-              />
-
               {/* Badge */}
               <div
-                className="relative mb-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
-                style={{
-                  background: `${LEAF}14`,
-                  color: FOREST,
-                  border: `1px solid ${LEAF}33`,
-                }}
+                className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
+                style={{ color: INK_SOFT }}
               >
-                <project.BadgeIcon size={12} />
+                <project.BadgeIcon size={14} />
                 {project.badge}
               </div>
 
-              <h3 className="relative text-lg font-semibold sm:text-xl" style={{ color: INK }}>
+              <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
                 {project.title}
               </h3>
               <p
-                className="relative mt-2 max-w-xl text-xs leading-relaxed sm:text-sm"
+                className="mt-2 max-w-xl text-xs leading-relaxed sm:text-sm"
                 style={{ color: INK_SOFT }}
               >
                 {project.description}
               </p>
 
               {/* CTA(s) — real buttons, not text links, so they read as tappable */}
-              <div className="relative flex flex-wrap gap-3">
+              <div className="mt-4 flex flex-wrap gap-3">
                 <CTAButton
                   href={project.href}
                   label={project.ctaLabel}
@@ -191,7 +152,7 @@ export default function Work() {
               {/* Screenshot gallery — scrolls horizontally, fades at the edge
                   as a quiet hint that there's more to swipe through */}
               <div
-                className="relative mt-5 flex gap-3 overflow-x-auto pb-2"
+                className="mt-5 flex gap-3 overflow-x-auto pb-2"
                 style={{
                   scrollSnapType: "x mandatory",
                   WebkitMaskImage:
@@ -220,16 +181,6 @@ export default function Work() {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes fade-rise {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          * { animation: none !important; }
-        }
-      `}</style>
     </div>
   );
 }
