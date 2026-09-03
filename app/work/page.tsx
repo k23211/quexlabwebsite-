@@ -62,7 +62,7 @@ const PROJECTS: WorkItem[] = [
     badge: "Mobile app",
     BadgeIcon: Smartphone,
     description:
-      "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI — built for agriculture, open to everyone.",
+      "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI. Built for agriculture and open to everyone.",
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
     trackConversion: true,
@@ -75,7 +75,7 @@ const PROJECTS: WorkItem[] = [
     badge: "Mobile game",
     BadgeIcon: Gamepad2,
     description:
-      "A match-3 puzzle game built around Adinkra symbols and kente patterns — a playful way to explore Akan visual culture.",
+      "A match-3 puzzle game built around Adinkra symbols and kente patterns. A playful way to explore Akan visual culture.",
     ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.adinkramatchgh.game",
     screenshots: ADINKRA_SCREENSHOTS,
@@ -85,37 +85,42 @@ const PROJECTS: WorkItem[] = [
 export default function Work() {
   return (
     <div
-      className="relative flex min-h-[100dvh] w-screen flex-col overflow-hidden"
+      className="relative flex min-h-[100dvh] w-screen flex-col"
       style={{ background: PAPER, color: INK }}
     >
       <Nav />
 
-      <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
-        {/* Page header */}
-        <div className="mb-10 flex max-w-lg flex-col items-center text-center sm:mb-14">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Work
+      <div className="relative flex flex-1 flex-col px-6 py-12 sm:px-10 sm:py-16">
+        <section className="mx-auto w-full max-w-6xl pb-10 sm:pb-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: LEAF }}>
+            Selected work
+          </p>
+          <h1 className="mt-3 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl">
+            Products made to be used.
           </h1>
           <p
-            className="mt-3 text-sm leading-relaxed sm:text-base"
+            className="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg"
             style={{ color: INK_SOFT }}
           >
-            Two products, live on the Play Store and App Store — built end to
-            end, from first sketch to something people actually use.
+            We take ideas from first sketch to the hands of real people. These
+            are two live products built with care, purpose, and a close eye on
+            the details that make software useful.
           </p>
-        </div>
+        </section>
 
-        <div className="w-full max-w-3xl space-y-6 sm:space-y-8">
+        <section className="mx-auto w-full max-w-6xl space-y-6 sm:space-y-8">
           {PROJECTS.map((project) => (
             <div
               key={project.title}
-              className="relative overflow-hidden rounded-xl p-5 sm:p-7"
+              className="relative overflow-hidden rounded-2xl border p-5 sm:p-8"
               style={{
                 background: "#FFFFFF",
-                border: `1px solid ${LEAF}26`,
+                borderColor: "#E4E2DA",
               }}
             >
-              {/* Badge */}
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-12">
+              {/* Product details */}
+              <div>
               <div
                 className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
                 style={{ color: INK_SOFT }}
@@ -124,18 +129,17 @@ export default function Work() {
                 {project.badge}
               </div>
 
-              <h3 className="text-lg font-semibold sm:text-xl" style={{ color: INK }}>
+              <h3 className="text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: INK }}>
                 {project.title}
               </h3>
               <p
-                className="mt-2 max-w-xl text-xs leading-relaxed sm:text-sm"
+                className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
                 style={{ color: INK_SOFT }}
               >
                 {project.description}
               </p>
 
-              {/* CTA(s) — real buttons, not text links, so they read as tappable */}
-              <div className="mt-4 flex flex-wrap gap-3">
+              <div className="mt-2 flex flex-wrap gap-3">
                 <CTAButton
                   href={project.href}
                   label={project.ctaLabel}
@@ -148,9 +152,9 @@ export default function Work() {
                   />
                 )}
               </div>
+                </div>
 
-              {/* Screenshot gallery — scrolls horizontally, fades at the edge
-                  as a quiet hint that there's more to swipe through */}
+                {/* Screenshot gallery */}
               <div
                 className="mt-5 flex gap-3 overflow-x-auto pb-2"
                 style={{
@@ -177,9 +181,10 @@ export default function Work() {
                   </div>
                 ))}
               </div>
+              </div>
             </div>
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );
