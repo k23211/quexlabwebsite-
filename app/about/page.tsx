@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Crown, HeartHandshake, Users } from "lucide-react";
 import Nav from "../components/Nav";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER, LogoMark } from "../theme";
+import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "About | Quexlab Technologies",
@@ -28,24 +28,11 @@ export default function About() {
       className="relative flex min-h-[100dvh] w-screen flex-col"
       style={{ background: PAPER, color: INK }}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none fixed -right-24 -top-24 opacity-[0.04] sm:-right-16 sm:-top-16"
-      >
-        <LogoMark size={420} />
-      </div>
-
       <Nav />
 
       <div className="relative flex flex-1 flex-col items-center px-6 py-10 sm:px-10 sm:py-14">
         <div className="max-w-xl sm:max-w-2xl">
-          <p
-            className="text-xs font-medium uppercase tracking-[0.3em]"
-            style={{ color: LEAF }}
-          >
-            Learning from the past, building what&apos;s next
-          </p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             About the studio
           </h2>
           <p
@@ -59,12 +46,6 @@ export default function About() {
             <strong style={{ color: INK }}>Agriquex Hub</strong>, our
             agricultural data platform built to support farmers with the
             operations and resources they need to thrive.
-          </p>
-          <p
-            className="mt-6 text-xs font-medium uppercase tracking-[0.3em]"
-            style={{ color: FOREST }}
-          >
-            Versatile by design, adaptable by nature
           </p>
 
           {/* Founders */}
