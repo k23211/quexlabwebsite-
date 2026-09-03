@@ -27,7 +27,8 @@ export default function EmailLink({
     // decoded = "agyapong" + "albert01" + "gmail.com" -> needs @ and .
     const local = decoded.slice(0, 16); // agyapongalbert01
     const domain = decoded.slice(16); // gmail.com
-    setEmail(`${local}@${domain}`);
+    const timer = window.setTimeout(() => setEmail(`${local}@${domain}`), 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   if (!email) {

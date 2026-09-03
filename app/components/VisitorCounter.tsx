@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { INK, PAPER } from "../theme";
 
+type VisitResponse = {
+  count?: number;
+};
+
 export default function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
 
@@ -10,9 +14,11 @@ export default function VisitorCounter() {
     // Show the last known count immediately (if cached) so a slow or
     // failing request doesn't leave the badge blank.
     const cached = localStorage.getItem("quexlab-last-count");
-    if (cached) setCount(Number(cached));
+    const cachedTimer = cached
+      ? window.setTimeout(() => setCount(Number(cached)), 0)
+      : undefined;
 
-    const applyCount = (data: any) => {
+    const applyCount = (data: VisitResponse) => {
       const next = data?.count ?? null;
       if (next !== null) {
         setCount(next);
@@ -33,6 +39,10 @@ export default function VisitorCounter() {
         if (!alreadyCounted) sessionStorage.setItem("quexlab-counted", "1");
       })
       .catch(() => {});
+
+    return () => {
+      if (cachedTimer !== undefined) window.clearTimeout(cachedTimer);
+    };
   }, []);
 
   if (count === null) return null;

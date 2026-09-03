@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Gamepad2, Smartphone } from "lucide-react";
 import Nav from "../components/Nav";
-import CTAButton from "../CTAButton";
+import StoreBadge from "../StoreBadge";
 import { INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
@@ -48,7 +48,6 @@ type WorkItem = {
   badge: string;
   BadgeIcon: typeof Gamepad2;
   description: string;
-  ctaLabel: string;
   href: string;
   trackConversion?: boolean;
   appStoreLabel?: string;
@@ -63,10 +62,8 @@ const PROJECTS: WorkItem[] = [
     BadgeIcon: Smartphone,
     description:
       "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI. Built for agriculture and open to everyone.",
-    ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
     trackConversion: true,
-    appStoreLabel: "Download on the App Store",
     appStoreHref: "https://apps.apple.com/gh/app/agriquex-hub/id6799785601",
     screenshots: AGRIQUEX_SCREENSHOTS,
   },
@@ -76,7 +73,6 @@ const PROJECTS: WorkItem[] = [
     BadgeIcon: Gamepad2,
     description:
       "A match-3 puzzle game built around Adinkra symbols and kente patterns. A playful way to explore Akan visual culture.",
-    ctaLabel: "Get it on Play Store",
     href: "https://play.google.com/store/apps/details?id=com.adinkramatchgh.game",
     screenshots: ADINKRA_SCREENSHOTS,
   },
@@ -119,68 +115,66 @@ export default function Work() {
               }}
             >
               <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-12">
-              {/* Product details */}
-              <div>
-              <div
-                className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
-                style={{ color: INK_SOFT }}
-              >
-                <project.BadgeIcon size={14} />
-                {project.badge}
-              </div>
+                <div>
+                  <div
+                    className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
+                    style={{ color: INK_SOFT }}
+                  >
+                    <project.BadgeIcon size={14} />
+                    {project.badge}
+                  </div>
 
-              <h3 className="text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: INK }}>
-                {project.title}
-              </h3>
-              <p
-                className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
-                style={{ color: INK_SOFT }}
-              >
-                {project.description}
-              </p>
+                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: INK }}>
+                    {project.title}
+                  </h3>
+                  <p
+                    className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
+                    style={{ color: INK_SOFT }}
+                  >
+                    {project.description}
+                  </p>
 
-              <div className="mt-2 flex flex-wrap gap-3">
-                <CTAButton
-                  href={project.href}
-                  label={project.ctaLabel}
-                  trackConversion={project.trackConversion}
-                />
-                {project.appStoreHref && (
-                  <CTAButton
-                    href={project.appStoreHref}
-                    label={project.appStoreLabel ?? "Get it on the App Store"}
-                  />
-                )}
-              </div>
+                  <div className="mt-5 flex flex-wrap items-center gap-3">
+                    <StoreBadge
+                      href={project.href}
+                      store="google"
+                      trackConversion={project.trackConversion}
+                    />
+                    {project.appStoreHref && (
+                      <StoreBadge
+                        href={project.appStoreHref}
+                        store="apple"
+                      />
+                    )}
+                  </div>
                 </div>
 
-                {/* Screenshot gallery */}
-              <div
-                className="mt-5 flex gap-3 overflow-x-auto pb-2"
-                style={{
-                  scrollSnapType: "x mandatory",
-                  WebkitMaskImage:
-                    "linear-gradient(to right, black 90%, transparent 100%)",
-                  maskImage:
-                    "linear-gradient(to right, black 90%, transparent 100%)",
-                }}
-              >
-                {project.screenshots.map((shot) => (
-                  <div
-                    key={shot.src}
-                    className="relative h-56 w-32 flex-shrink-0 overflow-hidden rounded-xl sm:h-72 sm:w-40"
-                    style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}26` }}
-                  >
-                    <Image
-                      src={shot.src}
-                      alt={shot.alt}
-                      fill
-                      sizes="(max-width: 640px) 128px, 160px"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+                <div
+                  className="mt-5 flex gap-3 overflow-x-auto pb-2"
+                  style={{
+                    scrollSnapType: "x mandatory",
+                    WebkitMaskImage:
+                      "linear-gradient(to right, black 90%, transparent 100%)",
+                    maskImage:
+                      "linear-gradient(to right, black 90%, transparent 100%)",
+                  }}
+                >
+                  {project.screenshots.map((shot) => (
+                    <div
+                      key={shot.src}
+                      className="relative h-56 w-32 flex-shrink-0 overflow-hidden rounded-xl sm:h-72 sm:w-40"
+                      style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}26` }}
+                    >
+                      <Image
+                        src={shot.src}
+                        alt={shot.alt}
+                        fill
+                        sizes="(max-width: 640px) 128px, 160px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

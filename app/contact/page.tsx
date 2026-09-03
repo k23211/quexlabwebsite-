@@ -42,7 +42,7 @@ const SOCIALS = [
     bg: "#FF00001F",
   },
   {
-    label: "Twitter",
+    label: "X",
     href: "https://x.com/kofiagya20000",
     Icon: SiX,
     color: INK,
@@ -83,7 +83,12 @@ export default function Contact() {
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
               For project details, partnerships, and general questions.
             </p>
-            <EmailLink className="mt-5 inline-flex text-sm font-semibold" style={{ color: FOREST }} />
+            <EmailLink
+              iconOnly
+              iconColor={FOREST}
+              iconBg={`${LEAF}1f`}
+              className="mt-5 flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-200 hover:-translate-y-0.5"
+            />
           </div>
 
           <div className="rounded-2xl border bg-white p-6" style={{ borderColor: "#E4E2DA" }}>
