@@ -76,8 +76,8 @@ export default function Contact() {
           </p>
         </section>
 
-        <section className="mx-auto grid w-full max-w-7xl gap-8 border-t pt-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="border-t-2 border-[var(--leaf)] pt-5">
+        <section className="mx-auto grid w-full max-w-7xl gap-8 pt-2 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
             <Mail size={20} style={{ color: LEAF }} />
             <h2 className="mt-5 text-lg font-bold">Email</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
@@ -91,7 +91,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="border-t-2 border-[var(--leaf)] pt-5">
+          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
             <MessageCircle size={20} style={{ color: "#25D366" }} />
             <h2 className="mt-5 text-lg font-bold">WhatsApp</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
@@ -106,7 +106,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="border-t-2 border-[var(--leaf)] pt-5">
+          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
             <ArrowUpRight size={20} style={{ color: LEAF }} />
             <h2 className="mt-5 text-lg font-bold">Follow along</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
@@ -121,7 +121,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="border-t-2 border-[var(--leaf)] pt-5">
+          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
             <h2 className="text-lg font-bold">What to include</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
               A little context helps us understand your idea and respond with something useful.

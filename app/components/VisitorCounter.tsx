@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { INK, PAPER } from "../theme";
+import { INK, INK_SOFT, PAPER } from "../theme";
 
 type VisitResponse = {
   count?: number;
@@ -49,10 +49,16 @@ export default function VisitorCounter() {
 
   return (
     <div
-      className="fixed bottom-3 right-3 z-50 rounded-full px-3 py-1 text-[10px] font-medium shadow-sm sm:text-xs"
-      style={{ background: INK, color: PAPER }}
+      aria-label={`${count.toLocaleString()} total site visits`}
+      className="fixed bottom-4 right-4 z-50 flex items-center gap-3 border px-4 py-2.5 shadow-[0_8px_24px_rgba(19,35,31,0.08)] sm:bottom-5 sm:right-5 sm:px-5 sm:py-3"
+      style={{ background: PAPER, borderColor: "#D8D8CC", color: INK }}
     >
-      {count.toLocaleString()} visits
+      <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: INK_SOFT }}>
+        Site visits
+      </span>
+      <span className="text-base font-bold tabular-nums sm:text-lg">
+        {count.toLocaleString()}
+      </span>
     </div>
   );
 }

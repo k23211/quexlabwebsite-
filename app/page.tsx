@@ -157,7 +157,7 @@ export default function Home() {
               className="group block overflow-hidden border-b pb-7"
               style={{ borderColor: "#E4E2DA" }}
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: "#0F0B1E" }}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: PAPER }}>
                 <Image
                   src="/adinkra-match-1.png"
                   alt="Adinkra Match game screens"
