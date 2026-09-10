@@ -87,11 +87,11 @@ export default function Work() {
       <Nav />
 
       <div className="relative flex flex-1 flex-col px-6 py-12 sm:px-10 sm:py-16">
-        <section className="mx-auto w-full max-w-6xl pb-10 sm:pb-14">
+        <section className="mx-auto w-full max-w-7xl pb-14 sm:pb-20">
           <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: LEAF }}>
             Selected work
           </p>
-          <h1 className="mt-3 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl">
+          <h1 className="mt-5 max-w-3xl text-5xl leading-[0.95] sm:text-6xl">
             Products made to be used.
           </h1>
           <p
@@ -104,13 +104,12 @@ export default function Work() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-6xl space-y-6 sm:space-y-8">
+        <section className="mx-auto w-full max-w-7xl space-y-16 sm:space-y-24">
           {PROJECTS.map((project) => (
             <div
               key={project.title}
-              className="relative overflow-hidden rounded-2xl border p-5 sm:p-8"
+              className="relative overflow-hidden border-t pt-8 sm:pt-10"
               style={{
-                background: "#FFFFFF",
                 borderColor: "#E4E2DA",
               }}
             >
@@ -124,7 +123,7 @@ export default function Work() {
                     {project.badge}
                   </div>
 
-                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: INK }}>
+                  <h3 className="text-4xl leading-[0.98] sm:text-5xl" style={{ color: INK }}>
                     {project.title}
                   </h3>
                   <p

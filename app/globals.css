@@ -1,16 +1,48 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-ibm-plex-sans);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-source-serif);
+}
+
+:root {
+  --paper: #f2f0e9;
+  --ink: #13231f;
+  --ink-soft: #64716b;
+  --line: #d8d8cc;
+  --forest: #174d3d;
+  --leaf: #75a84b;
+  --signal: #e8b94d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
 }
 
 body {
   font-family: var(--font-sans), sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+}
+
+a {
+  text-underline-offset: 0.2em;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-display), sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+::selection {
+  background: var(--leaf);
+  color: var(--ink);
 }

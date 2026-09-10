@@ -63,7 +63,7 @@ export default function Contact() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: LEAF }}>
             Start a conversation
           </p>
-          <h1 className="mt-3 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl">
+          <h1 className="mt-5 max-w-3xl text-5xl leading-[0.95] sm:text-6xl">
             Let&apos;s build something useful.
           </h1>
           <p
@@ -76,8 +76,8 @@ export default function Contact() {
           </p>
         </section>
 
-        <section className="mx-auto grid w-full max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-2xl border bg-white p-6" style={{ borderColor: "#E4E2DA" }}>
+        <section className="mx-auto grid w-full max-w-7xl gap-8 border-t pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="border-t-2 border-[var(--leaf)] pt-5">
             <Mail size={20} style={{ color: LEAF }} />
             <h2 className="mt-5 text-lg font-bold">Email</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
@@ -91,7 +91,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="rounded-2xl border bg-white p-6" style={{ borderColor: "#E4E2DA" }}>
+          <div className="border-t-2 border-[var(--leaf)] pt-5">
             <MessageCircle size={20} style={{ color: "#25D366" }} />
             <h2 className="mt-5 text-lg font-bold">WhatsApp</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
@@ -106,7 +106,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="rounded-2xl border bg-white p-6" style={{ borderColor: "#E4E2DA" }}>
+          <div className="border-t-2 border-[var(--leaf)] pt-5">
             <ArrowUpRight size={20} style={{ color: LEAF }} />
             <h2 className="mt-5 text-lg font-bold">Follow along</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
@@ -121,7 +121,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="rounded-2xl border p-6" style={{ borderColor: "#E4E2DA", background: `${LEAF}0d` }}>
+          <div className="border-t-2 border-[var(--leaf)] pt-5">
             <h2 className="text-lg font-bold">What to include</h2>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
               A little context helps us understand your idea and respond with something useful.

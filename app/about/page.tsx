@@ -124,13 +124,15 @@ export default function About() {
       <div style={{ background: PAPER, color: INK }}>
         <Nav />
 
-        {/* Intro — mirrors the homepage hero rhythm */}
-        <section className="mx-auto max-w-6xl px-6 pb-10 pt-12 sm:px-10 sm:pb-14 sm:pt-16">
-          <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl">
-            About the studio
+        <section className="mx-auto max-w-7xl px-6 pb-16 pt-14 sm:px-10 sm:pb-24 sm:pt-20">
+          <p className="mb-6 text-xs font-bold uppercase tracking-[0.22em]" style={{ color: FOREST }}>
+            The studio
+          </p>
+          <h1 className="max-w-3xl text-5xl leading-[0.96] sm:text-6xl">
+            Small team. Serious about useful technology.
           </h1>
           <p
-            className="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg"
+            className="mt-7 max-w-2xl text-base leading-7 sm:text-lg"
             style={{ color: INK_SOFT }}
           >
             Quexlab Technologies is a team providing digital solutions to
@@ -143,16 +145,15 @@ export default function About() {
           </p>
         </section>
 
-        {/* Stat / feature strip — same pattern as the homepage */}
         <section className="border-y" style={{ borderColor: "#E4E2DA" }}>
           <div
-            className="mx-auto grid max-w-6xl grid-cols-2 px-6 py-8 sm:px-10 lg:grid-cols-4"
+            className="mx-auto grid max-w-7xl grid-cols-2 px-6 py-6 sm:px-10 lg:grid-cols-4"
             style={{ color: INK_SOFT }}
           >
             {STATS.map(({ label }, i) => (
               <div
                 key={label}
-                className="py-3 text-sm font-medium lg:border-l lg:py-0 lg:pl-6"
+                className="border-l py-3 pl-4 text-xs font-bold uppercase tracking-[0.12em] lg:pl-6"
                 style={{ borderColor: i === 0 ? "transparent" : "#E4E2DA" }}
               >
                 {label}
@@ -161,10 +162,9 @@ export default function About() {
           </div>
         </section>
 
-        {/* Founders */}
-        <section className="mx-auto max-w-6xl px-6 py-16 sm:px-10 sm:py-20">
-          <div className="mb-10 max-w-lg">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 sm:py-28">
+          <div className="mb-10 max-w-xl">
+            <h2 className="text-4xl leading-none sm:text-5xl">
               The Founders
             </h2>
             <p className="mt-3 text-base leading-relaxed" style={{ color: INK_SOFT }}>
@@ -179,10 +179,9 @@ export default function About() {
           </div>
         </section>
 
-        {/* Agriquex Hub team */}
-        <section className="mx-auto max-w-6xl px-6 pb-16 sm:px-10 sm:pb-20">
-          <div className="mb-10 max-w-lg">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <section className="mx-auto max-w-7xl px-6 pb-20 sm:px-10 sm:pb-28">
+          <div className="mb-10 max-w-xl">
+            <h2 className="text-4xl leading-none sm:text-5xl">
               Agriquex Hub
             </h2>
             <p className="mt-3 text-base leading-relaxed" style={{ color: INK_SOFT }}>
