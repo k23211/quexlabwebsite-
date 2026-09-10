@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Gamepad2, Smartphone } from "lucide-react";
 import Nav from "../components/Nav";
 import StoreBadge from "../StoreBadge";
-import { INK, INK_SOFT, LEAF, PAPER } from "../theme";
+import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "Work | Quexlab Technologies",
@@ -45,6 +46,7 @@ const AGRIQUEX_SCREENSHOTS = [
 
 type WorkItem = {
   title: string;
+  detailHref: string;
   badge: string;
   BadgeIcon: typeof Gamepad2;
   description: string;
@@ -58,6 +60,7 @@ type WorkItem = {
 const PROJECTS: WorkItem[] = [
   {
     title: "Agriquex Hub",
+    detailHref: "/work/agriquex-hub",
     badge: "Mobile app",
     BadgeIcon: Smartphone,
     description:
@@ -69,6 +72,7 @@ const PROJECTS: WorkItem[] = [
   },
   {
     title: "Adinkra Match",
+    detailHref: "/work/adinkra-match",
     badge: "Mobile game",
     BadgeIcon: Gamepad2,
     description:
@@ -124,7 +128,7 @@ export default function Work() {
                   </div>
 
                   <h3 className="text-4xl leading-[0.98] sm:text-5xl" style={{ color: INK }}>
-                    {project.title}
+                    <Link href={project.detailHref}>{project.title}</Link>
                   </h3>
                   <p
                     className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
@@ -134,6 +138,7 @@ export default function Work() {
                   </p>
 
                   <div className="mt-5 flex flex-wrap items-center gap-3">
+                    <Link href={project.detailHref} className="text-sm font-bold underline underline-offset-4" style={{ color: FOREST }}>View project <span aria-hidden>↗</span></Link>
                     <StoreBadge
                       href={project.href}
                       store="google"

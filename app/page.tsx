@@ -45,7 +45,7 @@ export default function Home() {
       <div className="min-h-screen" style={{ background: PAPER, color: INK }}>
         <Nav />
 
-        <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 pb-16 pt-12 sm:px-10 sm:pb-20 sm:pt-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:pb-28">
+        <section className="reveal mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 pb-16 pt-12 sm:px-10 sm:pb-20 sm:pt-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:pb-28">
           <div className="max-w-xl">
             <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.18em] sm:mb-6 sm:text-xs sm:tracking-[0.22em]" style={{ color: FOREST }}>
               Software studio · Kumasi, Ghana
@@ -126,11 +126,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Link
-              href="/work"
+              href="/work/agriquex-hub"
               className="group block overflow-hidden border-b pb-7"
               style={{ borderColor: "#E4E2DA" }}
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: `${LEAF}18` }}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: PAPER }}>
                 <Image
                   src="/agriquex-hub-1.png"
                   alt="Agriquex Hub app screens"
@@ -153,7 +153,7 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/work"
+              href="/work/adinkra-match"
               className="group block overflow-hidden border-b pb-7"
               style={{ borderColor: "#E4E2DA" }}
             >
@@ -177,6 +177,46 @@ export default function Home() {
                 </p>
               </div>
             </Link>
+          </div>
+        </section>
+
+        <section className="border-y" style={{ borderColor: "#D8D8CC" }}>
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-10 sm:py-24 lg:grid-cols-[0.7fr_1fr]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>What we do</p>
+              <h2 className="mt-4 max-w-md text-4xl leading-none sm:text-5xl">From a clear problem to a product people can use.</h2>
+            </div>
+            <div className="grid gap-0 sm:grid-cols-2">
+              {["Mobile apps", "Websites and platforms", "Product design", "Agriculture technology"].map((item, index) => (
+                <div key={item} className="border-t py-5" style={{ borderColor: "#D8D8CC" }}>
+                  <p className="text-xs font-bold" style={{ color: LEAF }}>0{index + 1}</p>
+                  <p className="mt-3 text-lg font-semibold">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-10 sm:py-24 lg:grid-cols-[0.7fr_1fr]">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: LEAF }}>How we work</p>
+            <h2 className="mt-4 max-w-md text-4xl leading-none sm:text-5xl">A practical process, without the theatre.</h2>
+          </div>
+          <div className="grid gap-0 sm:grid-cols-2">
+            {["Understand the problem", "Design the right shape", "Build and test in the open", "Launch, learn, improve"].map((item, index) => (
+              <div key={item} className="border-t py-5" style={{ borderColor: "#D8D8CC" }}>
+                <p className="text-xs font-bold" style={{ color: LEAF }}>0{index + 1}</p>
+                <p className="mt-3 text-lg font-semibold">{item}</p>
+                <p className="mt-2 max-w-xs text-sm leading-6" style={{ color: INK_SOFT }}>{["Start with the people, context, and outcome.", "Make the experience clear before making it big.", "Keep feedback close to the work.", "Treat launch as the beginning, not the finish." ][index]}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-[var(--forest)] text-white">
+          <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-14 sm:px-10 sm:py-20 lg:flex-row lg:items-end lg:justify-between">
+            <div><p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: "#B8D48B" }}>Start a conversation</p><h2 className="mt-4 max-w-2xl text-4xl leading-none sm:text-5xl">Have a useful idea? Let&rsquo;s give it a shape.</h2></div>
+            <Link href="/contact" className="inline-flex w-fit items-center gap-2 border border-white/40 px-5 py-3 text-sm font-bold transition-colors hover:bg-white hover:text-[var(--forest)]">Tell us about it <span aria-hidden>↗</span></Link>
           </div>
         </section>
       </div>

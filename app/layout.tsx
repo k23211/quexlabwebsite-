@@ -44,7 +44,11 @@ export const metadata: Metadata = {
     description:
       "Software and digital products, designed and built for Ghana.",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
+import Footer from "./components/Footer";
 
 export default function RootLayout({
   children,
@@ -73,6 +77,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <main className="flex flex-col flex-1">{children}</main>
+        <Footer />
         <VisitorCounter />
         <Analytics />
       </body>

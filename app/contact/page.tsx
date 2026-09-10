@@ -3,6 +3,7 @@ import { SiFacebook, SiYoutube, SiX, SiWhatsapp } from "react-icons/si";
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 import Nav from "../components/Nav";
 import EmailLink from "../components/EmailLink";
+import InquiryForm from "../components/InquiryForm";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
@@ -129,6 +130,17 @@ export default function Contact() {
             <p className="mt-5 text-sm font-semibold" style={{ color: FOREST }}>
               Your goal, audience, and timeline
             </p>
+          </div>
+        </section>
+
+        <section className="mx-auto mt-16 w-full max-w-7xl border-t pt-12 sm:mt-24 sm:pt-16" style={{ borderColor: "#D8D8CC" }}>
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:gap-20">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: LEAF }}>Project inquiry</p>
+              <h2 className="mt-4 max-w-md text-4xl leading-none sm:text-5xl">Tell us what you&rsquo;re working on.</h2>
+              <p className="mt-5 max-w-sm text-sm leading-6" style={{ color: INK_SOFT }}>A little context helps us understand the opportunity and respond with something useful.</p>
+            </div>
+            <InquiryForm />
           </div>
         </section>
 
