@@ -163,7 +163,7 @@ export default function Home() {
                   alt="Adinkra Match game screens"
                   fill
                   sizes="(min-width: 640px) 50vw, 100vw"
-                  className="object-contain p-4 transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="object-contain p-4 mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </div>
               <div className="pt-5">

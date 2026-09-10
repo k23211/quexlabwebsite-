@@ -13,7 +13,7 @@ export default function InquiryForm() {
     const body = encodeURIComponent(
       `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nProject type: ${data.get("project")}\nTimeline: ${data.get("timeline")}\n\n${data.get("message")}`,
     );
-    window.location.href = `mailto:hello@quexlabtechnologies.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:agriquex@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
 

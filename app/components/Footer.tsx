@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="mt-4 grid gap-3 text-sm font-semibold">
             <Link href="/work/agriquex-hub" className="hover:text-[var(--forest)]">Agriquex Hub</Link>
             <Link href="/work/adinkra-match" className="hover:text-[var(--forest)]">Adinkra Match</Link>
-            <a href="mailto:hello@quexlabtechnologies.com" className="hover:text-[var(--forest)]">Email us</a>
+            <a href="mailto:agriquex@gmail.com" className="hover:text-[var(--forest)]">Email us</a>
           </div>
         </div>
       </div>
