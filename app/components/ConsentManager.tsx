@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { FOREST, INK, INK_SOFT, PAPER } from "../theme";
 
@@ -10,12 +10,11 @@ type ConsentChoice = "accepted" | "rejected";
 const STORAGE_KEY = "quexlab-consent";
 
 export default function ConsentManager() {
-  const [choice, setChoice] = useState<ConsentChoice | null>(null);
-
-  useEffect(() => {
+  const [choice, setChoice] = useState<ConsentChoice | null>(() => {
+    if (typeof window === "undefined") return null;
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === "accepted" || saved === "rejected") setChoice(saved);
-  }, []);
+    return saved === "accepted" || saved === "rejected" ? saved : null;
+  });
 
   const choose = (next: ConsentChoice) => {
     window.localStorage.setItem(STORAGE_KEY, next);

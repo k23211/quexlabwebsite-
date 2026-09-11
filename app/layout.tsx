@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Quexlab Technologies",
     description:
-      "Software and digital products, designed and built for Ghana.",
+      "Innovation for a smarter tomorrow. Quexlab Technologies builds software and digital products rooted in Ghanaian life and culture.",
     url: "https://quexlabwebsite.vercel.app",
     siteName: "Quexlab Technologies",
     locale: "en_GH",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Quexlab Technologies",
     description:
-      "Software and digital products, designed and built for Ghana.",
+      "Innovation for a smarter tomorrow. Software and digital products rooted in Ghanaian life and culture.",
   },
   icons: {
     icon: "/favicon.ico",

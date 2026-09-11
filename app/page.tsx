@@ -6,7 +6,7 @@ import DownloadButton from "./DownloadButton";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "./theme";
 
 export const metadata: Metadata = {
-  title: "Quexlab Technologies | Agriquex Hub, Apps & Farming Innovation",
+  title: "Quexlab Technologies | Innovation for a Smarter Tomorrow",
   description:
     "Quexlab Technologies builds Agriquex Hub, a marketplace, community, and AI-powered farm tools app open to everyone, plus websites and culture-inspired games. Practical tools for real people, wherever they are.",
 };
@@ -51,7 +51,7 @@ export default function Home() {
               Software studio · Kumasi, Ghana
             </p>
             <h1 className="max-w-lg text-[3.35rem] leading-[0.94] sm:text-6xl lg:text-[5.2rem]">
-              Useful software for <em style={{ color: FOREST }}>real life.</em>
+              Innovation for a <em style={{ color: FOREST }}>smarter tomorrow.</em>
             </h1>
 
             <p
@@ -92,7 +92,7 @@ export default function Home() {
               />
             </div>
             <div className="absolute bottom-0 left-0 bg-[var(--forest)] px-3 py-2.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white sm:px-5 sm:py-3 sm:text-xs sm:tracking-[0.16em]">
-              Built with care, from Ghana
+              Innovation for a smarter tomorrow
             </div>
           </div>
         </section>

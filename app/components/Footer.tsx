@@ -10,7 +10,7 @@ export default function Footer() {
             Quex<span style={{ color: LEAF }}>lab</span>
           </p>
           <p className="mt-3 max-w-sm text-sm leading-6" style={{ color: INK_SOFT }}>
-            Software and digital products, designed and built for Ghana and the people connected to it.
+            Innovation for a smarter tomorrow, grounded in Ghana and built for the people connected to it.
           </p>
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em]" style={{ color: FOREST }}>
             Kumasi, Ghana
@@ -36,7 +36,7 @@ export default function Footer() {
       </div>
       <div className="mx-auto flex max-w-7xl flex-col gap-2 border-t px-5 py-5 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-10" style={{ borderColor: "#D8D8CC", color: INK_SOFT }}>
         <span>© {new Date().getFullYear()} Quexlab Technologies.</span>
-        <span>Built with care, from Ghana.</span>
+        <span>Innovation for a smarter tomorrow.</span>
       </div>
     </footer>
   );
