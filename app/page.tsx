@@ -8,7 +8,7 @@ import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "./theme";
 export const metadata: Metadata = {
   title: "Quexlab Technologies | Innovation for a Smarter Tomorrow",
   description:
-    "Quexlab Technologies builds Agriquex Hub, a marketplace, community, and AI-powered farm tools app open to everyone, plus websites and culture-inspired games. Practical tools for real people, wherever they are.",
+    "Quexlab Technologies is a software studio in Kumasi, Ghana, building mobile apps, websites, games, and agriculture technology, including Agriquex Hub and Adinkra Match.",
 };
 
 const FEATURES = [

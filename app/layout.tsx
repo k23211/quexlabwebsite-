@@ -20,19 +20,23 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Quexlab Technologies | Software Studio in Kumasi, Ghana",
   description:
-    "Quexlab Technologies is a software studio in Kumasi, Ghana, building mobile apps and digital products rooted in Ghanaian life and culture — from agricultural data platforms to games inspired by Adinkra symbolism.",
+    "Quexlab Technologies is a software studio in Kumasi, Ghana, building mobile apps, websites, games, and agriculture technology, including Agriquex Hub and Adinkra Match.",
   keywords: [
     "Quexlab",
     "Quexlab Technologies",
     "software studio Ghana",
     "Kumasi software company",
     "mobile app development Ghana",
+    "website development Ghana",
+    "agriculture technology Ghana",
+    "Agriquex Hub",
+    "Adinkra Match",
     "Adinkra",
   ],
   openGraph: {
     title: "Quexlab Technologies",
     description:
-      "Innovation for a smarter tomorrow. Quexlab Technologies builds software and digital products rooted in Ghanaian life and culture.",
+      "Innovation for a smarter tomorrow. Software, mobile apps, websites, games, and agriculture technology from Quexlab Technologies in Ghana.",
     url: "https://quexlabwebsite.vercel.app",
     siteName: "Quexlab Technologies",
     locale: "en_GH",
@@ -42,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Quexlab Technologies",
     description:
-      "Innovation for a smarter tomorrow. Software and digital products rooted in Ghanaian life and culture.",
+      "Innovation for a smarter tomorrow. Software, mobile apps, websites, games, and agriculture technology from Ghana.",
   },
   icons: {
     icon: "/favicon.ico",
