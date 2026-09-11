@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Crown, HeartHandshake, Users } from "lucide-react";
+import { Crown, Headset, HeartHandshake, Users } from "lucide-react";
 import Nav from "../components/Nav";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
@@ -52,6 +52,12 @@ const AGRIQUEX_TEAM = [
     role: "Head of Operations & Farmer Support",
     icon: HeartHandshake,
     bio: "Leading operations and farmer support, blending animal science with hands-on ops expertise.",
+  },
+  {
+    name: "Isaac Boakye",
+    role: "Customer Support",
+    icon: Headset,
+    bio: "Supporting Agriquex Hub users and helping the team respond to their needs.",
   },
 ];
 
