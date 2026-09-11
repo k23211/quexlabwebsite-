@@ -22,6 +22,7 @@ export default function Footer() {
             <Link href="/about" className="hover:text-[var(--forest)]">About</Link>
             <Link href="/work" className="hover:text-[var(--forest)]">Work</Link>
             <Link href="/contact" className="hover:text-[var(--forest)]">Contact</Link>
+                      <Link href="/privacy" className="hover:text-[var(--forest)]">Privacy</Link>
           </div>
         </div>
         <div>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { DM_Sans, Source_Serif_4 } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import VisitorCounter from "./components/VisitorCounter";
-import { Analytics } from "@vercel/analytics/next";
+import ConsentManager from "./components/ConsentManager";
+import Footer from "./components/Footer";
 
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
@@ -48,8 +48,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
-import Footer from "./components/Footer";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,26 +58,11 @@ export default function RootLayout({
       lang="en"
       className={`${sourceSerif.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18372099949"
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-18372099949');
-          `}
-        </Script>
-      </head>
       <body className="min-h-full flex flex-col">
         <main className="flex flex-col flex-1">{children}</main>
         <Footer />
         <VisitorCounter />
-        <Analytics />
+        <ConsentManager />
       </body>
     </html>
   );
