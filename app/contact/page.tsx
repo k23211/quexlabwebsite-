@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiFacebook, SiYoutube, SiX, SiWhatsapp } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa6";
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 import Nav from "../components/Nav";
 import EmailLink from "../components/EmailLink";
@@ -48,6 +49,13 @@ const SOCIALS = [
     Icon: SiX,
     color: INK,
     bg: `${INK}14`,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/company/agriquex-hub",
+    Icon: FaLinkedin,
+    color: "#0A66C2",
+    bg: "#0A66C21F",
   },
 ];
 
