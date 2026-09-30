@@ -13,10 +13,15 @@ export const metadata: Metadata = {
 };
 
 const SCREENSHOTS = [
-  ["/agriquex-screenshots/agriquex-01-market.png", "Marketplace"],
   ["/agriquex-screenshots/agriquex-03-dashboard.png", "Farm dashboard"],
-  ["/agriquex-screenshots/agriquex-05-poultry.png", "Poultry management"],
+  ["/agriquex-screenshots/agriquex-08-farm.png", "Farm management"],
+  ["/agriquex-screenshots/agriquex-09-farm-tools.png", "Smart farm tools"],
+  ["/agriquex-screenshots/agriquex-01-market.png", "Product hub marketplace"],
+  ["/agriquex-screenshots/agriquex-12-product-detail.png", "Product details"],
+  ["/agriquex-screenshots/agriquex-13-crops.png", "Crop farms directory"],
+  ["/agriquex-screenshots/agriquex-10-extension-officers.png", "Extension officers"],
   ["/agriquex-screenshots/agriquex-07-community.png", "Community"],
+  ["/agriquex-screenshots/agriquex-11-find-friends.png", "Find fellow farmers"],
 ];
 
 export default function AgriquexHubPage() {
@@ -35,7 +40,7 @@ export default function AgriquexHubPage() {
         </section>
         <section className="border-y" style={{ borderColor: "#D8D8CC" }}><div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 sm:grid-cols-3 sm:px-10"><div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: LEAF }}>01</p><p className="mt-3 text-lg font-semibold">One place to manage more.</p></div><div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: LEAF }}>02</p><p className="mt-3 text-lg font-semibold">Built around real farm work.</p></div><div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: LEAF }}>03</p><p className="mt-3 text-lg font-semibold">Open to the wider community.</p></div></div></section>
         <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-10 sm:py-24 lg:grid-cols-[0.7fr_1fr]"><div><p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>What it does</p><h2 className="mt-4 text-4xl leading-none sm:text-5xl">Practical from the first tap.</h2></div><div className="grid gap-4 sm:grid-cols-2">{["Buy and sell farm-related products", "Track tasks and farm operations", "Connect with a farming community", "Get help with AI-powered tools"].map((item) => <p key={item} className="flex gap-3 border-t pt-4 text-sm leading-6" style={{ borderColor: "#D8D8CC" }}><Check size={18} style={{ color: LEAF }} />{item}</p>)}</div></section>
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 sm:pb-24"><div className="mb-8 flex items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>Inside the app</p><h2 className="mt-3 text-4xl leading-none sm:text-5xl">See it in action.</h2></div><Link href="/work" className="text-sm font-bold underline" style={{ color: FOREST }}>All work <ArrowUpRight size={15} className="inline" /></Link></div><div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{SCREENSHOTS.map(([src, alt]) => <div key={src} className="relative aspect-[0.62] overflow-hidden" style={{ background: `${LEAF}12` }}><Image src={src} alt={alt} fill sizes="(min-width: 640px) 25vw, 50vw" className="object-cover" /></div>)}</div></section>
+        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 sm:pb-24"><div className="mb-8 flex items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>Inside the app</p><h2 className="mt-3 text-4xl leading-none sm:text-5xl">See it in action.</h2></div><Link href="/work" className="text-sm font-bold underline" style={{ color: FOREST }}>All work <ArrowUpRight size={15} className="inline" /></Link></div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{SCREENSHOTS.map(([src, alt], i) => <div key={src} className={`relative aspect-[2/3] overflow-hidden${i === SCREENSHOTS.length - 1 && SCREENSHOTS.length % 2 === 1 ? " col-span-2 mx-auto w-[calc(50%-0.375rem)] sm:col-span-1 sm:mx-0 sm:w-full" : ""}`} style={{ background: `${LEAF}12` }}><Image src={src} alt={alt} fill sizes="(min-width: 640px) 25vw, 50vw" className="object-cover" /></div>)}</div></section>
       </main>
     </div>
   );

@@ -138,19 +138,21 @@ export default function Work() {
                     {project.description}
                   </p>
 
-                  <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <div className="mt-6 flex flex-col-reverse items-start gap-5 sm:flex-row sm:items-center sm:gap-4">
                     <Link href={project.detailHref} className="text-sm font-bold underline underline-offset-4" style={{ color: FOREST }}>View project <span aria-hidden>↗</span></Link>
-                    <StoreBadge
-                      href={project.href}
-                      store="google"
-                      trackConversion={project.trackConversion}
-                    />
-                    {project.appStoreHref && (
+                    <div className="flex flex-wrap items-center gap-3">
                       <StoreBadge
-                        href={project.appStoreHref}
-                        store="apple"
+                        href={project.href}
+                        store="google"
+                        trackConversion={project.trackConversion}
                       />
-                    )}
+                      {project.appStoreHref && (
+                        <StoreBadge
+                          href={project.appStoreHref}
+                          store="apple"
+                        />
+                      )}
+                    </div>
                   </div>
                 </div>
 
