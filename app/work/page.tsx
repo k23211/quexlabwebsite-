@@ -34,14 +34,15 @@ const ADINKRA_SCREENSHOTS = [
 ];
 
 const AGRIQUEX_SCREENSHOTS = [
-  { src: "/agriquex-screenshots/agriquex-01-market.png", alt: "Agriquex Hub marketplace screen" },
   { src: "/agriquex-screenshots/agriquex-03-dashboard.png", alt: "Agriquex Hub dashboard overview" },
-  { src: "/agriquex-screenshots/agriquex-05-poultry.png", alt: "Agriquex Hub poultry management" },
-  { src: "/agriquex-screenshots/agriquex-04-tasks.png", alt: "Agriquex Hub task manager" },
-  { src: "/agriquex-screenshots/agriquex-07-community.png", alt: "Agriquex Hub community feed" },
-  { src: "/agriquex-screenshots/agriquex-06-profile.png", alt: "Agriquex Hub farm profile" },
-  { src: "/agriquex-screenshots/agriquex-02-notifications.png", alt: "Agriquex Hub notifications" },
   { src: "/agriquex-screenshots/agriquex-08-farm.png", alt: "Agriquex Hub farm management" },
+  { src: "/agriquex-screenshots/agriquex-09-farm-tools.png", alt: "Agriquex Hub smart farm tools" },
+  { src: "/agriquex-screenshots/agriquex-01-market.png", alt: "Agriquex Hub product hub marketplace" },
+  { src: "/agriquex-screenshots/agriquex-12-product-detail.png", alt: "Agriquex Hub product details" },
+  { src: "/agriquex-screenshots/agriquex-13-crops.png", alt: "Agriquex Hub crop farms directory" },
+  { src: "/agriquex-screenshots/agriquex-10-extension-officers.png", alt: "Agriquex Hub extension officers" },
+  { src: "/agriquex-screenshots/agriquex-07-community.png", alt: "Agriquex Hub community feed" },
+  { src: "/agriquex-screenshots/agriquex-11-find-friends.png", alt: "Agriquex Hub find fellow farmers" },
 ];
 
 type WorkItem = {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Crown, Headset, HeartHandshake, Users } from "lucide-react";
+import { Crown, Headset, Users } from "lucide-react";
 import Nav from "../components/Nav";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
@@ -47,12 +47,6 @@ const FOUNDERS = [
 ];
 
 const AGRIQUEX_TEAM = [
-  {
-    name: "Umezinwa Kenechi",
-    role: "Head of Operations & Farmer Support",
-    icon: HeartHandshake,
-    bio: "Leading operations and farmer support, blending animal science with hands-on ops expertise.",
-  },
   {
     name: "Isaac Boakye",
     role: "Customer Support",
