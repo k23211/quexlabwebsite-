@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Crown, Headset, Users } from "lucide-react";
+import { Crown, Users } from "lucide-react";
 import Nav from "../components/Nav";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
 
@@ -46,12 +46,13 @@ const FOUNDERS = [
   },
 ];
 
-const AGRIQUEX_TEAM = [
+const QUEXLAB_TEAM = [
   {
-    name: "Isaac Boakye",
-    role: "Customer Support",
-    icon: Headset,
-    bio: "Supporting Agriquex Hub users and helping the team respond to their needs.",
+    name: "Daniel Obiri Yeboah",
+    role: "Secretary",
+    icon: Users,
+    photo: "/daniel-obiri-yeboah.png",
+    bio: "Serving as Secretary at Quexlab Technologies.",
   },
 ];
 
@@ -182,16 +183,16 @@ export default function About() {
         <section className="mx-auto max-w-7xl px-6 pb-20 sm:px-10 sm:pb-28">
           <div className="mb-10 max-w-xl">
             <h2 className="text-4xl leading-none sm:text-5xl">
-              Agriquex Hub
+              Our Team
             </h2>
             <p className="mt-3 text-base leading-relaxed" style={{ color: INK_SOFT }}>
-              A Quexlab Technologies product. The team here focuses on
-              supporting and building innovative solutions for Agriquex Hub.
+              Customer service and support are provided by Quexlab Technologies
+              for our products, including Agriquex Hub.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {AGRIQUEX_TEAM.map((person) => (
+            {QUEXLAB_TEAM.map((person) => (
               <PersonCard key={person.name} {...person} />
             ))}
           </div>

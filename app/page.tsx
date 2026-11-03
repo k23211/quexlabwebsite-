@@ -181,6 +181,49 @@ export default function Home() {
         </section>
 
         <section className="border-y" style={{ borderColor: "#D8D8CC" }}>
+          <div className="mx-auto max-w-7xl px-5 py-16 sm:px-10 sm:py-24">
+            <div className="mb-10 grid gap-5 lg:grid-cols-[0.65fr_1fr] lg:items-end">
+              <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: LEAF }}>
+                Past events
+              </p>
+              <h2 className="max-w-2xl text-4xl leading-[0.98] sm:text-5xl">
+                Good conversations make room for better ideas.
+              </h2>
+            </div>
+            <Link
+              href="/events"
+              className="group grid overflow-hidden border sm:grid-cols-[1fr_0.85fr]"
+              style={{ borderColor: "#D8D8CC" }}
+            >
+              <div className="relative aspect-[3/2] overflow-hidden bg-[#073b82] sm:aspect-auto sm:min-h-72">
+                <Image
+                  src="/impact-chemical-use-farming.png"
+                  alt="Event poster for The Impact of Chemical Use in Farming"
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="flex flex-col items-start justify-center p-6 sm:p-9 lg:p-12">
+                <span className="border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em]" style={{ borderColor: "#D8D8CC", color: FOREST }}>
+                  Completed · October 25, 2026
+                </span>
+                <h3 className="mt-5 text-3xl leading-tight sm:text-4xl">
+                  The Impact of Chemical Use in Farming
+                </h3>
+                <p className="mt-4 text-sm leading-6" style={{ color: INK_SOFT }}>
+                  A conversation with agriculture voices about chemical use in
+                  farming, hosted by Agriquex Hub.
+                </p>
+                <span className="mt-6 text-sm font-bold" style={{ color: FOREST }}>
+                  Explore the event <span aria-hidden>↗</span>
+                </span>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        <section className="border-y" style={{ borderColor: "#D8D8CC" }}>
           <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-10 sm:py-24 lg:grid-cols-[0.7fr_1fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>What we do</p>
