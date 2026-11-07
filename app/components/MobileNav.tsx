@@ -12,6 +12,7 @@ const NAV = [
   { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
 ];
+const DESKTOP_NAV = NAV.filter((item) => item.href !== "/contact");
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -38,10 +39,16 @@ export default function MobileNav() {
           <span className={`h-px w-4 transition-transform ${open ? "-translate-y-1 -rotate-45" : ""}`} style={{ background: INK }} />
         </button>
         <div className="hidden items-center gap-3 sm:flex">
-          {NAV.map((item) => {
+          {DESKTOP_NAV.map((item) => {
             const active = pathname === item.href;
             return <Link key={item.href} href={item.href} className="px-3 py-2 text-sm font-semibold" style={active ? { color: INK, textDecoration: "underline", textDecorationColor: LEAF, textDecorationThickness: "2px" } : { color: INK_SOFT }}>{item.label}</Link>;
           })}
+          <Link
+            href="/contact"
+            className="ml-2 inline-flex min-h-10 items-center gap-2 bg-[var(--forest)] px-4 text-sm font-bold text-white transition-colors hover:bg-[var(--ink)]"
+          >
+            Start a project <span aria-hidden>↗</span>
+          </Link>
         </div>
       </div>
       {open && (

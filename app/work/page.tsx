@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Gamepad2, Smartphone } from "lucide-react";
+import { Gamepad2, Globe, Smartphone } from "lucide-react";
 import Nav from "../components/Nav";
 import StoreBadge from "../StoreBadge";
 import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
@@ -104,8 +104,8 @@ export default function Work() {
             style={{ color: INK_SOFT }}
           >
             We take ideas from first sketch to the hands of real people. These
-            are two live products built with care, purpose, and a close eye on
-            the details that make software useful.
+            are live products and websites built with care, purpose, and a
+            close eye on the details that make software useful.
           </p>
         </section>
 
@@ -185,6 +185,64 @@ export default function Work() {
               </div>
             </div>
           ))}
+
+          <div
+            className="relative overflow-hidden border-t pt-8 sm:pt-10"
+            style={{ borderColor: "#E4E2DA" }}
+          >
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-12">
+              <div>
+                <div
+                  className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
+                  style={{ color: INK_SOFT }}
+                >
+                  <Globe size={14} />
+                  Client website
+                </div>
+                <h3 className="text-4xl leading-[0.98] sm:text-5xl" style={{ color: INK }}>
+                  <a
+                    href="https://www.chardagrocorporatives.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Chard Agro Cooperatives
+                  </a>
+                </h3>
+                <p
+                  className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
+                  style={{ color: INK_SOFT }}
+                >
+                  A website for a Ghanaian agribusiness that raises poultry,
+                  turkey, and goats, keeps its meat in cold storage, and sells
+                  directly to customers.
+                </p>
+                <div className="mt-6">
+                  <a
+                    href="https://www.chardagrocorporatives.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold underline underline-offset-4"
+                    style={{ color: FOREST }}
+                  >
+                    Visit website <span aria-hidden>↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                className="relative aspect-[3/2] w-full overflow-hidden rounded-xl"
+                style={{ border: `1px solid ${LEAF}26` }}
+              >
+                <Image
+                  src="/chard-agro-poster.png"
+                  alt="Chard Agro Cooperatives: modern farming with healthy poultry and quality goats"
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>
