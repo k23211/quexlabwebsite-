@@ -1,42 +1,76 @@
 import Link from "next/link";
-import { FOREST, INK_SOFT, LEAF, PAPER } from "../theme";
+
+const EXPLORE = [
+  { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/events", label: "Events" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy" },
+];
+
+const LINK_CLASS = "text-[15px] font-medium transition-colors hover:text-forest";
 
 export default function Footer() {
   return (
-    <footer className="border-t" style={{ borderColor: "#D8D8CC", background: PAPER }}>
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-10 lg:grid-cols-[1.3fr_0.7fr_0.7fr] lg:py-16">
-        <div>
-          <p className="text-lg font-bold tracking-[-0.03em]">
-            Quex<span style={{ color: LEAF }}>lab</span>
-          </p>
-          <p className="mt-3 max-w-sm text-sm leading-6" style={{ color: INK_SOFT }}>
-            An independent software studio building mobile apps, websites, and digital products in Ghana and beyond.
-          </p>
-          <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em]" style={{ color: FOREST }}>
-            Kumasi, Ghana
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: INK_SOFT }}>Explore</p>
-          <div className="mt-4 grid gap-3 text-sm font-semibold">
-            <Link href="/about" className="hover:text-[var(--forest)]">About</Link>
-            <Link href="/work" className="hover:text-[var(--forest)]">Work</Link>
-            <Link href="/contact" className="hover:text-[var(--forest)]">Contact</Link>
-                      <Link href="/privacy" className="hover:text-[var(--forest)]">Privacy</Link>
+    <footer className="shell pb-4 sm:pb-5">
+      <div className="relative overflow-hidden rounded-[28px] border border-line bg-white px-6 pt-10 sm:px-10 sm:pt-14 lg:px-14">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr_0.7fr]">
+          <div className="text-left">
+            <p className="text-2xl font-semibold tracking-[-0.03em]">
+              Quex<span className="text-leaf">lab</span>
+            </p>
+            <p className="mt-3 max-w-sm text-[15px] leading-7 text-ink-soft">
+              An independent software studio building mobile apps, websites, and
+              digital products in Ghana and beyond.
+            </p>
+            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium">
+              <span aria-hidden className="h-2 w-2 rounded-full bg-leaf" />
+              Kumasi, Ghana
+            </span>
+          </div>
+
+          <div className="text-left">
+            <p className="text-sm text-ink-soft">Explore</p>
+            <div className="mt-4 grid gap-3">
+              {EXPLORE.map(({ href, label }) => (
+                <Link key={href} href={href} className={LINK_CLASS}>
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-left">
+            <p className="text-sm text-ink-soft">Products</p>
+            <div className="mt-4 grid gap-3">
+              <Link href="/work/agriquex-hub" className={LINK_CLASS}>
+                Agriquex Hub
+              </Link>
+              <Link href="/work/adinkra-match" className={LINK_CLASS}>
+                Adinkra Match
+              </Link>
+              <a href="mailto:agriquex@gmail.com" className={LINK_CLASS}>
+                Email us
+              </a>
+            </div>
           </div>
         </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: INK_SOFT }}>Products</p>
-          <div className="mt-4 grid gap-3 text-sm font-semibold">
-            <Link href="/work/agriquex-hub" className="hover:text-[var(--forest)]">Agriquex Hub</Link>
-            <Link href="/work/adinkra-match" className="hover:text-[var(--forest)]">Adinkra Match</Link>
-            <a href="mailto:agriquex@gmail.com" className="hover:text-[var(--forest)]">Email us</a>
-          </div>
+
+        <div className="mt-12 flex flex-col gap-2 border-t border-line pt-5 text-xs text-ink-soft sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} Quexlab Technologies.</span>
+          <span>Software built for real life.</span>
         </div>
-      </div>
-      <div className="mx-auto flex max-w-7xl flex-col gap-2 border-t px-5 py-5 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-10" style={{ borderColor: "#D8D8CC", color: INK_SOFT }}>
-        <span>© {new Date().getFullYear()} Quexlab Technologies.</span>
-        <span>Software built for real life.</span>
+
+        <p
+          aria-hidden
+          className="wordmark mt-6 select-none text-center"
+          style={{
+            fontSize: "clamp(4rem, 19.5vw, 17rem)",
+            paddingBlock: "0.06em 0.1em",
+          }}
+        >
+          Quexlab
+        </p>
       </div>
     </footer>
   );

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Gamepad2, Globe, Smartphone } from "lucide-react";
 import Nav from "../components/Nav";
 import StoreBadge from "../StoreBadge";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
+import { ArrowIcon, INK, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "Work | Quexlab Technologies",
@@ -52,6 +52,7 @@ type WorkItem = {
   BadgeIcon: typeof Gamepad2;
   description: string;
   href: string;
+  tint: string;
   trackConversion?: boolean;
   appStoreLabel?: string;
   appStoreHref?: string;
@@ -67,6 +68,7 @@ const PROJECTS: WorkItem[] = [
     description:
       "A platform to buy and sell, connect with a community, manage farm tools, and get help from AI. Built for agriculture and open to everyone.",
     href: "https://play.google.com/store/apps/details?id=com.agriquexdata.app",
+    tint: "#E3EDD5",
     trackConversion: true,
     appStoreHref: "https://apps.apple.com/gh/app/agriquex-hub/id6799785601",
     screenshots: AGRIQUEX_SCREENSHOTS,
@@ -79,85 +81,84 @@ const PROJECTS: WorkItem[] = [
     description:
       "A match-3 puzzle game built around Adinkra symbols and kente patterns. A playful way to explore Akan visual culture.",
     href: "https://play.google.com/store/apps/details?id=com.adinkramatchgh.game",
+    tint: "#F2E4C4",
     screenshots: ADINKRA_SCREENSHOTS,
   },
 ];
 
+const TYPE_PILL =
+  "inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink-soft";
+
 export default function Work() {
   return (
-    <div
-      className="relative flex min-h-[100dvh] w-screen flex-col"
-      style={{ background: PAPER, color: INK }}
-    >
+    <div style={{ background: PAPER, color: INK }}>
       <Nav />
 
-      <div className="relative flex flex-1 flex-col px-6 py-12 sm:px-10 sm:py-16">
-        <section className="mx-auto w-full max-w-7xl pb-14 sm:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: LEAF }}>
+      <div>
+        <section className="shell reveal pb-10 pt-10 text-left sm:pb-14 sm:pt-16">
+          <span className="inline-flex rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">
             Selected work
-          </p>
-          <h1 className="mt-5 max-w-3xl text-5xl leading-[0.95] sm:text-6xl">
-            Products made to be used.
+          </span>
+          <h1 className="display mt-6 max-w-4xl">
+            Products made{" "}
+            <span className="muted-text">to be used.</span>
           </h1>
-          <p
-            className="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg"
-            style={{ color: INK_SOFT }}
-          >
+          <p className="mt-8 max-w-2xl text-base leading-7 text-ink-soft sm:text-lg sm:leading-8">
             We take ideas from first sketch to the hands of real people. These
             are live products and websites built with care, purpose, and a
             close eye on the details that make software useful.
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-7xl space-y-16 sm:space-y-24">
+        <section className="shell grid gap-5 pb-16 sm:pb-24 lg:pb-32">
           {PROJECTS.map((project) => (
-            <div
+            <article
               key={project.title}
-              className="relative overflow-hidden border-t pt-8 sm:pt-10"
-              style={{
-                borderColor: "#E4E2DA",
-              }}
+              className="card grid gap-3 p-3 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
             >
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start lg:gap-12">
+              <div className="flex flex-col justify-between gap-10 p-4 text-left sm:p-8 lg:p-10">
                 <div>
-                  <div
-                    className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
-                    style={{ color: INK_SOFT }}
-                  >
+                  <span className={TYPE_PILL}>
                     <project.BadgeIcon size={14} />
                     {project.badge}
-                  </div>
-
-                  <h3 className="text-4xl leading-[0.98] sm:text-5xl" style={{ color: INK }}>
+                  </span>
+                  <h2 className="mt-5 text-4xl sm:text-5xl">
                     <Link href={project.detailHref}>{project.title}</Link>
-                  </h3>
-                  <p
-                    className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
-                    style={{ color: INK_SOFT }}
-                  >
+                  </h2>
+                  <p className="mt-4 max-w-xl text-[15px] leading-7 text-ink-soft sm:text-base">
                     {project.description}
                   </p>
-
-                  <div className="mt-6 flex flex-col-reverse items-start gap-5 sm:flex-row sm:items-center sm:gap-4">
-                    <Link href={project.detailHref} className="text-sm font-bold underline underline-offset-4" style={{ color: FOREST }}>View project <span aria-hidden>↗</span></Link>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <StoreBadge
-                        href={project.href}
-                        store="google"
-                        trackConversion={project.trackConversion}
-                      />
-                      {project.appStoreHref && (
-                        <StoreBadge
-                          href={project.appStoreHref}
-                          store="apple"
-                        />
-                      )}
-                    </div>
-                  </div>
                 </div>
 
+                <div className="flex flex-col items-start gap-5">
+                  <Link href={project.detailHref} className="btn btn-dark">
+                    View project
+                    <span className="btn-icon">
+                      <ArrowIcon direction="up-right" />
+                    </span>
+                  </Link>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <StoreBadge
+                      href={project.href}
+                      store="google"
+                      trackConversion={project.trackConversion}
+                    />
+                    {project.appStoreHref && (
+                      <StoreBadge href={project.appStoreHref} store="apple" />
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="media min-w-0 p-4 sm:p-6"
+                style={{ background: project.tint }}
+              >
                 <div
-                  className="mt-5 flex gap-3 overflow-x-auto pb-2"
+                  role="region"
+                  aria-label={`${project.title} screenshots`}
+                  tabIndex={0}
+                  className="flex gap-3 overflow-x-auto pb-2"
                   style={{
                     scrollSnapType: "x mandatory",
                     WebkitMaskImage:
@@ -169,37 +170,31 @@ export default function Work() {
                   {project.screenshots.map((shot) => (
                     <div
                       key={shot.src}
-                      className="relative h-56 w-32 flex-shrink-0 overflow-hidden rounded-xl sm:h-72 sm:w-40"
-                      style={{ scrollSnapAlign: "start", border: `1px solid ${LEAF}26` }}
+                      className="relative h-64 w-36 shrink-0 overflow-hidden rounded-2xl bg-white sm:h-80 sm:w-44"
+                      style={{ scrollSnapAlign: "start" }}
                     >
                       <Image
                         src={shot.src}
                         alt={shot.alt}
                         fill
-                        sizes="(max-width: 640px) 128px, 160px"
+                        sizes="(max-width: 640px) 144px, 176px"
                         className="object-cover"
                       />
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
 
-          <div
-            className="relative overflow-hidden border-t pt-8 sm:pt-10"
-            style={{ borderColor: "#E4E2DA" }}
-          >
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-12">
+          <article className="card grid gap-3 p-3 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-stretch">
+            <div className="flex flex-col justify-between gap-10 p-4 text-left sm:p-8 lg:p-10">
               <div>
-                <div
-                  className="mb-3 inline-flex items-center gap-1.5 text-xs font-medium"
-                  style={{ color: INK_SOFT }}
-                >
+                <span className={TYPE_PILL}>
                   <Globe size={14} />
                   Client website
-                </div>
-                <h3 className="text-4xl leading-[0.98] sm:text-5xl" style={{ color: INK }}>
+                </span>
+                <h2 className="mt-5 text-4xl sm:text-5xl">
                   <a
                     href="https://www.chardagrocorporatives.com"
                     target="_blank"
@@ -207,42 +202,36 @@ export default function Work() {
                   >
                     Chard Agro Cooperatives
                   </a>
-                </h3>
-                <p
-                  className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
-                  style={{ color: INK_SOFT }}
-                >
+                </h2>
+                <p className="mt-4 max-w-xl text-[15px] leading-7 text-ink-soft sm:text-base">
                   A website for a Ghanaian agribusiness that raises poultry,
                   turkey, and goats, keeps its meat in cold storage, and sells
                   directly to customers.
                 </p>
-                <div className="mt-6">
-                  <a
-                    href="https://www.chardagrocorporatives.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-bold underline underline-offset-4"
-                    style={{ color: FOREST }}
-                  >
-                    Visit website <span aria-hidden>↗</span>
-                  </a>
-                </div>
               </div>
-
-              <div
-                className="relative aspect-[3/2] w-full overflow-hidden rounded-xl"
-                style={{ border: `1px solid ${LEAF}26` }}
+              <a
+                href="https://www.chardagrocorporatives.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-dark w-fit"
               >
-                <Image
-                  src="/chard-agro-poster.png"
-                  alt="Chard Agro Cooperatives: modern farming with healthy poultry and quality goats"
-                  fill
-                  sizes="(min-width: 1024px) 60vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
+                Visit website
+                <span className="btn-icon">
+                  <ArrowIcon direction="up-right" />
+                </span>
+              </a>
             </div>
-          </div>
+
+            <div className="media relative aspect-[3/2] w-full lg:aspect-auto lg:min-h-80">
+              <Image
+                src="/chard-agro-poster.png"
+                alt="Chard Agro Cooperatives: modern farming with healthy poultry and quality goats"
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </article>
         </section>
       </div>
     </div>

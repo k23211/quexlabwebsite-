@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import Nav from "../../components/Nav";
 import StoreBadge from "../../StoreBadge";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../../theme";
+import { ArrowIcon, INK, PAPER } from "../../theme";
 
 export const metadata: Metadata = {
   title: "Agriquex Hub | Quexlab Technologies",
@@ -24,24 +24,147 @@ const SCREENSHOTS = [
   ["/agriquex-screenshots/agriquex-11-find-friends.png", "Find fellow farmers"],
 ];
 
+const HIGHLIGHTS = [
+  "One place to manage more.",
+  "Built around real farm work.",
+  "Open to the wider community.",
+];
+
+const FEATURES = [
+  "Buy and sell farm-related products",
+  "Track tasks and farm operations",
+  "Connect with a farming community",
+  "Get help with AI-powered tools",
+];
+
+const GREEN_TINT = "#E3EDD5";
+
 export default function AgriquexHubPage() {
   return (
     <div style={{ background: PAPER, color: INK }}>
       <Nav />
-      <main>
-        <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-14 sm:px-10 sm:pb-24 sm:pt-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: LEAF }}>Mobile app · Agriculture</p>
-            <h1 className="mt-5 text-5xl leading-[0.94] sm:text-7xl">A better day on the farm starts with better tools.</h1>
-            <p className="mt-7 max-w-lg text-base leading-7 sm:text-lg" style={{ color: INK_SOFT }}>Agriquex Hub brings buying, selling, community, farm management, and practical AI help into one app built for agriculture and open to everyone.</p>
-            <div className="mt-8 flex flex-wrap gap-3"><StoreBadge href="https://play.google.com/store/apps/details?id=com.agriquexdata.app" store="google" /><StoreBadge href="https://apps.apple.com/gh/app/agriquex-hub/id6799785601" store="apple" /></div>
+
+      <div>
+        <section className="shell reveal grid gap-10 pb-16 pt-10 sm:pb-24 sm:pt-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <div className="text-left">
+            <span className="inline-flex rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">
+              Mobile app · Agriculture
+            </span>
+            <h1 className="mt-6 text-[2.5rem] sm:text-6xl lg:text-[4.25rem]">
+              A better day on the farm{" "}
+              <span className="muted-text">starts with better tools.</span>
+            </h1>
+            <p className="mt-7 max-w-lg text-base leading-7 text-ink-soft sm:text-lg sm:leading-8">
+              Agriquex Hub brings buying, selling, community, farm management,
+              and practical AI help into one app built for agriculture and open
+              to everyone.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <StoreBadge
+                href="https://play.google.com/store/apps/details?id=com.agriquexdata.app"
+                store="google"
+              />
+              <StoreBadge
+                href="https://apps.apple.com/gh/app/agriquex-hub/id6799785601"
+                store="apple"
+              />
+            </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden" style={{ background: `${LEAF}18` }}><Image src="/agriquex-hub-1.png" alt="Agriquex Hub app screens" fill priority sizes="(min-width: 1024px) 55vw, 100vw" className="object-contain p-5 sm:p-10" /></div>
+
+          <div className="card p-3">
+            <div
+              className="media relative aspect-[4/3]"
+              style={{ background: GREEN_TINT }}
+            >
+              <Image
+                src="/agriquex-hub-1.png"
+                alt="Agriquex Hub app screens"
+                fill
+                priority
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-contain p-5 mix-blend-multiply sm:p-10"
+              />
+            </div>
+          </div>
         </section>
-        <section className="border-y" style={{ borderColor: "#D8D8CC" }}><div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 sm:grid-cols-3 sm:px-10"><div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: LEAF }}>01</p><p className="mt-3 text-lg font-semibold">One place to manage more.</p></div><div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: LEAF }}>02</p><p className="mt-3 text-lg font-semibold">Built around real farm work.</p></div><div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: LEAF }}>03</p><p className="mt-3 text-lg font-semibold">Open to the wider community.</p></div></div></section>
-        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-10 sm:py-24 lg:grid-cols-[0.7fr_1fr]"><div><p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>What it does</p><h2 className="mt-4 text-4xl leading-none sm:text-5xl">Practical from the first tap.</h2></div><div className="grid gap-4 sm:grid-cols-2">{["Buy and sell farm-related products", "Track tasks and farm operations", "Connect with a farming community", "Get help with AI-powered tools"].map((item) => <p key={item} className="flex gap-3 border-t pt-4 text-sm leading-6" style={{ borderColor: "#D8D8CC" }}><Check size={18} style={{ color: LEAF }} />{item}</p>)}</div></section>
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 sm:pb-24"><div className="mb-8 flex items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: FOREST }}>Inside the app</p><h2 className="mt-3 text-4xl leading-none sm:text-5xl">See it in action.</h2></div><Link href="/work" className="text-sm font-bold underline" style={{ color: FOREST }}>All work <ArrowUpRight size={15} className="inline" /></Link></div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{SCREENSHOTS.map(([src, alt], i) => <div key={src} className={`relative aspect-[2/3] overflow-hidden${i === SCREENSHOTS.length - 1 && SCREENSHOTS.length % 2 === 1 ? " col-span-2 mx-auto w-[calc(50%-0.375rem)] sm:col-span-1 sm:mx-0 sm:w-full" : ""}`} style={{ background: `${LEAF}12` }}><Image src={src} alt={alt} fill sizes="(min-width: 640px) 25vw, 50vw" className="object-cover" /></div>)}</div></section>
-      </main>
+
+        <section className="shell pb-16 sm:pb-24 lg:pb-32">
+          <ul className="grid gap-5 sm:grid-cols-3">
+            {HIGHLIGHTS.map((text) => (
+              <li
+                key={text}
+                className="card p-7 text-left text-xl font-semibold tracking-[-0.02em] sm:p-8 sm:text-2xl"
+              >
+                {text}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="shell grid gap-10 pb-16 sm:pb-24 lg:grid-cols-[0.7fr_1fr] lg:gap-16 lg:pb-32">
+          <div className="text-left">
+            <span className="inline-flex rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">
+              What it does
+            </span>
+            <h2 className="headline mt-6 max-w-md">
+              Practical <span className="muted">from the first tap.</span>
+            </h2>
+          </div>
+          <ul className="grid gap-5 sm:grid-cols-2">
+            {FEATURES.map((item) => (
+              <li
+                key={item}
+                className="card flex items-start gap-4 p-6 text-left text-[15px] leading-7"
+              >
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-paper text-forest">
+                  <Check size={18} />
+                </span>
+                <span className="pt-1">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="shell pb-16 sm:pb-24">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-5 text-left sm:mb-14">
+            <div>
+              <span className="inline-flex rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">
+                Inside the app
+              </span>
+              <h2 className="headline mt-6">
+                See it <span className="muted">in action.</span>
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-5 py-3 text-sm font-medium transition-colors hover:border-ink"
+            >
+              All work <ArrowIcon size={14} direction="up-right" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5">
+            {SCREENSHOTS.map(([src, alt], i) => (
+              <div
+                key={src}
+                className={`media relative aspect-[2/3]${
+                  i === SCREENSHOTS.length - 1 && SCREENSHOTS.length % 2 === 1
+                    ? " col-span-2 mx-auto w-[calc(50%-0.375rem)] sm:col-span-1 sm:mx-0 sm:w-full"
+                    : ""
+                }`}
+                style={{ background: GREEN_TINT }}
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

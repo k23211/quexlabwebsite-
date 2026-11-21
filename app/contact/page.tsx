@@ -188,9 +188,6 @@ export default function Contact() {
           </div>
         </section>
 
-        <p className="shell pb-10 text-left text-xs text-ink-soft">
-          © {new Date().getFullYear()} Quexlab Technologies.
-        </p>
       </div>
     </div>
   );
