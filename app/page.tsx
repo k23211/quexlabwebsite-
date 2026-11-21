@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Globe, PencilRuler, Smartphone, Sprout } from "lucide-react";
 import Nav from "./components/Nav";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "./theme";
+import { ArrowIcon, FOREST, INK, INK_SOFT, LEAF, PAPER } from "./theme";
 
 export const metadata: Metadata = {
   title: "Software Studio in Ghana | Quexlab Technologies",
@@ -21,18 +22,23 @@ const SERVICES = [
   {
     title: "Mobile apps",
     text: "Android and iOS apps that stay fast on real phones and real networks.",
+    icon: Smartphone,
   },
   {
     title: "Websites and platforms",
     text: "Clear, quick sites and web platforms that people can find and trust.",
+    icon: Globe,
   },
   {
     title: "Product design",
     text: "Interfaces shaped around how your users actually work and decide.",
+    icon: PencilRuler,
   },
   {
     title: "Agriculture technology",
     text: "Tools for farmers, buyers, and communities across the food chain.",
+    icon: Sprout,
+    featured: true,
   },
 ];
 
@@ -55,8 +61,6 @@ const STEPS = [
   },
 ];
 
-const LINE = "var(--line)";
-
 /** Kente-inspired woven band. Used once, as the page's signature detail. */
 function KenteBand({ className = "" }: { className?: string }) {
   return (
@@ -72,43 +76,38 @@ function KenteBand({ className = "" }: { className?: string }) {
   );
 }
 
-function Arrow() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-      <path
-        d="M3 8h9M8.5 4l4 4-4 4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-/** One header pattern for every section: label on top, heading below, both left-aligned. */
+/** One header pattern for every section: pill label, then a headline whose second half fades to gray. */
 function SectionHead({
   label,
   title,
+  muted,
   light = false,
 }: {
   label: string;
   title: string;
+  muted?: string;
   light?: boolean;
 }) {
   return (
-    <div className="mb-10 max-w-2xl text-left sm:mb-14">
-      <p
-        className="mb-3 text-sm font-semibold"
-        style={{ color: light ? "#C9E3A0" : FOREST }}
+    <div className="mb-10 max-w-3xl text-left sm:mb-14">
+      <span
+        className={`inline-flex rounded-full border px-4 py-2 text-sm font-medium ${
+          light ? "border-white/25 text-white" : "border-line bg-white"
+        }`}
       >
         {label}
-      </p>
+      </span>
       <h2
-        className="text-[2rem] leading-[1.1] tracking-[-0.01em] sm:text-5xl sm:leading-[1.06]"
-        style={{ color: light ? "#fff" : INK }}
+        className="headline mt-6"
+        style={light ? { color: "#fff" } : undefined}
       >
         {title}
+        {muted ? (
+          <>
+            {" "}
+            <span className="muted">{muted}</span>
+          </>
+        ) : null}
       </h2>
     </div>
   );
@@ -139,105 +138,138 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <div className="min-h-screen" style={{ background: PAPER, color: INK }}>
-        <Nav />
-
         {/* Hero */}
-        <section className="reveal mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 pb-16 pt-10 sm:px-10 sm:pb-24 sm:pt-16 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-16 lg:pb-28">
-          <div className="max-w-xl text-left">
-            <p
-              className="mb-6 inline-flex items-center gap-2.5 rounded-full border bg-white/70 px-4 py-2 text-sm font-medium"
-              style={{ borderColor: LINE, color: INK_SOFT }}
-            >
-              <span
-                aria-hidden
-                className="h-2 w-2 rounded-full"
-                style={{ background: LEAF }}
-              />
-              Independent software studio in Kumasi, Ghana
-            </p>
-            <h1 className="text-[3rem] leading-[1] tracking-[-0.02em] sm:text-6xl lg:text-[4.9rem]">
-              Software that works for real life.
-            </h1>
-            <p
-              className="mt-6 max-w-md text-base leading-7 sm:mt-7 sm:text-lg sm:leading-8"
-              style={{ color: INK_SOFT }}
-            >
-              We design and build mobile apps, websites, and digital products
-              for the way people live and work in Ghana and beyond.
-            </p>
+        <section className="shell reveal pt-4 sm:pt-5">
+          <div className="relative isolate overflow-hidden rounded-[28px]">
+            <Image
+              src="/hero-seedling.png"
+              alt="A seedling emerging from soil, backlit by early morning light"
+              fill
+              priority
+              sizes="(min-width: 1280px) 1216px, 100vw"
+              className="-z-10 object-cover object-center"
+            />
+            <div aria-hidden className="hero-overlay absolute inset-0 -z-10" />
 
-            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <Link
-                href="/work"
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--forest)] px-6 text-sm font-semibold text-white transition-colors hover:bg-[var(--ink)]"
-              >
-                Explore our work <Arrow />
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm font-semibold underline decoration-1 underline-offset-[6px] transition-colors hover:text-[var(--forest)]"
-                style={{ color: INK }}
-              >
-                Talk to our team
-              </Link>
-            </div>
-          </div>
+            <Nav variant="overlay" />
 
-          <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
-            <div
-              className="relative aspect-[1.08/1] w-full overflow-hidden rounded-[28px] border"
-              style={{ borderColor: LINE }}
-            >
-              <Image
-                src="/hero-seedling.png"
-                alt="A seedling emerging from soil, backlit by early morning light"
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, (min-width: 768px) 28rem, 100vw"
-                className="object-cover"
-              />
-              <KenteBand className="absolute inset-x-0 bottom-0" />
+            <div className="flex min-h-[640px] flex-col justify-end px-5 pb-8 pt-32 sm:min-h-[740px] sm:px-10 sm:pb-10">
+              <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+                <div className="max-w-3xl text-left">
+                  <h1 className="display text-white">
+                    Software that works for real life.
+                  </h1>
+                  <p className="mt-6 max-w-md text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
+                    We design and build mobile apps, websites, and digital
+                    products for the way people live and work in Ghana and
+                    beyond.
+                  </p>
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <Link href="/work" className="btn btn-light">
+                      Explore our work
+                      <span className="btn-icon">
+                        <ArrowIcon />
+                      </span>
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="btn bg-white/15 text-white backdrop-blur-md transition-colors hover:bg-white/25"
+                    >
+                      Talk to our team
+                    </Link>
+                  </div>
+                </div>
+
+                <Link
+                  href="/work"
+                  className="glass block w-full max-w-xs p-5 text-left transition-colors hover:bg-white/20"
+                >
+                  <p className="text-sm font-semibold">
+                    Technology, grounded in Ghana
+                  </p>
+                  <p className="mt-1.5 text-sm leading-6 text-white/75">
+                    Agriquex Hub and Adinkra Match, built in Kumasi.
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium">
+                    See our work <ArrowIcon size={14} direction="up-right" />
+                  </span>
+                </Link>
+              </div>
+
+              <div className="mt-10 flex items-center justify-between gap-4 border-t border-white/20 pt-4 text-sm text-white/80">
+                <span>Independent software studio in Kumasi, Ghana</span>
+                <span className="hidden sm:block">Scroll for more</span>
+              </div>
             </div>
-            <p
-              className="absolute -bottom-4 left-5 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-[0_8px_24px_-12px_rgba(20,40,25,0.35)] sm:left-8"
-              style={{ color: FOREST }}
-            >
-              Technology, grounded in Ghana
-            </p>
+
+            <KenteBand className="absolute inset-x-0 bottom-0" />
           </div>
         </section>
 
-        {/* Values strip */}
-        <section className="border-y" style={{ borderColor: LINE }}>
-          <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-4 px-5 py-6 sm:px-10 sm:py-7 lg:grid-cols-4">
-            {FEATURES.map((label) => (
-              <li
-                key={label}
-                className="flex items-center gap-3 text-sm font-semibold sm:text-[15px]"
-                style={{ color: INK_SOFT }}
-              >
-                <span
-                  aria-hidden
-                  className="h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: LEAF }}
-                />
-                {label}
-              </li>
-            ))}
-          </ul>
+        {/* About and stats */}
+        <section className="shell section">
+          <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+            <div className="text-left">
+              <span className="inline-flex rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">
+                About us
+              </span>
+              <ul className="mt-8 grid gap-3">
+                {FEATURES.map((label) => (
+                  <li
+                    key={label}
+                    className="flex items-center gap-3 text-[15px] font-medium"
+                    style={{ color: INK_SOFT }}
+                  >
+                    <span
+                      aria-hidden
+                      className="h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ background: LEAF }}
+                    />
+                    {label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="text-left">
+              <p className="headline max-w-3xl">
+                We are an independent software studio in Kumasi, building
+                mobile apps, websites, and farm tools{" "}
+                <span className="muted">
+                  shaped by the people who use them, in Ghana and beyond.
+                </span>
+              </p>
+
+              <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-line pt-8 sm:mt-16">
+                <div className="flex flex-col-reverse justify-end">
+                  <dt className="stat-label">Apps on Google Play</dt>
+                  <dd className="stat-value">2</dd>
+                </div>
+                <div className="flex flex-col-reverse justify-end">
+                  <dt className="stat-label">Client website</dt>
+                  <dd className="stat-value">1</dd>
+                </div>
+                <div className="flex flex-col-reverse justify-end">
+                  <dt className="stat-label">Event hosted</dt>
+                  <dd className="stat-value">1</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
         </section>
 
         {/* Selected work */}
-        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-10 sm:py-24">
+        <section className="shell section">
           <SectionHead
             label="Selected work"
-            title="Products that earn their place in people’s lives."
+            title="Products that earn their place"
+            muted="in people’s lives."
           />
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
-            <Link href="/work/agriquex-hub" className="group block">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <Link href="/work/agriquex-hub" className="group card block p-3">
               <div
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]"
+                className="media relative aspect-[4/3] w-full"
                 style={{ background: "#E3EDD5" }}
               >
                 <Image
@@ -248,35 +280,28 @@ export default function Home() {
                   className="object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.03] sm:p-8"
                 />
               </div>
-              <div className="px-1 pt-6">
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-2xl sm:text-[1.7rem]">Agriquex Hub</h3>
-                  <span
-                    className="rounded-full border px-3 py-1 text-xs font-semibold"
-                    style={{ borderColor: LINE, color: INK_SOFT }}
-                  >
+              <div className="flex items-start justify-between gap-4 px-3 pb-3 pt-6 text-left">
+                <div>
+                  <span className="inline-flex rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-soft">
                     Mobile app
                   </span>
+                  <h3 className="mt-3 text-2xl sm:text-[1.7rem]">
+                    Agriquex Hub
+                  </h3>
+                  <p className="mt-2 max-w-md text-[15px] leading-7 text-ink-soft">
+                    Buy, sell, and manage farm tools with help from AI. Built
+                    for agriculture and open to everyone.
+                  </p>
                 </div>
-                <p
-                  className="mt-3 max-w-md text-[15px] leading-7"
-                  style={{ color: INK_SOFT }}
-                >
-                  Buy, sell, and manage farm tools with help from AI. Built for
-                  agriculture and open to everyone.
-                </p>
-                <span
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ color: FOREST }}
-                >
-                  See the project <Arrow />
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line bg-white transition-colors group-hover:border-leaf group-hover:bg-leaf group-hover:text-white">
+                  <ArrowIcon direction="up-right" />
                 </span>
               </div>
             </Link>
 
-            <Link href="/work/adinkra-match" className="group block">
+            <Link href="/work/adinkra-match" className="group card block p-3">
               <div
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px]"
+                className="media relative aspect-[4/3] w-full"
                 style={{ background: "#F2E4C4" }}
               >
                 <Image
@@ -287,28 +312,21 @@ export default function Home() {
                   className="object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.03] sm:p-8"
                 />
               </div>
-              <div className="px-1 pt-6">
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-2xl sm:text-[1.7rem]">Adinkra Match</h3>
-                  <span
-                    className="rounded-full border px-3 py-1 text-xs font-semibold"
-                    style={{ borderColor: LINE, color: INK_SOFT }}
-                  >
+              <div className="flex items-start justify-between gap-4 px-3 pb-3 pt-6 text-left">
+                <div>
+                  <span className="inline-flex rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-soft">
                     Mobile game
                   </span>
+                  <h3 className="mt-3 text-2xl sm:text-[1.7rem]">
+                    Adinkra Match
+                  </h3>
+                  <p className="mt-2 max-w-md text-[15px] leading-7 text-ink-soft">
+                    A match-3 puzzle built around Adinkra symbols and kente
+                    patterns. A playful way to explore Akan visual culture.
+                  </p>
                 </div>
-                <p
-                  className="mt-3 max-w-md text-[15px] leading-7"
-                  style={{ color: INK_SOFT }}
-                >
-                  A match-3 puzzle built around Adinkra symbols and kente
-                  patterns. A playful way to explore Akan visual culture.
-                </p>
-                <span
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ color: FOREST }}
-                >
-                  See the project <Arrow />
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line bg-white transition-colors group-hover:border-leaf group-hover:bg-leaf group-hover:text-white">
+                  <ArrowIcon direction="up-right" />
                 </span>
               </div>
             </Link>
@@ -317,9 +335,9 @@ export default function Home() {
               href="https://www.chardagrocorporatives.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid gap-6 sm:col-span-2 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-10"
+              className="group card grid p-3 sm:col-span-2 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-10"
             >
-              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[24px]">
+              <div className="media relative aspect-[3/2] w-full">
                 <Image
                   src="/chard-agro-poster.png"
                   alt="Chard Agro Cooperatives: modern farming with healthy poultry and quality goats"
@@ -328,29 +346,23 @@ export default function Home() {
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
-              <div className="px-1 text-left">
-                <span
-                  className="inline-block rounded-full border px-3 py-1 text-xs font-semibold"
-                  style={{ borderColor: LINE, color: INK_SOFT }}
-                >
+              <div className="px-3 pb-3 pt-6 text-left lg:p-6">
+                <span className="inline-flex rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-soft">
                   Client website
                 </span>
                 <h3 className="mt-4 text-2xl sm:text-[1.7rem]">
                   Chard Agro Cooperatives
                 </h3>
-                <p
-                  className="mt-3 max-w-md text-[15px] leading-7"
-                  style={{ color: INK_SOFT }}
-                >
+                <p className="mt-2 max-w-md text-[15px] leading-7 text-ink-soft">
                   A website for a Ghanaian agribusiness that raises poultry,
                   turkey, and goats, keeps its meat in cold storage, and sells
                   directly to customers.
                 </p>
-                <span
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ color: FOREST }}
-                >
-                  Visit the website <Arrow />
+                <span className="mt-6 inline-flex items-center gap-3 text-sm font-medium">
+                  Visit the website
+                  <span className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white transition-colors group-hover:border-leaf group-hover:bg-leaf group-hover:text-white">
+                    <ArrowIcon direction="up-right" />
+                  </span>
                 </span>
               </div>
             </a>
@@ -358,17 +370,18 @@ export default function Home() {
         </section>
 
         {/* Past events */}
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 sm:pb-24">
+        <section className="shell pb-16 sm:pb-24 lg:pb-32">
           <SectionHead
             label="Past events"
-            title="Good conversations make room for better ideas."
+            title="Good conversations make room"
+            muted="for better ideas."
           />
 
           <Link
             href="/events"
-            className="group grid overflow-hidden rounded-[28px] bg-[var(--forest)] sm:grid-cols-[1.05fr_1fr]"
+            className="group card-accent grid p-3 sm:grid-cols-[1.05fr_1fr] sm:items-center"
           >
-            <div className="relative aspect-[3/2] overflow-hidden bg-[#073b82] sm:aspect-auto sm:min-h-80">
+            <div className="media relative aspect-[3/2] bg-[#073b82] sm:aspect-auto sm:min-h-80 sm:self-stretch">
               <Image
                 src="/impact-chemical-use-farming.png"
                 alt="Event poster for The Impact of Chemical Use in Farming"
@@ -377,83 +390,78 @@ export default function Home() {
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
-            <div className="flex flex-col items-start justify-center p-7 text-left text-white sm:p-10 lg:p-14">
-              <span className="rounded-full bg-white/12 px-3.5 py-1.5 text-xs font-semibold text-[#DDEBC6]">
+            <div className="flex flex-col items-start justify-center px-4 pb-5 pt-7 text-left sm:p-10 lg:p-14">
+              <span className="rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-medium text-white">
                 Completed on October 25, 2026
               </span>
               <h3 className="mt-5 text-3xl leading-[1.1] sm:text-4xl">
                 The Impact of Chemical Use in Farming
               </h3>
-              <p className="mt-4 max-w-sm text-[15px] leading-7 text-white/80">
+              <p className="mt-4 max-w-sm text-[15px] leading-7 text-white/75">
                 A conversation with agriculture voices about chemical use in
                 farming, hosted by Agriquex Hub.
               </p>
-              <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[var(--forest)] transition-transform duration-300 group-hover:translate-x-1">
-                Explore the event <Arrow />
+              <span className="btn btn-light mt-8">
+                Explore the event
+                <span className="btn-icon">
+                  <ArrowIcon />
+                </span>
               </span>
             </div>
           </Link>
         </section>
 
         {/* What we do */}
-        <section
-          className="border-y"
-          style={{ borderColor: LINE, background: "rgba(255,255,255,0.55)" }}
-        >
-          <div className="mx-auto max-w-7xl px-5 py-16 sm:px-10 sm:py-24">
-            <SectionHead
-              label="What we do"
-              title="From a clear problem to a product people can use."
-            />
-            <div className="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">
-              {SERVICES.map(({ title, text }) => (
-                <div
-                  key={title}
-                  className="border-t-2 py-6 text-left"
-                  style={{ borderColor: INK }}
+        <section className="shell pb-16 sm:pb-24 lg:pb-32">
+          <SectionHead
+            label="What we do"
+            title="From a clear problem"
+            muted="to a product people can use."
+          />
+          <div className="grid gap-5 sm:grid-cols-2">
+            {SERVICES.map(({ title, text, icon: Icon, featured }) => (
+              <div
+                key={title}
+                className={`${featured ? "card-accent" : "card"} p-7 text-left sm:p-8`}
+              >
+                <span
+                  className={`grid h-12 w-12 place-items-center rounded-full ${
+                    featured ? "bg-white/15 text-white" : "bg-paper text-forest"
+                  }`}
                 >
-                  <h3 className="text-xl font-semibold leading-snug">{title}</h3>
-                  <p
-                    className="mt-3 max-w-xs text-[15px] leading-7"
-                    style={{ color: INK_SOFT }}
-                  >
-                    {text}
-                  </p>
-                </div>
-              ))}
-            </div>
+                  <Icon size={22} strokeWidth={1.75} />
+                </span>
+                <h3 className="mt-10 text-2xl">{title}</h3>
+                <p
+                  className={`mt-3 max-w-sm text-[15px] leading-7 ${
+                    featured ? "text-white/75" : "text-ink-soft"
+                  }`}
+                >
+                  {text}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* How we work (a real sequence, so numbered) */}
-        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-10 sm:py-24">
+        <section className="shell pb-16 sm:pb-24 lg:pb-32">
           <SectionHead
             label="How we work"
-            title="A practical process, without the theatre."
+            title="A practical process,"
+            muted="without the theatre."
           />
-          <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map(({ title, text }, index) => (
-              <li key={title} className="relative text-left">
-                <div className="mb-5 flex items-center gap-3">
-                  <span
-                    className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white"
-                    style={{ background: FOREST }}
-                  >
-                    {index + 1}
-                  </span>
-                  {index < STEPS.length - 1 && (
-                    <span
-                      aria-hidden
-                      className="hidden h-px flex-1 lg:block"
-                      style={{ background: LINE }}
-                    />
-                  )}
-                </div>
-                <h3 className="text-xl font-semibold leading-snug">{title}</h3>
-                <p
-                  className="mt-3 max-w-[16rem] text-[15px] leading-7"
-                  style={{ color: INK_SOFT }}
+              <li key={title} className="card p-6 text-left sm:p-7">
+                <span
+                  className="grid h-10 w-10 place-items-center rounded-full text-sm font-semibold text-white"
+                  style={{ background: FOREST }}
                 >
+                  {index + 1}
+                </span>
+                <h3 className="mt-10 text-xl leading-snug">{title}</h3>
+                <p className="mt-3 text-[15px] leading-7 text-ink-soft">
                   {text}
                 </p>
               </li>
@@ -462,25 +470,23 @@ export default function Home() {
         </section>
 
         {/* Call to action */}
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 sm:pb-24">
-          <div className="overflow-hidden rounded-[28px] bg-[var(--forest)] text-white">
-            <KenteBand />
-            <div className="flex flex-col gap-8 px-6 py-12 text-left sm:px-12 sm:py-16 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl">
-                <p className="mb-3 text-sm font-semibold text-[#C9E3A0]">
-                  Start a conversation
-                </p>
-                <h2 className="text-[2rem] leading-[1.1] tracking-[-0.01em] sm:text-5xl sm:leading-[1.06]">
-                  Have a project in mind? Let’s talk it through.
-                </h2>
-              </div>
-              <Link
-                href="/contact"
-                className="inline-flex min-h-12 w-fit items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[var(--forest)] transition-colors hover:bg-[#E3EDD5]"
-              >
-                Talk to our team <Arrow />
-              </Link>
+        <section className="shell pb-16 sm:pb-24">
+          <div className="card-accent flex flex-col gap-10 p-8 text-left sm:p-14 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <span className="inline-flex rounded-full border border-white/25 px-4 py-2 text-sm font-medium text-white">
+                Start a conversation
+              </span>
+              <h2 className="headline mt-6 text-white">
+                Have a project in mind?{" "}
+                <span className="text-white/55">Let’s talk it through.</span>
+              </h2>
             </div>
+            <Link href="/contact" className="btn btn-light w-fit shrink-0">
+              Talk to our team
+              <span className="btn-icon">
+                <ArrowIcon />
+              </span>
+            </Link>
           </div>
         </section>
       </div>

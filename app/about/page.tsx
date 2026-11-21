@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Crown, Users } from "lucide-react";
 import Nav from "../components/Nav";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
+import { FOREST, INK, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "About | Quexlab Technologies",
@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   },
 };
 
-const STATS = [
-  { label: "Founders" },
-  { label: "Live products" },
-  { label: "Culture-rooted design" },
-  { label: "Built for everyone" },
+const VALUES = [
+  "Founders",
+  "Live products",
+  "Culture-rooted design",
+  "Built for everyone",
 ];
 
 const FOUNDERS = [
@@ -56,51 +56,72 @@ const QUEXLAB_TEAM = [
   },
 ];
 
-function PersonCard({
-  name,
-  role,
-  icon: Icon,
-  bio,
-  photo,
-}: {
+type Person = {
   name: string;
   role: string;
   icon: typeof Crown;
   bio: string;
   photo?: string;
-}) {
+};
+
+function PersonCard({ name, role, icon: Icon, bio, photo }: Person) {
   return (
-    <div
-      className="rounded-2xl border p-6 sm:p-7"
-      style={{ borderColor: "#E4E2DA" }}
-    >
-      <div className="flex items-center gap-4">
+    <article className="card p-3">
+      <div className="media relative aspect-[4/5] bg-paper">
         {photo ? (
-          <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
-            <Image src={photo} alt={name} fill sizes="64px" className="object-cover" />
-          </div>
+          <Image
+            src={photo}
+            alt={name}
+            fill
+            sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw"
+            className="object-cover object-top"
+          />
         ) : (
           <div
-            className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full"
+            className="grid h-full w-full place-items-center"
             style={{ background: `${LEAF}14` }}
           >
-            <Icon size={22} strokeWidth={2} style={{ color: FOREST }} />
+            <Icon size={32} strokeWidth={2} style={{ color: FOREST }} />
           </div>
         )}
-        <div className="min-w-0">
-          <h4 className="text-lg font-bold tracking-tight sm:text-xl">{name}</h4>
-          <span
-            className="mt-1 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase leading-tight tracking-[0.15em]"
-            style={{ color: FOREST }}
-          >
-            <Icon size={12} strokeWidth={2.5} className="flex-shrink-0" />
-            {role}
-          </span>
-        </div>
       </div>
-      <p className="mt-4 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
-        {bio}
-      </p>
+      <div className="px-3 pb-3 pt-5 text-left">
+        <span
+          className="inline-flex items-center gap-1.5 rounded-full bg-paper px-3 py-1.5 text-xs font-medium"
+          style={{ color: FOREST }}
+        >
+          <Icon size={12} strokeWidth={2.5} className="shrink-0" />
+          {role}
+        </span>
+        <h3 className="mt-4 text-2xl">{name}</h3>
+        <p className="mt-2 text-[15px] leading-7 text-ink-soft">{bio}</p>
+      </div>
+    </article>
+  );
+}
+
+function PeopleBlock({
+  title,
+  intro,
+  people,
+}: {
+  title: string;
+  intro: string;
+  people: Person[];
+}) {
+  return (
+    <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16">
+      <div className="text-left">
+        <h2 className="headline">{title}</h2>
+        <p className="mt-4 max-w-xs text-[15px] leading-7 text-ink-soft">
+          {intro}
+        </p>
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        {people.map((person) => (
+          <PersonCard key={person.name} {...person} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -113,7 +134,10 @@ export default function About() {
     url: "https://quexlabwebsite.vercel.app/",
     description:
       "Quexlab Technologies is a team providing digital solutions to people everywhere.",
-    founders: [{ "@type": "Person", name: "Albert Agyapong" }, { "@type": "Person", name: "Richard Lontah" }],
+    founders: [
+      { "@type": "Person", name: "Albert Agyapong" },
+      { "@type": "Person", name: "Richard Lontah" },
+    ],
   };
 
   return (
@@ -125,77 +149,45 @@ export default function About() {
       <div style={{ background: PAPER, color: INK }}>
         <Nav />
 
-        <section className="mx-auto max-w-7xl px-6 pb-16 pt-14 sm:px-10 sm:pb-24 sm:pt-20">
-          <p className="mb-6 text-xs font-bold uppercase tracking-[0.22em]" style={{ color: FOREST }}>
-            The studio
-          </p>
-          <h1 className="max-w-3xl text-5xl leading-[0.96] sm:text-6xl">
-            Small team. Serious about useful technology.
+        <section className="shell reveal pb-6 pt-10 text-left sm:pt-16">
+          <h1 className="display max-w-4xl">
+            Small team.{" "}
+            <span className="muted-text">
+              Serious about useful technology.
+            </span>
           </h1>
-          <p
-            className="mt-7 max-w-2xl text-base leading-7 sm:text-lg"
-            style={{ color: INK_SOFT }}
-          >
-            Quexlab Technologies is a team providing digital solutions to
-            people everywhere. We build tools people actually use, from
-            agricultural data platforms to culturally-inspired games designed
-            to be fresh and playable. One of those tools is{" "}
-            <strong style={{ color: INK }}>Agriquex Hub</strong>, our
-            agricultural data platform built to support farmers with the
+          <p className="mt-8 max-w-2xl text-base leading-7 text-ink-soft sm:text-lg sm:leading-8">
+            Quexlab Technologies is a team providing digital solutions to people
+            everywhere. We build tools people actually use, from agricultural
+            data platforms to culturally-inspired games designed to be fresh and
+            playable. One of those tools is{" "}
+            <strong className="font-semibold text-ink">Agriquex Hub</strong>,
+            our agricultural data platform built to support farmers with the
             operations and resources they need to thrive.
           </p>
-        </section>
-
-        <section className="border-y" style={{ borderColor: "#E4E2DA" }}>
-          <div
-            className="mx-auto grid max-w-7xl grid-cols-2 px-6 py-6 sm:px-10 lg:grid-cols-4"
-            style={{ color: INK_SOFT }}
-          >
-            {STATS.map(({ label }, i) => (
-              <div
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {VALUES.map((label) => (
+              <li
                 key={label}
-                className="border-l py-3 pl-4 text-xs font-bold uppercase tracking-[0.12em] lg:pl-6"
-                style={{ borderColor: i === 0 ? "transparent" : "#E4E2DA" }}
+                className="rounded-full border border-line bg-white px-4 py-2 text-sm font-medium"
               >
                 {label}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 sm:py-28">
-          <div className="mb-10 max-w-xl">
-            <h2 className="text-4xl leading-none sm:text-5xl">
-              The Founders
-            </h2>
-            <p className="mt-3 text-base leading-relaxed" style={{ color: INK_SOFT }}>
-              Building and steering Quexlab Technologies as a whole.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {FOUNDERS.map((person) => (
-              <PersonCard key={person.name} {...person} />
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-6 pb-20 sm:px-10 sm:pb-28">
-          <div className="mb-10 max-w-xl">
-            <h2 className="text-4xl leading-none sm:text-5xl">
-              Our Team
-            </h2>
-            <p className="mt-3 text-base leading-relaxed" style={{ color: INK_SOFT }}>
-              Customer service and support are provided by Quexlab Technologies
-              for our products, including Agriquex Hub.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {QUEXLAB_TEAM.map((person) => (
-              <PersonCard key={person.name} {...person} />
-            ))}
-          </div>
+        <section className="shell section grid gap-20 sm:gap-28">
+          <PeopleBlock
+            title="The Founders"
+            intro="Building and steering Quexlab Technologies as a whole."
+            people={FOUNDERS}
+          />
+          <PeopleBlock
+            title="Our Team"
+            intro="Customer service and support are provided by Quexlab Technologies for our products, including Agriquex Hub."
+            people={QUEXLAB_TEAM}
+          />
         </section>
       </div>
     </>

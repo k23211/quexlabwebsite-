@@ -5,7 +5,7 @@ import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 import Nav from "../components/Nav";
 import EmailLink from "../components/EmailLink";
 import InquiryForm from "../components/InquiryForm";
-import { FOREST, INK, INK_SOFT, LEAF, PAPER } from "../theme";
+import { FOREST, INK, LEAF, PAPER } from "../theme";
 
 export const metadata: Metadata = {
   title: "Contact | Quexlab Technologies",
@@ -59,100 +59,136 @@ const SOCIALS = [
   },
 ];
 
+const ICON_CIRCLE =
+  "grid h-12 w-12 place-items-center rounded-full bg-paper text-forest";
+
 export default function Contact() {
   return (
-    <div
-      className="relative flex min-h-[100dvh] w-screen flex-col"
-      style={{ background: PAPER, color: INK }}
-    >
+    <div style={{ background: PAPER, color: INK }}>
       <Nav />
 
-      <div className="relative flex flex-1 flex-col px-6 py-12 sm:px-10 sm:py-16">
-        <section className="mx-auto w-full max-w-6xl pb-10 sm:pb-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: LEAF }}>
+      <div>
+        <section className="shell reveal pb-10 pt-10 text-left sm:pb-14 sm:pt-16">
+          <span className="inline-flex rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">
             Start a conversation
-          </p>
-          <h1 className="mt-5 max-w-3xl text-5xl leading-[0.95] sm:text-6xl">
-            Let&apos;s build something useful.
+          </span>
+          <h1 className="display mt-6 max-w-4xl">
+            Let&apos;s build{" "}
+            <span className="muted-text">something useful.</span>
           </h1>
-          <p
-            className="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg"
-            style={{ color: INK_SOFT }}
-          >
+          <p className="mt-8 max-w-2xl text-base leading-7 text-ink-soft sm:text-lg sm:leading-8">
             Have a project in mind, a question about our products, or an idea
             worth exploring? Choose a channel and tell us what you are working
             on.
           </p>
         </section>
 
-        <section className="mx-auto grid w-full max-w-7xl gap-8 pt-2 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
-            <Mail size={20} style={{ color: LEAF }} />
-            <h2 className="mt-5 text-lg font-bold">Email</h2>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
+        <section className="shell grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="card flex flex-col p-7 text-left">
+            <span className={ICON_CIRCLE}>
+              <Mail size={20} />
+            </span>
+            <h2 className="mt-8 text-xl">Email</h2>
+            <p className="mt-2 text-[15px] leading-7 text-ink-soft">
               For project details, partnerships, and general questions.
             </p>
-            <EmailLink
-              iconOnly
-              iconColor={FOREST}
-              iconBg={`${LEAF}1f`}
-              className="mt-5 flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-200 hover:-translate-y-0.5"
-            />
+            <div className="mt-auto flex gap-3 pt-8">
+              <EmailLink
+                iconOnly
+                iconColor={FOREST}
+                iconBg={`${LEAF}1f`}
+                className="flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-200 hover:-translate-y-0.5"
+              />
+            </div>
           </div>
 
-          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
-            <MessageCircle size={20} style={{ color: "#25D366" }} />
-            <h2 className="mt-5 text-lg font-bold">WhatsApp</h2>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
+          <div className="card flex flex-col p-7 text-left">
+            <span className={ICON_CIRCLE}>
+              <MessageCircle size={20} />
+            </span>
+            <h2 className="mt-8 text-xl">WhatsApp</h2>
+            <p className="mt-2 text-[15px] leading-7 text-ink-soft">
               Reach the team directly through either of our WhatsApp lines.
             </p>
-            <div className="mt-5 flex gap-4">
+            <div className="mt-auto flex gap-3 pt-8">
               {WHATSAPP_NUMBERS.map((num, i) => (
-                <a key={num.href} href={num.href} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp line ${i + 1}`} title="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-full" style={{ background: "#25D3661F" }}>
-                  <SiWhatsapp size={17} color="#25D366" />
+                <a
+                  key={num.href}
+                  href={num.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`WhatsApp line ${i + 1}`}
+                  title="WhatsApp"
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
+                  style={{ background: "#25D3661F" }}
+                >
+                  <SiWhatsapp size={18} color="#25D366" />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
-            <ArrowUpRight size={20} style={{ color: LEAF }} />
-            <h2 className="mt-5 text-lg font-bold">Follow along</h2>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
-              See what we are building and share in the work behind the products.
+          <div className="card flex flex-col p-7 text-left">
+            <span className={ICON_CIRCLE}>
+              <ArrowUpRight size={20} />
+            </span>
+            <h2 className="mt-8 text-xl">Follow along</h2>
+            <p className="mt-2 text-[15px] leading-7 text-ink-soft">
+              See what we are building and share in the work behind the
+              products.
             </p>
-            <div className="mt-5 flex gap-4">
+            <div className="mt-auto flex gap-3 pt-8">
               {SOCIALS.map(({ label, href, Icon, color, bg }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label} className="flex h-10 w-10 items-center justify-center rounded-full" style={{ background: bg }}>
-                  <Icon size={16} color={color} />
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
+                  style={{ background: bg }}
+                >
+                  <Icon size={17} color={color} />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="border-t pt-5" style={{ borderColor: "#D8D8CC" }}>
-            <h2 className="text-lg font-bold">What to include</h2>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: INK_SOFT }}>
-              A little context helps us understand your idea and respond with something useful.
+          <div className="card-accent flex flex-col p-7 text-left">
+            <h2 className="text-xl">What to include</h2>
+            <p className="mt-2 text-[15px] leading-7 text-white/75">
+              A little context helps us understand your idea and respond with
+              something useful.
             </p>
-            <p className="mt-5 text-sm font-semibold" style={{ color: FOREST }}>
-              Your goal, audience, and timeline
+            <p className="mt-auto pt-8">
+              <span className="inline-flex rounded-full bg-white/15 px-3.5 py-2 text-sm font-medium">
+                Your goal, audience, and timeline
+              </span>
             </p>
           </div>
         </section>
 
-        <section className="mx-auto mt-16 w-full max-w-7xl border-t pt-12 sm:mt-24 sm:pt-16" style={{ borderColor: "#D8D8CC" }}>
-          <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:gap-20">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: LEAF }}>Project inquiry</p>
-              <h2 className="mt-4 max-w-md text-4xl leading-none sm:text-5xl">Tell us what you&rsquo;re working on.</h2>
-              <p className="mt-5 max-w-sm text-sm leading-6" style={{ color: INK_SOFT }}>A little context helps us understand the opportunity and respond with something useful.</p>
+        <section className="shell section">
+          <div className="card grid gap-10 p-6 sm:p-10 lg:grid-cols-[0.7fr_1fr] lg:gap-16 lg:p-14">
+            <div className="text-left">
+              <span className="inline-flex rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium">
+                Project inquiry
+              </span>
+              <h2 className="headline mt-6 max-w-md">
+                Tell us{" "}
+                <span className="muted">what you&rsquo;re working on.</span>
+              </h2>
+              <p className="mt-5 max-w-sm text-[15px] leading-7 text-ink-soft">
+                A little context helps us understand the opportunity and
+                respond with something useful.
+              </p>
             </div>
             <InquiryForm />
           </div>
         </section>
 
-        <p className="mx-auto mt-12 w-full max-w-6xl text-xs" style={{ color: "#A3ABB5" }}>
+        <p className="shell pb-10 text-left text-xs text-ink-soft">
           © {new Date().getFullYear()} Quexlab Technologies.
         </p>
       </div>

@@ -1,18 +1,38 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-dm-sans);
-  --font-display: var(--font-source-serif);
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-geist);
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-forest: var(--forest);
+  --color-leaf: var(--leaf);
+  --color-signal: var(--signal);
 }
 
 :root {
-  --paper: #f2f0e9;
-  --ink: #13231f;
-  --ink-soft: #64716b;
-  --line: #d8d8cc;
+  /* Base palette (same variable names as before, so existing pages keep working) */
+  --paper: #f6f7f4;
+  --surface: #ffffff;
+  --ink: #0f1a16;
+  --ink-soft: #6b7571;
+  --line: #e3e6e1;
   --forest: #174d3d;
-  --leaf: #75a84b;
+  --leaf: #35a86a;
   --signal: #e8b94d;
+
+  /* Shape */
+  --radius-card: 28px;
+  --radius-media: 20px;
+  --radius-pill: 999px;
+
+  /* Legacy font aliases so older components do not break */
+  --font-source-serif: var(--font-geist);
+  --font-dm-sans: var(--font-geist);
 }
 
 * {
@@ -21,13 +41,15 @@
 
 html {
   background: var(--paper);
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   background: var(--paper);
   color: var(--ink);
   font-size: 16px;
+  line-height: 1.55;
 }
 
 a {
@@ -35,23 +57,239 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--forest);
+  outline: 2px solid var(--leaf);
   outline-offset: 3px;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-display), sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.035em;
 }
 
 ::selection {
   background: var(--leaf);
+  color: #fff;
+}
+
+/* ---------- Type ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.display {
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.headline {
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
   color: var(--ink);
 }
 
+/* Second half of a sentence fades to gray */
+.headline .muted,
+.muted-text {
+  color: #a3aaa6;
+}
+
+.lead {
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+  max-width: 34rem;
+}
+
+/* ---------- Layout ---------- */
+.shell {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
+}
+
+.section {
+  padding-block: clamp(64px, 9vw, 128px);
+}
+
+/* ---------- Surfaces ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+
+.card-accent {
+  background: var(--forest);
+  color: #fff;
+  border-radius: var(--radius-card);
+}
+
+.media {
+  border-radius: var(--radius-media);
+  overflow: hidden;
+}
+
+/* Frosted panel for use on top of photos */
+.glass {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  border-radius: 18px;
+}
+
+/* Dark overlay for full-bleed hero images */
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(8, 20, 16, 0.55) 0%, rgba(8, 20, 16, 0.15) 45%, rgba(8, 20, 16, 0.7) 100%);
+}
+
+/* ---------- Pills and buttons ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.pill-active {
+  background: #fff;
+  color: var(--ink);
+}
+
+.pill-active:hover {
+  background: #fff;
+}
+
+.pill-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.pill-outline:hover {
+  background: var(--surface);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn-accent {
+  background: var(--leaf);
+  color: #fff;
+}
+
+/* Round arrow badge that sits inside a button */
+.btn-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin: -6px -8px -6px 0;
+  border-radius: 50%;
+  background: var(--leaf);
+  color: #fff;
+}
+
+.btn-dark .btn-icon {
+  background: #fff;
+  color: var(--ink);
+}
+
+/* Small round icon button (prev / next, socials) */
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.icon-btn-accent {
+  background: var(--leaf);
+  border-color: var(--leaf);
+  color: #fff;
+}
+
+/* ---------- Stats ---------- */
+.stat-value {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.stat-label {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+/* Giant faded wordmark for the footer */
+.wordmark {
+  font-size: clamp(5rem, 22vw, 22rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+  background: linear-gradient(180deg, #e6e9e4 0%, rgba(246, 247, 244, 0) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}
+
+/* ---------- Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     animation: reveal-up 700ms ease-out both;

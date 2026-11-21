@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { FOREST, INK, INK_SOFT, LEAF, LogoMark, PAPER } from "../theme";
+import { useEffect, useState } from "react";
+import { ArrowIcon, LogoMark } from "../theme";
 
 const NAV = [
   { href: "/", label: "Home" },
@@ -14,48 +14,145 @@ const NAV = [
 ];
 const DESKTOP_NAV = NAV.filter((item) => item.href !== "/contact");
 
-export default function MobileNav() {
+type Props = {
+  /** "overlay" sits on top of a dark hero image. "light" is for every other page. */
+  variant?: "light" | "overlay";
+};
+
+export default function MobileNav({ variant = "light" }: Props) {
+  const overlay = variant === "overlay";
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
-    <nav className="relative z-40 mx-auto w-full max-w-7xl border-b px-4 py-4 sm:px-10 sm:py-5" style={{ borderColor: "#D8D8CC", background: PAPER }}>
-      <div className="flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3" onClick={() => setOpen(false)}>
-          <LogoMark size={28} />
-          <span className="text-sm font-bold tracking-[-0.03em] sm:text-[15px]">Quex<span style={{ color: LEAF }}>lab</span></span>
+    <nav
+      aria-label="Main"
+      className={
+        overlay
+          ? "absolute inset-x-0 top-0 z-40 px-4 pt-4 sm:px-8 sm:pt-6"
+          : "shell relative z-40 py-4 sm:py-5"
+      }
+    >
+      <div className="relative flex items-center justify-between gap-4">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center gap-2.5"
+          onClick={() => setOpen(false)}
+        >
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-white">
+            <LogoMark size={24} />
+          </span>
+          <span
+            className={`text-base font-semibold tracking-[-0.03em] ${
+              overlay ? "text-white" : "text-ink"
+            }`}
+          >
+            Quex<span className="text-leaf">lab</span>
+          </span>
         </Link>
+
+        {/* Desktop links */}
+        <div
+          className={`hidden items-center md:flex ${
+            overlay
+              ? "gap-2"
+              : "gap-1 rounded-full border border-line bg-white p-1"
+          }`}
+        >
+          {DESKTOP_NAV.map((item) => {
+            const active = pathname === item.href;
+            const cls = overlay
+              ? `pill ${active ? "pill-active" : ""}`
+              : `rounded-full px-4 py-2.5 text-sm font-medium transition-colors ${
+                  active
+                    ? "bg-ink text-white"
+                    : "text-ink-soft hover:bg-paper hover:text-ink"
+                }`;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cls}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Desktop button */}
+        <Link
+          href="/contact"
+          className={`btn hidden md:inline-flex ${
+            overlay ? "btn-light" : "btn-dark"
+          }`}
+        >
+          Start a project
+          <span className="btn-icon">
+            <ArrowIcon direction="up-right" />
+          </span>
+        </Link>
+
+        {/* Mobile menu button */}
         <button
           type="button"
           aria-expanded={open}
           aria-controls="site-navigation"
           aria-label={open ? "Close navigation" : "Open navigation"}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 border sm:hidden"
-          style={{ borderColor: "#D8D8CC" }}
+          className={`grid h-11 w-11 place-items-center rounded-full md:hidden ${
+            overlay
+              ? "bg-white/15 text-white backdrop-blur-md"
+              : "border border-line bg-white text-ink"
+          }`}
           onClick={() => setOpen(!open)}
         >
-          <span className={`h-px w-4 transition-transform ${open ? "translate-y-1 rotate-45" : ""}`} style={{ background: INK }} />
-          <span className={`h-px w-4 transition-opacity ${open ? "opacity-0" : ""}`} style={{ background: INK }} />
-          <span className={`h-px w-4 transition-transform ${open ? "-translate-y-1 -rotate-45" : ""}`} style={{ background: INK }} />
+          <span className="flex flex-col items-center gap-1.5">
+            <span
+              className={`h-px w-4 bg-current transition-transform ${
+                open ? "translate-y-[3.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-4 bg-current transition-transform ${
+                open ? "-translate-y-[3.5px] -rotate-45" : ""
+              }`}
+            />
+          </span>
         </button>
-        <div className="hidden items-center gap-3 sm:flex">
-          {DESKTOP_NAV.map((item) => {
-            const active = pathname === item.href;
-            return <Link key={item.href} href={item.href} className="px-3 py-2 text-sm font-semibold" style={active ? { color: INK, textDecoration: "underline", textDecorationColor: LEAF, textDecorationThickness: "2px" } : { color: INK_SOFT }}>{item.label}</Link>;
-          })}
-          <Link
-            href="/contact"
-            className="ml-2 inline-flex min-h-10 items-center gap-2 bg-[var(--forest)] px-4 text-sm font-bold text-white transition-colors hover:bg-[var(--ink)]"
-          >
-            Start a project <span aria-hidden>↗</span>
-          </Link>
-        </div>
       </div>
+
+      {/* Mobile menu panel */}
       {open && (
-        <div id="site-navigation" className="grid gap-1 border-t pt-3 sm:hidden" style={{ borderColor: "#D8D8CC" }}>
+        <div
+          id="site-navigation"
+          className="absolute inset-x-4 top-full mt-2 rounded-3xl border border-line bg-white p-2 shadow-[0_20px_40px_-20px_rgba(15,26,22,0.35)] sm:inset-x-8 md:hidden"
+        >
           {NAV.map((item) => {
             const active = pathname === item.href;
-            return <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="px-2 py-3 text-base font-semibold" style={active ? { color: FOREST } : { color: INK_SOFT }}>{item.label}</Link>;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                aria-current={active ? "page" : undefined}
+                className={`block rounded-2xl px-4 py-3 text-base font-medium ${
+                  active ? "bg-paper text-ink" : "text-ink-soft"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
           })}
         </div>
       )}

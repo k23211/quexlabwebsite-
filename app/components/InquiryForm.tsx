@@ -1,7 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { FOREST, INK, INK_SOFT, PAPER } from "../theme";
+import { ArrowIcon } from "../theme";
+
+const FIELD =
+  "w-full rounded-2xl border border-line bg-paper px-4 py-3.5 text-[15px] font-normal text-ink transition-colors focus:border-leaf";
 
 export default function InquiryForm() {
   const [sent, setSent] = useState(false);
@@ -18,19 +21,19 @@ export default function InquiryForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t pt-8" style={{ borderColor: "#D8D8CC" }}>
+    <form onSubmit={handleSubmit} className="text-left">
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-semibold">
+        <label className="grid gap-2 text-sm font-medium">
           Name
-          <input required name="name" type="text" className="border bg-transparent px-3 py-3 font-normal outline-none transition-colors focus:border-[var(--forest)]" style={{ borderColor: "#C9CCC1", color: INK }} />
+          <input required name="name" type="text" className={FIELD} />
         </label>
-        <label className="grid gap-2 text-sm font-semibold">
+        <label className="grid gap-2 text-sm font-medium">
           Email
-          <input required name="email" type="email" className="border bg-transparent px-3 py-3 font-normal outline-none transition-colors focus:border-[var(--forest)]" style={{ borderColor: "#C9CCC1", color: INK }} />
+          <input required name="email" type="email" className={FIELD} />
         </label>
-        <label className="grid gap-2 text-sm font-semibold">
+        <label className="grid gap-2 text-sm font-medium">
           Project type
-          <select name="project" defaultValue="Website or app" className="border bg-transparent px-3 py-3 font-normal outline-none focus:border-[var(--forest)]" style={{ borderColor: "#C9CCC1", color: INK, background: PAPER }}>
+          <select name="project" defaultValue="Website or app" className={FIELD}>
             <option>Website or app</option>
             <option>Product design</option>
             <option>Agriculture technology</option>
@@ -38,9 +41,9 @@ export default function InquiryForm() {
             <option>Something else</option>
           </select>
         </label>
-        <label className="grid gap-2 text-sm font-semibold">
+        <label className="grid gap-2 text-sm font-medium">
           Timeline
-          <select name="timeline" defaultValue="Exploring" className="border bg-transparent px-3 py-3 font-normal outline-none focus:border-[var(--forest)]" style={{ borderColor: "#C9CCC1", color: INK, background: PAPER }}>
+          <select name="timeline" defaultValue="Exploring" className={FIELD}>
             <option>Exploring</option>
             <option>Within 1 month</option>
             <option>1 to 3 months</option>
@@ -48,15 +51,29 @@ export default function InquiryForm() {
           </select>
         </label>
       </div>
-      <label className="mt-5 grid gap-2 text-sm font-semibold">
+      <label className="mt-5 grid gap-2 text-sm font-medium">
         Tell us about it
-        <textarea required name="message" rows={5} className="resize-y border bg-transparent px-3 py-3 font-normal outline-none focus:border-[var(--forest)]" style={{ borderColor: "#C9CCC1", color: INK }} />
+        <textarea
+          required
+          name="message"
+          rows={5}
+          className={`${FIELD} resize-y`}
+        />
       </label>
-      <div className="mt-5 flex flex-wrap items-center gap-4">
-        <button type="submit" className="bg-[var(--forest)] px-5 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5">Send inquiry <span aria-hidden>↗</span></button>
-        {sent && <p className="text-sm" style={{ color: FOREST }}>Your email app should open now.</p>}
+      <div className="mt-6 flex flex-wrap items-center gap-4">
+        <button type="submit" className="btn btn-dark">
+          Send inquiry
+          <span className="btn-icon">
+            <ArrowIcon direction="up-right" />
+          </span>
+        </button>
+        {sent && (
+          <p className="text-sm text-forest">Your email app should open now.</p>
+        )}
       </div>
-      <p className="mt-3 text-xs" style={{ color: INK_SOFT }}>This opens your email app with the details filled in.</p>
+      <p className="mt-4 text-xs text-ink-soft">
+        This opens your email app with the details filled in.
+      </p>
     </form>
   );
 }

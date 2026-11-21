@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { DM_Sans, Source_Serif_4 } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import VisitorCounter from "./components/VisitorCounter";
 import ConsentManager from "./components/ConsentManager";
 import Footer from "./components/Footer";
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -60,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sourceSerif.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${geist.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <main className="flex flex-col flex-1">{children}</main>
