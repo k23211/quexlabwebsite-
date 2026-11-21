@@ -46,16 +46,6 @@ const FOUNDERS = [
   },
 ];
 
-const QUEXLAB_TEAM = [
-  {
-    name: "Daniel Obiri Yeboah",
-    role: "Secretary",
-    icon: Users,
-    photo: "/daniel-obiri-yeboah.png",
-    bio: "Serving as Secretary at Quexlab Technologies.",
-  },
-];
-
 type Person = {
   name: string;
   role: string;
@@ -182,11 +172,6 @@ export default function About() {
             title="The Founders"
             intro="Building and steering Quexlab Technologies as a whole."
             people={FOUNDERS}
-          />
-          <PeopleBlock
-            title="Our Team"
-            intro="Customer service and support are provided by Quexlab Technologies for our products, including Agriquex Hub."
-            people={QUEXLAB_TEAM}
           />
         </section>
       </div>
