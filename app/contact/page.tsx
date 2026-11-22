@@ -84,7 +84,7 @@ export default function Contact() {
         </section>
 
         <section className="shell grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="card flex flex-col p-7 text-left">
+          <div className="flex flex-col p-7 text-left">
             <span className={ICON_CIRCLE}>
               <Mail size={20} />
             </span>
@@ -102,7 +102,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="card flex flex-col p-7 text-left">
+          <div className="flex flex-col p-7 text-left">
             <span className={ICON_CIRCLE}>
               <MessageCircle size={20} />
             </span>
@@ -128,7 +128,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="card flex flex-col p-7 text-left">
+          <div className="flex flex-col p-7 text-left">
             <span className={ICON_CIRCLE}>
               <ArrowUpRight size={20} />
             </span>
@@ -155,14 +155,14 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="card-accent flex flex-col p-7 text-left">
+          <div className="flex flex-col p-7 text-left">
             <h2 className="text-xl">What to include</h2>
-            <p className="mt-2 text-[15px] leading-7 text-white/75">
+            <p className="mt-2 text-[15px] leading-7 text-ink-soft">
               A little context helps us understand your idea and respond with
               something useful.
             </p>
             <p className="mt-auto pt-8">
-              <span className="inline-flex rounded-full bg-white/15 px-3.5 py-2 text-sm font-medium">
+              <span className="inline-flex rounded-full border border-line px-3.5 py-2 text-sm font-medium text-ink-soft">
                 Your goal, audience, and timeline
               </span>
             </p>
@@ -170,7 +170,7 @@ export default function Contact() {
         </section>
 
         <section className="shell section">
-          <div className="card grid gap-10 p-6 sm:p-10 lg:grid-cols-[0.7fr_1fr] lg:gap-16 lg:p-14">
+          <div className="grid gap-10 border-y border-line py-10 sm:py-14 lg:grid-cols-[0.7fr_1fr] lg:gap-16">
             <div className="text-left">
               <span className="inline-flex rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium">
                 Project inquiry

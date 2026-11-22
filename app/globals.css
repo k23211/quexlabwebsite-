@@ -26,7 +26,6 @@
   --signal: #e8b94d;
 
   /* Shape */
-  --radius-card: 28px;
   --radius-media: 20px;
   --radius-pill: 999px;
 
@@ -115,32 +114,10 @@ h3 {
   padding-block: clamp(64px, 9vw, 128px);
 }
 
-/* ---------- Surfaces ---------- */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-}
-
-.card-accent {
-  background: var(--forest);
-  color: #fff;
-  border-radius: var(--radius-card);
-}
-
+/* ---------- Media ---------- */
 .media {
   border-radius: var(--radius-media);
   overflow: hidden;
-}
-
-/* Frosted panel for use on top of photos */
-.glass {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  color: #fff;
-  border-radius: 18px;
 }
 
 /* Dark overlay for full-bleed hero images */

@@ -60,7 +60,7 @@ export default function AdinkraMatchPage() {
             </div>
           </div>
 
-          <div className="card p-3">
+          <div>
             <div
               className="media relative aspect-[4/3]"
               style={{ background: "#F2E4C4" }}
@@ -82,7 +82,7 @@ export default function AdinkraMatchPage() {
             {HIGHLIGHTS.map((text) => (
               <li
                 key={text}
-                className="card p-7 text-left text-xl font-semibold tracking-[-0.02em] sm:p-8 sm:text-2xl"
+                className="p-7 text-left text-xl font-semibold tracking-[-0.02em] sm:p-8 sm:text-2xl"
               >
                 {text}
               </li>
@@ -103,7 +103,7 @@ export default function AdinkraMatchPage() {
             {EXPERIENCE.map((item) => (
               <li
                 key={item}
-                className="card flex items-start gap-4 p-6 text-left text-[15px] leading-7"
+                className="flex items-start gap-4 p-6 text-left text-[15px] leading-7"
               >
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-paper text-forest">
                   <Check size={18} />

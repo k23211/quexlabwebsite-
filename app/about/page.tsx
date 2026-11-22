@@ -56,7 +56,7 @@ type Person = {
 
 function PersonCard({ name, role, icon: Icon, bio, photo }: Person) {
   return (
-    <article className="card p-3">
+    <article>
       <div className="media relative aspect-[4/5] bg-paper">
         {photo ? (
           <Image

@@ -114,7 +114,7 @@ export default function Work() {
           {PROJECTS.map((project) => (
             <article
               key={project.title}
-              className="card grid gap-3 p-3 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
+              className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
             >
               <div className="flex flex-col justify-between gap-10 p-4 text-left sm:p-8 lg:p-10">
                 <div>
@@ -187,7 +187,7 @@ export default function Work() {
             </article>
           ))}
 
-          <article className="card grid gap-3 p-3 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-stretch">
+          <article className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-stretch">
             <div className="flex flex-col justify-between gap-10 p-4 text-left sm:p-8 lg:p-10">
               <div>
                 <span className={TYPE_PILL}>

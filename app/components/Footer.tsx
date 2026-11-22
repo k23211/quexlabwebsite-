@@ -13,7 +13,7 @@ const LINK_CLASS = "text-[15px] font-medium transition-colors hover:text-forest"
 export default function Footer() {
   return (
     <footer className="shell pb-4 sm:pb-5">
-      <div className="relative overflow-hidden rounded-[28px] border border-line bg-white px-6 pt-10 sm:px-10 sm:pt-14 lg:px-14">
+      <div className="relative overflow-hidden border-t border-line pt-10 sm:pt-14">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr_0.7fr]">
           <div className="text-left">
             <p className="text-2xl font-semibold tracking-[-0.03em]">

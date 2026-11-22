@@ -64,7 +64,7 @@ export default function EventsPage() {
         </section>
 
         <section className="shell grid gap-5 pb-5 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
-          <div className="card p-3">
+          <div>
             <div className="media relative aspect-[3/2] bg-[#073b82]">
               <Image
                 src="/impact-chemical-use-farming.png"
@@ -78,19 +78,19 @@ export default function EventsPage() {
           </div>
 
           <div className="grid gap-5">
-            <div className="card-accent p-7 text-left sm:p-8">
-              <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-medium">
+            <div className="border-y border-line py-7 text-left sm:py-8">
+              <span className="inline-flex rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-ink-soft">
                 Completed event
               </span>
               <p className="mt-8 text-3xl font-semibold tracking-[-0.03em]">
                 <time dateTime="2026-10-25">October 25, 2026</time>
               </p>
-              <p className="mt-2 text-sm text-white/75">
+              <p className="mt-2 text-sm text-ink-soft">
                 7:00 PM GMT · Online conversation
               </p>
             </div>
 
-            <div className="card p-7 text-left sm:p-8">
+            <div className="text-left">
               <h2 className="text-2xl">Speakers</h2>
               <ul className="mt-5 divide-y divide-line">
                 {SPEAKERS.map(({ name, role }) => (
@@ -118,7 +118,7 @@ export default function EventsPage() {
         </section>
 
         <section className="shell pb-16 pt-5 sm:pb-24">
-          <div className="card flex flex-col gap-6 p-7 text-left sm:flex-row sm:items-center sm:justify-between sm:p-10">
+          <div className="flex flex-col gap-6 border-y border-line py-7 text-left sm:flex-row sm:items-center sm:justify-between sm:py-10">
             <p className="headline max-w-md">
               Interested in a future event{" "}
               <span className="muted">or collaboration?</span>

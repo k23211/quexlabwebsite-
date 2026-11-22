@@ -38,7 +38,6 @@ const SERVICES = [
     title: "Agriculture technology",
     text: "Tools for farmers, buyers, and communities across the food chain.",
     icon: Sprout,
-    featured: true,
   },
 ];
 
@@ -182,7 +181,7 @@ export default function Home() {
 
                 <Link
                   href="/work"
-                  className="glass block w-full max-w-xs p-5 text-left transition-colors hover:bg-white/20"
+                  className="block w-full max-w-xs p-5 text-left text-white transition-colors hover:text-white/80"
                 >
                   <p className="text-sm font-semibold">
                     Technology, grounded in Ghana
@@ -267,7 +266,7 @@ export default function Home() {
           />
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Link href="/work/agriquex-hub" className="group card block p-3">
+            <Link href="/work/agriquex-hub" className="group block p-3">
               <div
                 className="media relative aspect-[4/3] w-full"
                 style={{ background: "#E3EDD5" }}
@@ -299,7 +298,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/work/adinkra-match" className="group card block p-3">
+            <Link href="/work/adinkra-match" className="group block p-3">
               <div
                 className="media relative aspect-[4/3] w-full"
                 style={{ background: "#F2E4C4" }}
@@ -335,7 +334,7 @@ export default function Home() {
               href="https://www.chardagrocorporatives.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group card grid p-3 sm:col-span-2 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-10"
+              className="group grid p-3 sm:col-span-2 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-10"
             >
               <div className="media relative aspect-[3/2] w-full">
                 <Image
@@ -379,7 +378,7 @@ export default function Home() {
 
           <Link
             href="/events"
-            className="group card-accent grid p-3 sm:grid-cols-[1.05fr_1fr] sm:items-center"
+            className="group grid border-y border-line py-5 sm:grid-cols-[1.05fr_1fr] sm:items-center sm:py-8"
           >
             <div className="media relative aspect-[3/2] bg-[#073b82] sm:aspect-auto sm:min-h-80 sm:self-stretch">
               <Image
@@ -391,17 +390,17 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col items-start justify-center px-4 pb-5 pt-7 text-left sm:p-10 lg:p-14">
-              <span className="rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-medium text-white">
+              <span className="rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-ink-soft">
                 Completed on October 25, 2026
               </span>
               <h3 className="mt-5 text-3xl leading-[1.1] sm:text-4xl">
                 The Impact of Chemical Use in Farming
               </h3>
-              <p className="mt-4 max-w-sm text-[15px] leading-7 text-white/75">
+              <p className="mt-4 max-w-sm text-[15px] leading-7 text-ink-soft">
                 A conversation with agriculture voices about chemical use in
                 farming, hosted by Agriquex Hub.
               </p>
-              <span className="btn btn-light mt-8">
+              <span className="btn btn-dark mt-8">
                 Explore the event
                 <span className="btn-icon">
                   <ArrowIcon />
@@ -419,24 +418,16 @@ export default function Home() {
             muted="to a product people can use."
           />
           <div className="grid gap-5 sm:grid-cols-2">
-            {SERVICES.map(({ title, text, icon: Icon, featured }) => (
+            {SERVICES.map(({ title, text, icon: Icon }) => (
               <div
                 key={title}
-                className={`${featured ? "card-accent" : "card"} p-7 text-left sm:p-8`}
+                className="p-7 text-left sm:p-8"
               >
-                <span
-                  className={`grid h-12 w-12 place-items-center rounded-full ${
-                    featured ? "bg-white/15 text-white" : "bg-paper text-forest"
-                  }`}
-                >
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-paper text-forest">
                   <Icon size={22} strokeWidth={1.75} />
                 </span>
                 <h3 className="mt-10 text-2xl">{title}</h3>
-                <p
-                  className={`mt-3 max-w-sm text-[15px] leading-7 ${
-                    featured ? "text-white/75" : "text-ink-soft"
-                  }`}
-                >
+                <p className="mt-3 max-w-sm text-[15px] leading-7 text-ink-soft">
                   {text}
                 </p>
               </div>
@@ -453,7 +444,7 @@ export default function Home() {
           />
           <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map(({ title, text }, index) => (
-              <li key={title} className="card p-6 text-left sm:p-7">
+              <li key={title} className="p-6 text-left sm:p-7">
                 <span
                   className="grid h-10 w-10 place-items-center rounded-full text-sm font-semibold text-white"
                   style={{ background: FOREST }}
@@ -471,17 +462,17 @@ export default function Home() {
 
         {/* Call to action */}
         <section className="shell pb-16 sm:pb-24">
-          <div className="card-accent flex flex-col gap-10 p-8 text-left sm:p-14 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-10 border-y border-line py-10 text-left sm:py-14 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <span className="inline-flex rounded-full border border-white/25 px-4 py-2 text-sm font-medium text-white">
+              <span className="inline-flex rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-soft">
                 Start a conversation
               </span>
-              <h2 className="headline mt-6 text-white">
+              <h2 className="headline mt-6">
                 Have a project in mind?{" "}
-                <span className="text-white/55">Let’s talk it through.</span>
+                <span className="muted">Let’s talk it through.</span>
               </h2>
             </div>
-            <Link href="/contact" className="btn btn-light w-fit shrink-0">
+            <Link href="/contact" className="btn btn-dark w-fit shrink-0">
               Talk to our team
               <span className="btn-icon">
                 <ArrowIcon />
